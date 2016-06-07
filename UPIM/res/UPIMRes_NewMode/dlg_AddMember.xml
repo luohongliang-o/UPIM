@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="600,420" sizebox="4,4,4,4" caption="0,0,0,40" roundcorner="4,4">
+    <Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+    <Font name="微软雅黑" size="14" bold="true" italic="false" />
+    <Default name="VScrollBar" value="button1normalimage=&quot;file='common/scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='common/scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='common/scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='common/scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='common/scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='common/scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='common/scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='common/scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='common/scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='common/scrollbar.png' source='0,16,16,32'&quot;" />
+    <HorizontalLayout name="addmember_bg" bkimage="file='common/bg2.png' corner='600,200,1,1'">
+        <VerticalLayout bkimage="file='common/border.png' corner='5,5,5,5'" inset="1,0,1,0">
+            <HorizontalLayout height="30">
+                <VerticalLayout width="504" height="30" inset="2,6,2,0">
+                    <Text name="addmember_title" text="选择联系人" tooltip="选择联系人" width="80" height="23" textpadding="2,0,2,0" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                </VerticalLayout>
+                <VerticalLayout width="94" height="30">
+                    <Button name="addmember_closebtn" float="true" pos="56,0,0,0" width="39" height="19" maxheight="19" maxwidth="39" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file='common/btn_close_normal.png'" hotimage="common/btn_close_highlight.png" pushedimage="common/btn_close_down.png" />
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout height="355" padding="1,0,1,0" bkcolor="#FFF0F6FF">
+                <VerticalLayout width="260" padding="5,5,5,5">
+                    <HorizontalLayout bordersize="1" height="22" bordercolor="#FFF6F6F6" padding="0,1,0,1">
+                       <RichEdit name="addmember_search" inset="4,2,2,2" bordercolor="#FFCCCCCC" bordersize="1" visible="true" bkcolor="#FFFFFFFF" height="22" text="" multiline="false" rich="false"/>
+                    </HorizontalLayout>
+                    <HorizontalLayout bkcolor="#FFF0F6E0" bkcolor2="#FFFFFFFF">
+                        <MemberList header="hidden" itemshowhtml="true" name="addmember_list" vscrollbar="true" />
+                    </HorizontalLayout>
+                </VerticalLayout>
+                <VerticalLayout width="40" padding="5,5,5,5" />
+                <VerticalLayout padding="5,5,5,5">
+                    <HorizontalLayout bordersize="1" height="22" bordercolor="#FFF6F6F6" padding="0,1,0,1">
+                        <Text name="addmember_num" text="已选联系人 (0/50)" minwidth="200" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    </HorizontalLayout>
+                    <HorizontalLayout bkcolor="#FFF0F6E0" bkcolor2="#FFFFFFFF">
+                        <MemberList header="hidden" itemshowhtml="true" name="addmember_list2" vscrollbar="true" />
+                    </HorizontalLayout>
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout bkimage="file='common/jb.png' corner='2,30,2,2'">
+                <VerticalLayout>
+                    <HorizontalLayout height="32">
+                        <Control />
+                        <Button name="addmember_ok" text="确定" tooltip="确定" width="69" height="24" padding="0,4,0,0" bkimage="file='common/unsel.bmp'" maxheight="24" maxwidth="69" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file='common/btn_hot.png' corner='2,3,2,2'" pushedimage="file='common/btn_push.png' corner='2,5,2,2'" />
+                        <Control width="10" />
+                        <Button name="addmember_close" text="取消" tooltip="取消" width="69" height="24" padding="0,4,0,0" bkimage="file='common/unsel.bmp'" maxheight="24" maxwidth="69" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file='common/btn_hot.png' corner='2,3,2,2'" pushedimage="file='common/btn_push.png' corner='2,5,2,2'" />
+						<Control width="10" />
+                    </HorizontalLayout>
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout height="1" />
+        </VerticalLayout>
+    </HorizontalLayout>
+</Window>

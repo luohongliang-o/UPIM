@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="500,500" mininfo="500,500" sizebox="0,0,0,0" caption="0,0,0,0" roundcorner="0,0">
+	<VerticalLayout name="general_bg" bkimage="file='lts_b.png'">
+		<HorizontalLayout />
+		<HorizontalLayout height="127" >
+			<VerticalLayout />
+			<VerticalLayout width="173" bkimage="file='lts_w.png'">
+			</VerticalLayout>
+			<VerticalLayout />
+		</HorizontalLayout>
+		<HorizontalLayout />
+	</VerticalLayout>
+</Window>

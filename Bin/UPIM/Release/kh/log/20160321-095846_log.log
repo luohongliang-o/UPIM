@@ -1,0 +1,25 @@
+2016-03-21 09:58:46,574 InitRichEditCom Start!
+2016-03-21 09:58:47,037 Socket Connect OK! [ConnID:1]
+2016-03-21 09:58:47,058 RecvData: iLength:311 nLen:286 Req:5001
+2016-03-21 09:58:47,075 Recv:[UPIM_REQ_CHECKPWD]
+2016-03-21 09:58:47,164 Send:[UPIM_REQ_ALLTGROOMEX] userid:kikiwuqie market:1
+2016-03-21 09:58:47,175 T_OFFMSG ADD
+2016-03-21 09:58:47,203 RecvData: iLength:1730 nLen:1705 Req:5041
+2016-03-21 09:58:47,217 Recv:[UPIM_REQ_ALLTGROOMEX] ItemNum:5
+2016-03-21 09:58:47,257 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\my.jpg]
+2016-03-21 09:58:47,274 [UM_USER_GETUSERPIC]客户获取分析师头像 
+2016-03-21 09:58:47,290 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1144.jpg]
+2016-03-21 09:58:47,308 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1142.jpg]
+2016-03-21 09:58:47,327 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1150.jpg]
+2016-03-21 09:58:47,355 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1181.jpg]
+2016-03-21 09:58:47,379 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1143.jpg]
+2016-03-21 09:58:47,408 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1146.jpg]
+2016-03-21 09:58:47,520 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1147.jpg]
+2016-03-21 09:58:47,553 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1145.jpg]
+2016-03-21 09:58:47,575 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1141.jpg]
+2016-03-21 09:58:47,597 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1148.jpg]
+2016-03-21 09:58:47,627 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1155.jpg]
+2016-03-21 09:58:47,646 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1157.jpg]
+2016-03-21 09:58:47,665 FILE: [E:\WORK\Bin\UPIM\Release\kh\UPIMUser\kikiwuqie\head\1154.jpg]
+2016-03-21 09:58:49,695 T_OFFMSG DEL
+2016-03-21 09:58:49,908 Send:[UPIM_REQ_OFFMSG] userid:kikiwuqie

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="750,750" mininfo="750,750" caption="0,0,0,0" sizebox="0,0,0,0" roundcorner="0,0,0,0" showshadow="false" shadowimage="shadow.png" shadowcorner="10,10,10,10">
+<Font name="微软雅黑" size="12" bold="false" default="true" />
+<Font name="微软雅黑" size="14" bold="true"/>
+<Font name="微软雅黑" size="12" bold="true"/>
+<Font name="宋体" size="12" bold="false" />
+<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar3.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar3.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar3.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar3.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar3.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar3.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar3.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar3.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar3.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar3.png' source='0,16,16,32'&quot;" />
+<HorizontalLayout name="chatbox_bg" bkimage="file='chattg.jpg' corner='600,200,1,1'" hole="true">
+	<VerticalLayout>
+		<HorizontalLayout>
+			<VerticalLayout>
+				<HorizontalLayout>
+					<TabLayout name="Tg_switch1">
+						<VerticalLayout>
+							<HorizontalLayout name="chatbox_TopBtnList" height="78">
+								<HorizontalLayout inset="35,2,0,0">
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_0" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_1" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_2" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_3" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_4" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_5" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_6" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_7" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_8" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="5"/>
+									<Option visible="false" pos="0, 0, 72, 72" valign="bottom" name="tg_9" text="" textcolor="#FFFFFFFF" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,67,67'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+								</HorizontalLayout>
+							</HorizontalLayout>
+							<HorizontalLayout>
+								<TabLayout name="Tg_switch2">
+									<HorizontalLayout bkimage="file='jb2.png' corner='2,30,2,2'" bordersize="0" bordercolor="#FFCCCCCC" inset="5,0,0,0" >
+										<RichEdit name="chatbox_view_richedit" multiline="true" vscrollbar="true" autovscroll="true" readonly="true" menu="true"/>
+									</HorizontalLayout>
+									<VerticalLayout >
+									</VerticalLayout>
+								</TabLayout>
+							</HorizontalLayout>
+						</VerticalLayout>
+						<VerticalLayout>
+						</VerticalLayout>
+					</TabLayout>
+				</HorizontalLayout>
+				<HorizontalLayout height="35" bordersize="1" bordercolor="#FFCCCCCC" inset="9,6,9,6">
+					<Option name="chatbox_emotionbtn" width="24" height="22" maxheight="22" maxwidth="24" bkimage="file='lts_face.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="4"/>
+					<Button name="chatbox_imagebtn" width="24" height="22" maxheight="22" maxwidth="24" bkimage="file='lts_pic.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+				</HorizontalLayout>
+				<HorizontalLayout height="65" padding="9,0,9,0" inset="5,0,0,0" bordersize="1" bordercolor="#FFCCCCCC">
+					<RichEdit name="chatbox_input_richedit" multiline="true" vscrollbar="true" autovscroll="true" wantctrlreturn="false" menu="true"/>
+				</HorizontalLayout>
+				<HorizontalLayout height="32">
+					<Control />
+					<Button name="chatbox_sendbtn" textcolor="0x00FFFFFF" padding="0,4,0,0" tooltip="发送" text="发送" width="69" height="24" maxheight="24" maxwidth="69" bkimage="file='lts_send.png'" hotimage="file='lts_send.png' corner='2,3,2,2'" pushedimage="file='lts_send.png' corner='2,5,2,2'"  />
+					<Control width="10"/>
+				</HorizontalLayout>
+			</VerticalLayout>
+		</HorizontalLayout>
+		<HorizontalLayout height="1" />
+	</VerticalLayout>
+</HorizontalLayout>
+</Window>

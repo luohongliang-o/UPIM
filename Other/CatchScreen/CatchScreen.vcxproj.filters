@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ebecd13d-70c2-4bf3-9b9d-137bce5f543c}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{2303a22c-ec45-4349-b0f9-3ab5a2b04878}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{386577c6-e09c-4018-9049-e994809fc778}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\arrow_m.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\back dd.bmp">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\back.bmp">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\backd.bmp">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\CatchScreen.ico">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\CatchScreen.rc2">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\final.bmp">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\move_r.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\size1_r.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\size2_r.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\size3_r.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="res\size4_r.cur">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\huashua.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\baochun_in.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\baochun_out.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\baochun.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\jietu.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\SC_DOT.png" />
+    <None Include="res\SC_MASK.png" />
+    <None Include="..\PaintDlg\Paint\res\face_dlg.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\font_face.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen1_0.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen1_1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen1_2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen2_0.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen2_1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen2_2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen3_0.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen3_1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\PaintDlg\Paint\res\pen3_2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CatchScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CatchScreenDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\AbstractPen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ArrowTrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BitmapDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Canvas.CPP">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CirclePenNeb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ClipBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ColorPen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ColorStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CqOctree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Dib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dibapi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DIBitmap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\dibpal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EllipseTrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FontCombo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\HEllipsePenNeb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LEllipsePenNeb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LineTrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MyBitmapStatic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MyTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PaintBrush.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PaintDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Pencil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PenNeb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PngImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\RandomTrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\RectangleTrack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\REllipsePenNeb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Track.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VEllipsePenNeb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\AbstractPen.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ArrowTrack.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BitmapDialog.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\canvas.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\CirclePenNeb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ClipBoard.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ColorPen.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ColorStatic.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DefineMessage.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Dib.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\dibapi.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DIBitmap.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\dibpal.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EllipseTrack.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ENUM.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\FontCombo.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\HEllipsePenNeb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LEllipsePenNeb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LineTrack.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\MyBitmapStatic.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\MyTracker.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PaintBrush.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PaintDlg.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Pencil.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PenNeb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\PngImage.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\RandomTrack.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\RectangleTrack.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\REllipsePenNeb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Track.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\VEllipsePenNeb.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="CatchScreen.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="CatchScreenDlg.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Interface.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CatchScreen.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="933,770" mininfo="600,400" caption="0,0,0,-1" sizebox="4,4,4,4" roundcorner="4,4,4,4" showshadow="true" shadowimage="shadow.png" shadowcorner="10,10,10,10">
+<Font name="微软雅黑" size="12" bold="false" default="true" />
+<Font name="微软雅黑" size="14" bold="true"/>
+<Font name="微软雅黑" size="12" bold="true"/>
+<Font name="微软雅黑" size="17" bold="false"/>
+<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" />
+<HorizontalLayout name="chatbox_bg" bkimage="file='chat_back.png' corner='600,200,1,1'" hole="true">
+	<VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="1,0,1,0" hole="true">
+		<HorizontalLayout height="96" bordersize="1" bordercolor="#FFD3DEE5">
+			<VerticalLayout width="68" inset="10,24,0,0">
+				<Button name="chatbox_logo" width="48" height="48" maxheight="48" maxwidth="48" bkimage="file='default.png' corner='5,5,5,5'"/>
+			</VerticalLayout>
+			<VerticalLayout inset="0,35,2,0">
+				<Text name="chatbox_nickname" textcolor="#FF000000" font="3" text="236774312" minwidth="30" height="28" />
+			</VerticalLayout>
+			<VerticalLayout width="94">
+				<Button name="chatbox_minbtn" float="true" pos="0,0,28,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='btn_mini_normal.png'" hotimage="btn_mini_highlight.png" pushedimage="btn_mini_down.png"  />
+				<Button name="chatbox_maxbtn" float="true" pos="28,0,56,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='btn_max_normal.png'" hotimage="btn_max_highlight.png" pushedimage="btn_max_down.png"  />
+				<Button name="chatbox_restorebtn" visible="false" float="true" pos="28,0,56,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='btn_restore_normal.png'" hotimage="btn_restore_highlight.png" pushedimage="btn_restore_down.png"  />
+				<Button name="chatbox_closebtn" float="true" pos="56,0,95,19" width="39" height="19" maxheight="19" maxwidth="39"  normalimage="file='btn_close_normal.png'" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png"  />
+			</VerticalLayout>
+		</HorizontalLayout>
+		<HorizontalLayout bkimage="file='chat_back.png' corner='2,2,2,2'">
+			<VerticalLayout>
+				<HorizontalLayout bordersize="0" bordercolor="#FF999933" inset="5,0,0,0" >
+					<RichEdit name="chatbox_view_richedit" multiline="true" vscrollbar="true" autovscroll="true" readonly="true" menu="true"/>
+				</HorizontalLayout>
+				<HorizontalLayout height="40" bordersize="1" bordercolor="#FFD3DEE5" inset="2,4,2,4">
+					<Control width="7"/>
+					<Option name="chatbox_emotionbtn" width="56" height="24" padding="0,4,0,0" maxheight="24" maxwidth="56" bkimage="file='chat_bq1.png' dest='3,4,53,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="7"/>
+					<Button name="chatbox_screenshotsbtn" width="56" height="24" padding="0,4,0,0" maxheight="24" maxwidth="56" bkimage="file='chat_jt1.png' dest='3,4,53,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="7"/>
+					<Button name="chatbox_imagebtn" width="56" height="24" padding="0,4,0,0" maxheight="24" maxwidth="56" bkimage="file='chat_tp1.png' dest='3,4,53,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="7"/>
+					<Button name="chatbox_pingzhong" visible="false" width="56" height="24" padding="0,4,0,0" maxheight="24" maxwidth="56" bkimage="file='chat_pz1.png' dest='3,4,53,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="7"/>
+					<Button name="chatbox_wenzhang" visible="false" width="56" height="24" padding="0,4,0,0" maxheight="24" maxwidth="56" bkimage="file='chat_wz1.png' dest='3,4,53,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control />
+					<Button name="chatbox_hisrecord" width="86" height="24" padding="0,4,0,0" maxheight="24" maxwidth="86" bkimage="file='chat_ltjl.png' dest='3,4,83,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="7"/>
+				</HorizontalLayout>
+				<HorizontalLayout height="130" inset="5,0,0,0">
+					<RichEdit name="chatbox_input_richedit" multiline="true" vscrollbar="true" autovscroll="true" readonly="false" wantreturn="true" wantctrlreturn="false" menu="true"/>
+				</HorizontalLayout>
+				<HorizontalLayout height="40">
+					<Control />
+					<Button name="chatbox_closebtn2" padding="0,4,0,0"  textcolor="#FFFFFFFF" tooltip="关闭" text="关闭" width="69" height="24" maxheight="24" maxwidth="69" bkimage="file='chat_btn.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="10"/>
+					<Button name="chatbox_sendbtn" padding="0,4,0,0"  textcolor="#FFFFFFFF" tooltip="发送" text="发送" width="69" height="24" maxheight="24" maxwidth="69" bkimage="file='chat_btn.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="10"/>
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout name="chatbox_right_part" bordersize="1" bordercolor="#FFD3DEE5" width="240" visible="true">
+				<!-- 右侧边栏 -->
+				<TabLayout name="chat_right_switch">
+					<VerticalLayout >
+						<HorizontalLayout bordersize="0" bordercolor="#FFF6F6F6">
+							<WebBrowser name="chatbox_ie" clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}" delaycreate="false"/>
+						</HorizontalLayout>
+					</VerticalLayout>
+					<VerticalLayout>
+						<HorizontalLayout height="30" bordersize="0" bordercolor="#FFF6F6F6">
+							<Text name="chatbox_his_note" text="消息记录" textpadding="10,6,0,0" textcolor="#FF000000" />
+							<Control />
+							<Button name="chatbox_right_close" tooltip="关闭" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_close.png' dest='5,5,15,15'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control width="5"/>
+						</HorizontalLayout>
+						<HorizontalLayout bordersize="1" bordercolor="#FFD3DEE5" inset="5,0,0,0" >
+							<RichEdit name="chatbox_hisrecord_richedit" multiline="true" vscrollbar="true" autovscroll="true" readonly="true" menu="true"/>
+						</HorizontalLayout>
+						<HorizontalLayout height="30" visible="false" name="chatbox_right_searchBar" bkcolor="#FFE8F3FD" inset="3,0,0,0" >
+							<Control width="10"/>
+							<Text name="chatbox_right_fanwei" text="范围：" width="40" textpadding="2,6,0,0" textcolor="#FF000000" />
+							<Combo name="chatbox_right_fanweitime" droptype="droplist" padding="2,4,0,0" width="100" height="22" textpadding="4,1,1,1"  normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
+								<ListLabelElement text="全部" selected="true" height="22" />
+								<ListLabelElement text="最近一年" height="22" />
+								<ListLabelElement text="最近三个月" height="22" />
+								<ListLabelElement text="最近一个月" height="22" />
+							</Combo>
+							<Text name="chatbox_right_neirong" text="内容：" width="40" textpadding="2,6,0,0" textcolor="#FF000000" />
+							<Edit name="chatbox_right_searchcontent" width="100" padding="2,4,0,0" bordercolor="#FFCCCCCC" bordersize="1" visible="true" bkcolor="#FFFFFFFF" height="22"/>
+							<Control />
+							<Button name="chatbox_right_searchok" width="50" height="20" padding="0,5,0,0" maxheight="20" maxwidth="50" bkimage="file='chat_right_searchok.png' dest='0,2,50,18'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control width="5"/>
+						</HorizontalLayout>
+						<HorizontalLayout height="30" >
+							<Control width="10"/>
+							<Button name="chatbox_right_search" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_search.png' dest='3,3,17,17'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control />
+							<Button name="chatbox_right_rili" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_rili.png' dest='2,2,18,18'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<!-- <Text name="chatbox_right_rilidata" text="2015-11-05" width="75" textpadding="2,6,0,0" textcolor="#FF000000" /> -->
+							<Label name = "chatbox_right_dateTime" text="2015-02-19" width = "75" height = "20" padding = "0,5,0,0"  textcolor="#FF000000" />
+							<!-- <DateTime name="chatbox_right_dateTime"  width="95" textpadding="2,6,0,0" textcolor="#FF000000" /> -->
+							<Control width="5"/>
+							<Button name="chatbox_right_begin" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_begin.png' dest='2,2,18,18'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control width="5"/>
+							<Button name="chatbox_right_up" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_up.png' dest='2,2,18,18'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control width="5"/>
+							<Button name="chatbox_right_down" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_down.png' dest='2,2,18,18'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control width="5"/>
+							<Button name="chatbox_right_end" width="20" height="20" padding="0,5,0,0" maxheight="20" maxwidth="20" bkimage="file='chat_right_end.png' dest='2,2,18,18'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control width="5"/>
+						</HorizontalLayout>
+					</VerticalLayout>
+				</TabLayout>
+			</VerticalLayout>
+		</HorizontalLayout>
+		<HorizontalLayout height="1" />
+	</VerticalLayout>
+</HorizontalLayout>
+</Window>

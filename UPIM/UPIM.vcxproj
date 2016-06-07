@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BDBF0CDC-4A03-4C1F-9CD6-A55E0FE397DF}</ProjectGuid>
+    <RootNamespace>UPIM</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <EmbedManifest>false</EmbedManifest>
+    <GenerateManifest>false</GenerateManifest>
+    <IntDir>..\Bin\$(ProjectName)\obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_fxs</TargetName>
+    <OutDir>..\Bin\UPIM\Debug</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(ProjectName)_kh</TargetName>
+    <OutDir>..\Bin\UPIM\Release\kh\</OutDir>
+    <IntDir>..\Bin\$(ProjectName)\obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\Common\json\json_internalarray.inl" />
+    <None Include="..\Common\json\json_internalmap.inl" />
+    <None Include="..\Common\json\json_valueiterator.inl" />
+    <None Include="ChangeLog.txt" />
+    <None Include="ReadMe.txt" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\icon2.ico" />
+    <None Include="res\icon3.ico" />
+    <None Include="res\IMUP_Offline.ico" />
+    <None Include="res\IM角标.ico" />
+    <None Include="res\msg.wav" />
+    <None Include="res\notify.wav" />
+    <None Include="res\online.wav" />
+    <None Include="res\shake.wav" />
+    <None Include="res\UPIMRes.zip" />
+    <None Include="res\UPIM.ico" />
+    <None Include="res\UPIM.rc2" />
+    <None Include="res\UPIM_NEW.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\define.h" />
+    <ClInclude Include="..\Common\json\assertions.h" />
+    <ClInclude Include="..\Common\json\autolink.h" />
+    <ClInclude Include="..\Common\json\config.h" />
+    <ClInclude Include="..\Common\json\features.h" />
+    <ClInclude Include="..\Common\json\forwards.h" />
+    <ClInclude Include="..\Common\json\json.h" />
+    <ClInclude Include="..\Common\json\json_batchallocator.h" />
+    <ClInclude Include="..\Common\json\json_tool.h" />
+    <ClInclude Include="..\Common\json\reader.h" />
+    <ClInclude Include="..\Common\json\value.h" />
+    <ClInclude Include="..\Common\json\writer.h" />
+    <ClInclude Include="..\Common\macro.h" />
+    <ClInclude Include="..\Common\protocol.h" />
+    <ClInclude Include="..\Common\publicstruct.h" />
+    <ClInclude Include="..\Socket\Common\Src\bufferpool.h" />
+    <ClInclude Include="..\Socket\Common\Src\bufferptr.h" />
+    <ClInclude Include="..\Socket\Common\Src\CriticalSection.h" />
+    <ClInclude Include="..\Socket\Common\Src\Event.h" />
+    <ClInclude Include="..\Socket\Common\Src\GeneralHelper.h" />
+    <ClInclude Include="..\Socket\Common\Src\PrivateHeap.h" />
+    <ClInclude Include="..\Socket\Common\Src\RWLock.h" />
+    <ClInclude Include="..\Socket\Common\Src\Semaphore.h" />
+    <ClInclude Include="..\Socket\Common\Src\Singleton.h" />
+    <ClInclude Include="..\Socket\Common\Src\STLHelper.h" />
+    <ClInclude Include="..\Socket\Common\Src\SysHelper.h" />
+    <ClInclude Include="..\Socket\Common\Src\WaitFor.h" />
+    <ClInclude Include="..\Socket\Common\Src\Win32Helper.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Global\helper.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketHelper.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketInterface.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Src\TcpClient.h" />
+    <ClInclude Include="CalendarDlg.h" />
+    <ClInclude Include="CBase64Coding.h" />
+    <ClInclude Include="CBytsDialog.h" />
+    <ClInclude Include="CreateGroupParam.h" />
+    <ClInclude Include="Func.h" />
+    <ClInclude Include="GenericHTTPClient.h" />
+    <ClInclude Include="globalvar.h" />
+    <ClInclude Include="IMExport.h" />
+    <ClInclude Include="IniFile.h" />
+    <ClInclude Include="LoadDllFunc.h" />
+    <ClInclude Include="LoginDlg.h" />
+    <ClInclude Include="MainPort.h" />
+    <ClInclude Include="md5.h" />
+    <ClInclude Include="MsgQueueSendMng.h" />
+    <ClInclude Include="MyClient.h" />
+    <ClInclude Include="MyThread.h" />
+    <ClInclude Include="PackageManage.h" />
+    <ClInclude Include="PackageRecvManage.h" />
+    <ClInclude Include="ProcessAns.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="sqlite\DbSqlite.h" />
+    <ClInclude Include="sqlite\SqliteOp.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="struct.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TinyXML\tinystr.h" />
+    <ClInclude Include="TinyXML\tinyxml.h" />
+    <ClInclude Include="UI\AddMember.h" />
+    <ClInclude Include="UI\ButtonExUI.h" />
+    <ClInclude Include="UI\ChatDialog.h" />
+    <ClInclude Include="UI\ColorSkin.h" />
+    <ClInclude Include="UI\CustomWebEventHandler.h" />
+    <ClInclude Include="UI\debug.h" />
+    <ClInclude Include="UI\FaceCtrl.h" />
+    <ClInclude Include="UI\FaceList.h" />
+    <ClInclude Include="UI\FaceSelDlg.h" />
+    <ClInclude Include="UI\FileDialogEx.h" />
+    <ClInclude Include="UI\GeneralDialog.h" />
+    <ClInclude Include="UI\GifImage.h" />
+    <ClInclude Include="UI\HistoryMsg.h" />
+    <ClInclude Include="UI\IImageOle.h" />
+    <ClInclude Include="UI\ListEx.h" />
+    <ClInclude Include="UI\MainFrame.h" />
+    <ClInclude Include="UI\MsgNotifyDialog.h" />
+    <ClInclude Include="UI\observer_impl_base.h" />
+    <ClInclude Include="UI\Path.h" />
+    <ClInclude Include="UI\RichEditUtil.h" />
+    <ClInclude Include="UI\SkinChangeEvent.h" />
+    <ClInclude Include="UI\UICrack.h" />
+    <ClInclude Include="UI\UIFriends.h" />
+    <ClInclude Include="UI\UIGroups.h" />
+    <ClInclude Include="UI\UIListCommonDefine.h" />
+    <ClInclude Include="UI\UIMenu.h" />
+    <ClInclude Include="UI\UIMessages.h" />
+    <ClInclude Include="UI\UIRecentLink.h" />
+    <ClInclude Include="UI\UserMrgAddGroup.h" />
+    <ClInclude Include="UI\UserMrgDialog.h" />
+    <ClInclude Include="UI\UserOpenRights.h" />
+    <ClInclude Include="UI\Utils.h" />
+    <ClInclude Include="UPIM.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\json\json_reader.cpp" />
+    <ClCompile Include="..\Common\json\json_value.cpp" />
+    <ClCompile Include="..\Common\json\json_writer.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\bufferpool.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\RWLock.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\SysHelper.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\WaitFor.cpp" />
+    <ClCompile Include="..\Socket\HP-Socket\Global\helper.cpp" />
+    <ClCompile Include="..\Socket\HP-Socket\Src\SocketHelper.cpp" />
+    <ClCompile Include="..\Socket\HP-Socket\Src\TcpClient.cpp" />
+    <ClCompile Include="CalendarDlg.cpp" />
+    <ClCompile Include="CBase64Coding.cpp" />
+    <ClCompile Include="CBytsDialog.cpp" />
+    <ClCompile Include="CreateGroupParam.cpp" />
+    <ClCompile Include="Func.cpp" />
+    <ClCompile Include="GenericHTTPClient.cpp" />
+    <ClCompile Include="globalvar.cpp" />
+    <ClCompile Include="IMExport.cpp" />
+    <ClCompile Include="IniFile.cpp" />
+    <ClCompile Include="LoadDllFunc.cpp" />
+    <ClCompile Include="LoginDlg.cpp" />
+    <ClCompile Include="MainPort.cpp" />
+    <ClCompile Include="md5.cpp" />
+    <ClCompile Include="MsgQueueSendMng.cpp" />
+    <ClCompile Include="MyClient.cpp" />
+    <ClCompile Include="MyThread.cpp" />
+    <ClCompile Include="PackageManage.cpp" />
+    <ClCompile Include="PackageRecvManage.cpp" />
+    <ClCompile Include="ProcessAns.cpp" />
+    <ClCompile Include="sqlite\DbSqlite.cpp" />
+    <ClCompile Include="sqlite\SqliteOp.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TinyXML\tinystr.cpp" />
+    <ClCompile Include="TinyXML\tinyxml.cpp" />
+    <ClCompile Include="TinyXML\tinyxmlerror.cpp" />
+    <ClCompile Include="TinyXML\tinyxmlparser.cpp" />
+    <ClCompile Include="UI\AddMember.cpp" />
+    <ClCompile Include="UI\ButtonExUI.cpp" />
+    <ClCompile Include="UI\ChatDialog.cpp" />
+    <ClCompile Include="UI\ColorSkin.cpp" />
+    <ClCompile Include="UI\debug.cpp" />
+    <ClCompile Include="UI\FaceCtrl.cpp" />
+    <ClCompile Include="UI\FaceList.cpp" />
+    <ClCompile Include="UI\FaceSelDlg.cpp" />
+    <ClCompile Include="UI\FileDialogEx.cpp" />
+    <ClCompile Include="UI\GeneralDialog.cpp" />
+    <ClCompile Include="UI\GifImage.cpp" />
+    <ClCompile Include="UI\HistoryMsg.cpp" />
+    <ClCompile Include="UI\ListEx.cpp" />
+    <ClCompile Include="UI\MainFrame.cpp" />
+    <ClCompile Include="UI\MsgNotifyDialog.cpp" />
+    <ClCompile Include="UI\Path.cpp" />
+    <ClCompile Include="UI\RichEditUtil.cpp" />
+    <ClCompile Include="UI\UICrack.cpp" />
+    <ClCompile Include="UI\UIFriends.cpp" />
+    <ClCompile Include="UI\UIGroups.cpp" />
+    <ClCompile Include="UI\UIListCommonDefine.cpp" />
+    <ClCompile Include="UI\UIMenu.cpp" />
+    <ClCompile Include="UI\UIMessages.cpp" />
+    <ClCompile Include="UI\UIRecentLink.cpp" />
+    <ClCompile Include="UI\UserMrgAddGroup.cpp" />
+    <ClCompile Include="UI\UserMrgDialog.cpp" />
+    <ClCompile Include="UI\UserOpenRights.cpp" />
+    <ClCompile Include="UI\Utils.cpp" />
+    <ClCompile Include="UPIM.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPIM.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="UPIM.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

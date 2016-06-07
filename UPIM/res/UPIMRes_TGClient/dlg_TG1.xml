@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="500,200" mininfo="500,200" sizebox="0,0,0,0" caption="0,0,0,0" roundcorner="0,0" alpha="20">
+	<HorizontalLayout name="general_bg" bkimage="file='lts_img2.png'">
+		<HorizontalLayout height="137">
+			<VerticalLayout width="416" bkimage="file='lts_img1.png' corner='5,5,5,5'">
+			</VerticalLayout>
+		</HorizontalLayout>
+	</HorizontalLayout>
+</Window>

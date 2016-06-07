@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="475,350" mininfo="475,350" sizebox="1,1,1,1" caption="0,0,0,0" roundcorner="0,0">
+	<Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+	<Font name="微软雅黑" size="14" bold="true" italic="false" />
+	<Font name="微软雅黑" size="12" bold="true" italic="false" />
+	<!-- <Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" /> -->
+	<HorizontalLayout name="general_bg" bkimage="file='bg2.png' corner='475,350,1,1'">
+		<VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="1,0,1,1">
+			<VerticalLayout bkcolor="#FFF0BC59">
+				<!-- 顶部 -->
+				<HorizontalLayout height="40">
+					<VerticalLayout height="40" width="35">
+						<Label name="mainframe_appicon" padding="10,7,0,0" width="23" height="23" bkimage="file='new_logo.png'" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					</VerticalLayout>
+					
+					<VerticalLayout height = "40">
+						<Label name = "biaoyangandtoushu" padding="5,7,0,0" width = "50" text = "表扬投诉" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" /> 
+					</VerticalLayout>
+					
+					<VerticalLayout width="104">
+						<HorizontalLayout>
+							<Control />
+							<!-- <Button name="btn_minbtn" width="28" height="19" normalimage="file='btn_mini_normal.png'" hotimage="btn_mini_highlight.png" pushedimage="btn_mini_down.png"  /> -->
+							<!-- <Button name="btn_maxbtn"  width="28" height="19"   normalimage="file='btn_max_normal.png'" hotimage="btn_max_highlight.png" pushedimage="btn_max_down.png"  /> -->
+							<Button name="btn_closebtn" width="39" height="19"   normalimage="file='btn_close_normal.png'" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png"  />
+						</HorizontalLayout>
+					</VerticalLayout>	
+				</HorizontalLayout>
+				
+				<!-- 中间主体部分-->
+				<VerticalLayout bkcolor="#FFFFFFFF"> 
+					<HorizontalLayout bordersize="0" bordercolor="#FFF6F6F6">
+							<WebBrowser name="tousubiaoyang_web" clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}" delaycreate="false"/>
+					</HorizontalLayout>
+				</VerticalLayout>
+				
+				<HorizontalLayout height="1" />
+			</VerticalLayout>
+		</VerticalLayout>
+	</HorizontalLayout>
+</Window>

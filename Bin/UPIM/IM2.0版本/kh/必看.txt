@@ -1,0 +1,11 @@
+客户的IM采用无登录框的客户端一体登陆，此处单独测试请修改upim.cfg中的配置文件
+
+[logintest]
+;upid为客户登陆的id,
+;market1天贵2广贵
+upid=onleading
+market=1
+
+需要两个参数
+将upid改成要测试的客户的ID
+将market改成市场

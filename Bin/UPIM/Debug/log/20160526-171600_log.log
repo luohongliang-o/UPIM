@@ -1,0 +1,16 @@
+2016-05-26 17:16:00,151 InitRichEditCom Start!
+2016-05-26 17:16:04,701 Socket Connect OK! [ConnID:1]
+2016-05-26 17:16:04,763 RecvData: iLength:311 nLen:286 Req:5001
+2016-05-26 17:16:04,777 Recv:[UPIM_REQ_CHECKPWD]
+2016-05-26 17:16:04,791 OnCheckPwdAns:m_strUserid = 1148 --m_strUserName = 吴俊铭
+2016-05-26 17:16:04,802 验证密码结束，开始登录服务器:29956138
+2016-05-26 17:16:04,818 Send:[UPIM_REQ_ALLTGROOM] userid:1148
+2016-05-26 17:16:04,836 T_OFFMSG ADD
+2016-05-26 17:16:04,883 RecvData: iLength:191 nLen:166 Req:5040
+2016-05-26 17:16:04,894 Recv:[UPIM_REQ_ALLTGROOM] ItemNum:1
+2016-05-26 17:16:04,907 Send:[UPIM_REQ_ALLROOMTOUSER] userid:1148 roomid:1146
+2016-05-26 17:16:04,920 CreateTgRoomAccNode PID:1146 PNAME:量化交易 PNOTE:<p>量化模型结合时空趋势，精准出击！<br /></p>
+2016-05-26 17:16:05,021 FILE: [E:\testim\Bin\UPIM\Debug\UPIMUser\吴俊铭\head\my.jpg]
+2016-05-26 17:16:06,826 StopClient
+2016-05-26 17:16:06,859 [SUCCESS]Socket Close ConnID:1
+2016-05-26 17:16:06,871 1# CMyClient::OnClose

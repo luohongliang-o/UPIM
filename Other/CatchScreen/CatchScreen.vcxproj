@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\dll\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\dll\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release\CatchScreen.pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Release\CatchScreen.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\CatchScreen.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>CatchScreen.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_MBCS;_AFXEXT;_WINDLL;_AFXDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Midl>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TypeLibraryName>.\Debug\CatchScreen.tlb</TypeLibraryName>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\CatchScreen.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>CatchScreend.def</ModuleDefinitionFile>
+      <AdditionalDependencies>msimg32.lib;winmm.lib ;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="res\arrow_m.cur" />
+    <CustomBuild Include="res\back dd.bmp" />
+    <CustomBuild Include="res\back.bmp" />
+    <CustomBuild Include="res\backd.bmp" />
+    <CustomBuild Include="res\CatchScreen.ico" />
+    <CustomBuild Include="res\CatchScreen.rc2">
+      <FileType>RC</FileType>
+    </CustomBuild>
+    <CustomBuild Include="res\final.bmp" />
+    <CustomBuild Include="res\move_r.cur" />
+    <CustomBuild Include="res\size1_r.cur" />
+    <CustomBuild Include="res\size2_r.cur" />
+    <CustomBuild Include="res\size3_r.cur" />
+    <CustomBuild Include="res\size4_r.cur" />
+    <CustomBuild Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\PaintDlg\Paint\res\face_dlg.bmp" />
+    <None Include="..\PaintDlg\Paint\res\font_face.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen1_0.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen1_1.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen1_2.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen2_0.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen2_1.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen2_2.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen3_0.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen3_1.bmp" />
+    <None Include="..\PaintDlg\Paint\res\pen3_2.bmp" />
+    <None Include="res\baochun.ico" />
+    <None Include="res\baochun_in.bmp" />
+    <None Include="res\baochun_out.bmp" />
+    <None Include="res\huashua.bmp" />
+    <None Include="res\icon1.ico" />
+    <None Include="res\jietu.png" />
+    <None Include="res\SC_DOT.png" />
+    <None Include="res\SC_MASK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CatchScreen.cpp" />
+    <ClCompile Include="CatchScreenDlg.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="Source\AbstractPen.cpp" />
+    <ClCompile Include="Source\ArrowTrack.cpp" />
+    <ClCompile Include="Source\BitmapDialog.cpp" />
+    <ClCompile Include="Source\Canvas.CPP" />
+    <ClCompile Include="Source\CirclePenNeb.cpp" />
+    <ClCompile Include="Source\ClipBoard.cpp" />
+    <ClCompile Include="Source\ColorPen.cpp" />
+    <ClCompile Include="Source\ColorStatic.cpp" />
+    <ClCompile Include="Source\CqOctree.cpp" />
+    <ClCompile Include="Source\Dib.cpp" />
+    <ClCompile Include="Source\dibapi.cpp" />
+    <ClCompile Include="Source\DIBitmap.cpp" />
+    <ClCompile Include="Source\dibpal.cpp" />
+    <ClCompile Include="Source\EllipseTrack.cpp" />
+    <ClCompile Include="Source\FontCombo.cpp" />
+    <ClCompile Include="Source\HEllipsePenNeb.cpp" />
+    <ClCompile Include="Source\LEllipsePenNeb.cpp" />
+    <ClCompile Include="Source\LineTrack.cpp" />
+    <ClCompile Include="Source\MyBitmapStatic.cpp" />
+    <ClCompile Include="Source\MyTracker.cpp" />
+    <ClCompile Include="Source\PaintBrush.cpp" />
+    <ClCompile Include="Source\PaintDlg.cpp" />
+    <ClCompile Include="Source\Pencil.cpp" />
+    <ClCompile Include="Source\PenNeb.cpp" />
+    <ClCompile Include="Source\PngImage.cpp" />
+    <ClCompile Include="Source\RandomTrack.cpp" />
+    <ClCompile Include="Source\RectangleTrack.cpp" />
+    <ClCompile Include="Source\REllipsePenNeb.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\Track.cpp" />
+    <ClCompile Include="Source\VEllipsePenNeb.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CatchScreen.h" />
+    <ClInclude Include="CatchScreenDlg.h" />
+    <ClInclude Include="Include\AbstractPen.h" />
+    <ClInclude Include="Include\ArrowTrack.h" />
+    <ClInclude Include="Include\BitmapDialog.h" />
+    <ClInclude Include="Include\canvas.h" />
+    <ClInclude Include="Include\CirclePenNeb.h" />
+    <ClInclude Include="Include\ClipBoard.h" />
+    <ClInclude Include="Include\ColorPen.h" />
+    <ClInclude Include="Include\ColorStatic.h" />
+    <ClInclude Include="Include\DefineMessage.h" />
+    <ClInclude Include="Include\Dib.h" />
+    <ClInclude Include="Include\dibapi.h" />
+    <ClInclude Include="Include\DIBitmap.h" />
+    <ClInclude Include="Include\dibpal.h" />
+    <ClInclude Include="Include\EllipseTrack.h" />
+    <ClInclude Include="Include\ENUM.h" />
+    <ClInclude Include="Include\FontCombo.h" />
+    <ClInclude Include="Include\HEllipsePenNeb.h" />
+    <ClInclude Include="Include\LEllipsePenNeb.h" />
+    <ClInclude Include="Include\LineTrack.h" />
+    <ClInclude Include="Include\MyBitmapStatic.h" />
+    <ClInclude Include="Include\MyTracker.h" />
+    <ClInclude Include="Include\PaintBrush.h" />
+    <ClInclude Include="Include\PaintDlg.h" />
+    <ClInclude Include="Include\Pencil.h" />
+    <ClInclude Include="Include\PenNeb.h" />
+    <ClInclude Include="Include\PngImage.h" />
+    <ClInclude Include="Include\RandomTrack.h" />
+    <ClInclude Include="Include\RectangleTrack.h" />
+    <ClInclude Include="Include\REllipsePenNeb.h" />
+    <ClInclude Include="Include\Track.h" />
+    <ClInclude Include="Include\VEllipsePenNeb.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CatchScreen.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="CatchScreen.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

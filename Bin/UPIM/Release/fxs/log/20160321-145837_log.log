@@ -1,0 +1,263 @@
+2016-03-21 14:58:37,042 InitRichEditCom Start!
+2016-03-21 14:58:38,786 Socket Connect OK! [ConnID:1]
+2016-03-21 14:58:38,880 RecvData: iLength:311 nLen:286 Req:5001
+2016-03-21 14:58:38,890 Recv:[UPIM_REQ_CHECKPWD]
+2016-03-21 14:58:38,904 Send:[UPIM_REQ_ALLTGROOM] userid:1155
+2016-03-21 14:58:38,915 T_OFFMSG ADD
+2016-03-21 14:58:38,950 RecvData: iLength:275 nLen:250 Req:5040
+2016-03-21 14:58:38,965 Recv:[UPIM_REQ_ALLTGROOM] ItemNum:1
+2016-03-21 14:58:38,977 Send:[UPIM_REQ_ALLROOMTOUSER] userid:1155 roomid:1149
+2016-03-21 14:58:38,989 CreateTgRoomAccNode PID:1149 PNAME:步步为盈 PNOTE:<p>以日内短线交易为主，顺应趋势为操作思路。在这里，没有模糊的区间，只有精确的做单点位；只有稳定的盈利。步步为营方可步步为盈！</
+2016-03-21 14:58:39,023 FILE: [E:\WORK\Bin\UPIM\Release\fxs\UPIMUser\1155\head\my.jpg]
+2016-03-21 14:58:39,042 RecvData: iLength:2800 nLen:2775 Req:5042
+2016-03-21 14:58:39,055 Recv:[UPIM_REQ_ALLROOMTOUSER] ItemNum:100
+2016-03-21 14:58:39,068 CreateRoomClientNode:kikiwuqie
+2016-03-21 14:58:39,068 Send:[UPIM_REQ_GETGROUP] userid:1155
+2016-03-21 14:58:39,081 CreateRoomClientNode:youny
+2016-03-21 14:58:39,101 RecvData: iLength:2833 nLen:2808 Req:5042
+2016-03-21 14:58:39,119 CreateRoomClientNode:1095587911
+2016-03-21 14:58:39,127 Recv:[UPIM_REQ_ALLROOMTOUSER] ItemNum:100
+2016-03-21 14:58:39,141 CreateRoomClientNode:1102046259
+2016-03-21 14:58:39,156 Send:[UPIM_REQ_GETGROUP] userid:1155
+2016-03-21 14:58:39,167 CreateRoomClientNode:1102046259
+2016-03-21 14:58:39,179 RecvData: iLength:2880 nLen:2855 Req:5042
+2016-03-21 14:58:39,192 CreateRoomClientNode:1198411948
+2016-03-21 14:58:39,204 Recv:[UPIM_REQ_ALLROOMTOUSER] ItemNum:100
+2016-03-21 14:58:39,217 CreateRoomClientNode:123456wangfy
+2016-03-21 14:58:39,231 ### Packet Separator ERROR!
+2016-03-21 14:58:39,243 CreateRoomClientNode:1313800
+2016-03-21 14:58:39,256 ### Packet Separator ERROR!
+2016-03-21 14:58:39,269 CreateRoomClientNode:13678981788
+2016-03-21 14:58:39,282 ### Packet Separator ERROR!
+2016-03-21 14:58:39,294 CreateRoomClientNode:13818383675
+2016-03-21 14:58:39,308 ### Packet Separator ERROR!
+2016-03-21 14:58:39,321 CreateRoomClientNode:13852913771
+2016-03-21 14:58:39,346 CreateRoomClientNode:13877338218
+2016-03-21 14:58:39,359 RecvData: iLength:241 nLen:216 Req:5043
+2016-03-21 14:58:39,359 CreateRoomClientNode:13965993775lcl
+2016-03-21 14:58:39,371 Recv:[UPIM_REQ_GETGROUP] ItemNum:5
+2016-03-21 14:58:39,385 CreateRoomClientNode:13998693491
+2016-03-21 14:58:39,398 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:12
+2016-03-21 14:58:39,411 CreateRoomClientNode:15161
+2016-03-21 14:58:39,423 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:18
+2016-03-21 14:58:39,438 CreateRoomClientNode:15328836606
+2016-03-21 14:58:39,449 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:23
+2016-03-21 14:58:39,462 CreateRoomClientNode:15827576659
+2016-03-21 14:58:39,475 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:24
+2016-03-21 14:58:39,487 CreateRoomClientNode:1701
+2016-03-21 14:58:39,501 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:25
+2016-03-21 14:58:39,514 CreateRoomClientNode:17013226
+2016-03-21 14:58:39,548 CreateRoomClientNode:18358020759
+2016-03-21 14:58:39,551 RecvData: iLength:241 nLen:216 Req:5043
+2016-03-21 14:58:39,570 CreateRoomClientNode:18709637618
+2016-03-21 14:58:39,573 Recv:[UPIM_REQ_GETGROUP] ItemNum:5
+2016-03-21 14:58:39,587 CreateRoomClientNode:1892181
+2016-03-21 14:58:39,599 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:12
+2016-03-21 14:58:39,614 CreateRoomClientNode:18927469068
+2016-03-21 14:58:39,624 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:18
+2016-03-21 14:58:39,639 CreateRoomClientNode:1captain
+2016-03-21 14:58:39,650 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:23
+2016-03-21 14:58:39,664 CreateRoomClientNode:20004804
+2016-03-21 14:58:39,676 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:24
+2016-03-21 14:58:39,689 CreateRoomClientNode:2206616977
+2016-03-21 14:58:39,702 Send:[UPIM_REQ_GETGUSER] userid:1155 ngroupid:25
+2016-03-21 14:58:39,715 CreateRoomClientNode:2299038
+2016-03-21 14:58:39,740 CreateRoomClientNode:23zx456
+2016-03-21 14:58:39,750 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:39,754 CreateRoomClientNode:240192205
+2016-03-21 14:58:39,766 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:39,780 CreateRoomClientNode:320301
+2016-03-21 14:58:39,791 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:39,806 CreateRoomClientNode:35009533
+2016-03-21 14:58:39,818 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:39,833 CreateRoomClientNode:350351223
+2016-03-21 14:58:39,843 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:39,868 CreateRoomClientNode:388
+2016-03-21 14:58:39,882 CreateRoomClientNode:502
+2016-03-21 14:58:39,895 CreateRoomClientNode:531658080
+2016-03-21 14:58:39,907 CreateRoomClientNode:549710
+2016-03-21 14:58:39,920 CreateRoomClientNode:55zhang
+2016-03-21 14:58:39,933 CreateRoomClientNode:591
+2016-03-21 14:58:39,946 CreateRoomClientNode:610597372
+2016-03-21 14:58:39,959 CreateRoomClientNode:6175153h153
+2016-03-21 14:58:39,972 CreateRoomClientNode:6226
+2016-03-21 14:58:39,972 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:39,985 CreateRoomClientNode:644293083
+2016-03-21 14:58:39,998 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:40,011 CreateRoomClientNode:728
+2016-03-21 14:58:40,024 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:40,037 CreateRoomClientNode:729141877
+2016-03-21 14:58:40,050 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:40,062 CreateRoomClientNode:775
+2016-03-21 14:58:40,076 RecvData: iLength:42 nLen:17 Req:5044
+2016-03-21 14:58:40,088 CreateRoomClientNode:79324609
+2016-03-21 14:58:40,113 CreateRoomClientNode:80167
+2016-03-21 14:58:40,125 CreateRoomClientNode:8384997wmw
+2016-03-21 14:58:40,147 CreateRoomClientNode:862401466
+2016-03-21 14:58:40,160 CreateRoomClientNode:86461318
+2016-03-21 14:58:40,176 CreateRoomClientNode:8820678
+2016-03-21 14:58:40,186 CreateRoomClientNode:943862434
+2016-03-21 14:58:40,199 CreateRoomClientNode:99977633
+2016-03-21 14:58:40,211 CreateRoomClientNode:a2632673
+2016-03-21 14:58:40,225 CreateRoomClientNode:aa13998560778
+2016-03-21 14:58:40,238 CreateRoomClientNode:abc114384
+2016-03-21 14:58:40,251 CreateRoomClientNode:abcdefgycj
+2016-03-21 14:58:40,263 CreateRoomClientNode:asd12345asd543
+2016-03-21 14:58:40,276 CreateRoomClientNode:bccfkf
+2016-03-21 14:58:40,289 CreateRoomClientNode:bccfw_up
+2016-03-21 14:58:40,302 CreateRoomClientNode:bcg4567
+2016-03-21 14:58:40,316 CreateRoomClientNode:beihai678
+2016-03-21 14:58:40,328 CreateRoomClientNode:bnzyxql
+2016-03-21 14:58:40,356 CreateRoomClientNode:chenhuaqing888
+2016-03-21 14:58:40,370 CreateRoomClientNode:cjlcy123
+2016-03-21 14:58:40,383 CreateRoomClientNode:clk201506
+2016-03-21 14:58:40,395 CreateRoomClientNode:cm0218
+2016-03-21 14:58:40,411 CreateRoomClientNode:cnitx
+2016-03-21 14:58:40,425 CreateRoomClientNode:cr490701
+2016-03-21 14:58:40,511 CreateRoomClientNode:cxlbest6508
+2016-03-21 14:58:40,523 CreateRoomClientNode:czr6912
+2016-03-21 14:58:40,537 CreateRoomClientNode:czsj001902
+2016-03-21 14:58:40,549 CreateRoomClientNode:dabobo
+2016-03-21 14:58:40,563 CreateRoomClientNode:dafuhaolail
+2016-03-21 14:58:40,575 CreateRoomClientNode:ddf8
+2016-03-21 14:58:40,589 CreateRoomClientNode:ddz1988
+2016-03-21 14:58:40,601 CreateRoomClientNode:dongfanghong36
+2016-03-21 14:58:40,614 CreateRoomClientNode:easy0820
+2016-03-21 14:58:40,626 CreateRoomClientNode:faqlxq
+2016-03-21 14:58:40,640 CreateRoomClientNode:farfalla
+2016-03-21 14:58:40,652 CreateRoomClientNode:fengliang8523
+2016-03-21 14:58:40,666 CreateRoomClientNode:ffs3839295
+2016-03-21 14:58:40,678 CreateRoomClientNode:g13816627635
+2016-03-21 14:58:40,690 CreateRoomClientNode:gene
+2016-03-21 14:58:40,704 CreateRoomClientNode:ghqsyyyx
+2016-03-21 14:58:40,716 CreateRoomClientNode:glhejunlin
+2016-03-21 14:58:40,730 CreateRoomClientNode:gnxuyue
+2016-03-21 14:58:40,742 CreateRoomClientNode:gp989sjp939
+2016-03-21 14:58:40,755 CreateRoomClientNode:guanxuexin
+2016-03-21 14:58:40,770 CreateRoomClientNode:hhpwww
+2016-03-21 14:58:40,781 CreateRoomClientNode:hjchjc678
+2016-03-21 14:58:40,794 CreateRoomClientNode:hjn_1970
+2016-03-21 14:58:40,807 CreateRoomClientNode:huangjinlian88
+2016-03-21 14:58:40,819 CreateRoomClientNode:huiyiersan
+2016-03-21 14:58:40,833 CreateRoomClientNode:hwztiger
+2016-03-21 14:58:40,846 CreateRoomClientNode:hxttzt
+2016-03-21 14:58:40,882 CreateRoomClientNode:jessen09
+2016-03-21 14:58:40,896 CreateRoomClientNode:jhdcf1688
+2016-03-21 14:58:40,909 CreateRoomClientNode:jhdxx
+2016-03-21 14:58:40,921 CreateRoomClientNode:jhjh
+2016-03-21 14:58:40,934 CreateRoomClientNode:jinshouzhi
+2016-03-21 14:58:40,947 CreateRoomClientNode:jinwd315
+2016-03-21 14:58:40,960 CreateRoomClientNode:jmdcf1706
+2016-03-21 14:58:40,973 CreateRoomClientNode:jmdgjs
+2016-03-21 14:58:40,985 CreateRoomClientNode:kewei2015
+2016-03-21 14:58:41,006 CreateRoomClientNode:kmduqing
+2016-03-21 14:58:41,019 CreateRoomClientNode:knight368
+2016-03-21 14:58:41,034 CreateRoomClientNode:ksmwx
+2016-03-21 14:58:41,045 CreateRoomClientNode:kundera5010
+2016-03-21 14:58:41,059 CreateRoomClientNode:li66777
+2016-03-21 14:58:41,071 CreateRoomClientNode:liao28
+2016-03-21 14:58:41,085 CreateRoomClientNode:lijunwlx
+2016-03-21 14:58:41,097 CreateRoomClientNode:lilang
+2016-03-21 14:58:41,110 CreateRoomClientNode:lilii123456
+2016-03-21 14:58:41,123 CreateRoomClientNode:lionhu680529
+2016-03-21 14:58:41,136 CreateRoomClientNode:liupq8716
+2016-03-21 14:58:41,149 CreateRoomClientNode:liuwuyi0501
+2016-03-21 14:58:41,161 CreateRoomClientNode:lkx469440143
+2016-03-21 14:58:41,185 CreateRoomClientNode:lqlzg
+2016-03-21 14:58:41,195 CreateRoomClientNode:ltlljl39735
+2016-03-21 14:58:41,208 CreateRoomClientNode:luliansong
+2016-03-21 14:58:41,221 CreateRoomClientNode:lxc621028
+2016-03-21 14:58:41,236 CreateRoomClientNode:lyloffice
+2016-03-21 14:58:41,246 CreateRoomClientNode:lza2211297
+2016-03-21 14:58:41,260 CreateRoomClientNode:maqi
+2016-03-21 14:58:41,272 CreateRoomClientNode:mayuhuimarty
+2016-03-21 14:58:41,286 CreateRoomClientNode:michaelowen
+2016-03-21 14:58:41,298 CreateRoomClientNode:michealowen
+2016-03-21 14:58:41,312 CreateRoomClientNode:michellezhou
+2016-03-21 14:58:41,324 CreateRoomClientNode:mjh_stock
+2016-03-21 14:58:41,338 CreateRoomClientNode:muzili288
+2016-03-21 14:58:41,353 CreateRoomClientNode:ogame
+2016-03-21 14:58:41,390 CreateRoomClientNode:onleading
+2016-03-21 14:58:41,400 CreateRoomClientNode:ouyang666
+2016-03-21 14:58:41,414 CreateRoomClientNode:qingdao123--
+2016-03-21 14:58:41,426 CreateRoomClientNode:samuel_yuan
+2016-03-21 14:58:41,439 CreateRoomClientNode:sdytmp
+2016-03-21 14:58:41,452 CreateRoomClientNode:sgalex
+2016-03-21 14:58:41,464 CreateRoomClientNode:shazuer
+2016-03-21 14:58:41,478 CreateRoomClientNode:su123321
+2016-03-21 14:58:41,490 CreateRoomClientNode:syxs6636
+2016-03-21 14:58:41,504 CreateRoomClientNode:tb7539099_2011
+2016-03-21 14:58:41,516 CreateRoomClientNode:tougu888
+2016-03-21 14:58:41,530 CreateRoomClientNode:tqchengg
+2016-03-21 14:58:41,542 CreateRoomClientNode:tyjcpljs
+2016-03-21 14:58:41,555 CreateRoomClientNode:tzlyb
+2016-03-21 14:58:41,568 CreateRoomClientNode:tzws01
+2016-03-21 14:58:41,581 CreateRoomClientNode:up_call_m_010
+2016-03-21 14:58:41,593 CreateRoomClientNode:upchina200
+2016-03-21 14:58:41,607 CreateRoomClientNode:uptrade
+2016-03-21 14:58:41,619 CreateRoomClientNode:w123_ww
+2016-03-21 14:58:41,633 CreateRoomClientNode:wang711116
+2016-03-21 14:58:41,645 CreateRoomClientNode:wangxing100
+2016-03-21 14:58:41,658 CreateRoomClientNode:weigu9998
+2016-03-21 14:58:41,671 CreateRoomClientNode:whf771223
+2016-03-21 14:58:41,683 CreateRoomClientNode:wlda
+2016-03-21 14:58:41,696 CreateRoomClientNode:woniuzuogaotie
+2016-03-21 14:58:41,709 CreateRoomClientNode:wuhanzd
+2016-03-21 14:58:41,722 CreateRoomClientNode:wuyoushenlong
+2016-03-21 14:58:41,736 CreateRoomClientNode:wyj994175248
+2016-03-21 14:58:41,748 CreateRoomClientNode:wywhl
+2016-03-21 14:58:41,760 CreateRoomClientNode:xiaodao006
+2016-03-21 14:58:41,774 CreateRoomClientNode:xiaoqian88
+2016-03-21 14:58:41,786 CreateRoomClientNode:xiehj611
+2016-03-21 14:58:41,800 CreateRoomClientNode:xrong62
+2016-03-21 14:58:41,814 CreateRoomClientNode:xubangxin
+2016-03-21 14:58:41,826 CreateRoomClientNode:xuzhifang
+2016-03-21 14:58:41,838 CreateRoomClientNode:y080911
+2016-03-21 14:58:41,851 CreateRoomClientNode:y13719246136
+2016-03-21 14:58:41,898 CreateRoomClientNode:yanghuagp
+2016-03-21 14:58:41,909 CreateRoomClientNode:yangjn6189
+2016-03-21 14:58:41,924 CreateRoomClientNode:yaochen0827
+2016-03-21 14:58:41,936 CreateRoomClientNode:ycchxs
+2016-03-21 14:58:41,949 CreateRoomClientNode:ye202006
+2016-03-21 14:58:41,961 CreateRoomClientNode:yemh1027
+2016-03-21 14:58:41,974 CreateRoomClientNode:yhtcrq
+2016-03-21 14:58:41,986 CreateRoomClientNode:yuandelin20
+2016-03-21 14:58:41,997 CreateRoomClientNode:yuch0926
+2016-03-21 14:58:42,010 CreateRoomClientNode:yunlaowang
+2016-03-21 14:58:42,022 CreateRoomClientNode:yuwenhua123
+2016-03-21 14:58:42,035 CreateRoomClientNode:ywpr_2008
+2016-03-21 14:58:42,047 CreateRoomClientNode:zdd148
+2016-03-21 14:58:42,059 CreateRoomClientNode:zfrby8
+2016-03-21 14:58:42,072 CreateRoomClientNode:zhanghuang
+2016-03-21 14:58:42,099 CreateRoomClientNode:zhiyuan.jmd
+2016-03-21 14:58:42,113 CreateRoomClientNode:zhizhu358
+2016-03-21 14:58:42,125 CreateRoomClientNode:zhongliugema
+2016-03-21 14:58:42,137 CreateRoomClientNode:zhouchao1958
+2016-03-21 14:58:42,150 CreateRoomClientNode:zhoumaohu
+2016-03-21 14:58:42,162 CreateRoomClientNode:zjf_0589
+2016-03-21 14:58:42,175 CreateRoomClientNode:zksmgc
+2016-03-21 14:58:42,189 CreateRoomClientNode:zsqpost
+2016-03-21 14:58:42,200 CreateRoomClientNode:zwgxdm998
+2016-03-21 14:58:42,211 CreateRoomClientNode:zwp681208
+2016-03-21 14:58:42,223 CreateRoomClientNode:zym0908
+2016-03-21 14:58:42,237 CreateRoomClientNode:zzj135
+2016-03-21 14:58:42,309 T_OFFMSG DEL
+2016-03-21 14:58:42,319 Send:[UPIM_REQ_OFFMSG] userid:1155
+2016-03-21 14:58:48,512 Pic size Error [http://q.qlogo.cn/qqapp/1101314223/33657C28A4B6C45293CBD85398D70AE1/40](915)
+2016-03-21 14:58:48,694 Pic size Error [http://q.qlogo.cn/qqapp/1101314223/33657C28A4B6C45293CBD85398D70AE1/40](915)
+2016-03-21 14:59:12,928 RecvData: iLength:61 nLen:36 Req:5033
+2016-03-21 15:00:52,850 RecvData: iLength:61 nLen:36 Req:5033
+2016-03-21 15:01:32,624 RecvData: iLength:73 nLen:48 Req:5010
+2016-03-21 15:01:32,865 RecvData: iLength:150 nLen:125 Req:5038
+2016-03-21 15:01:39,018 RecvData: iLength:73 nLen:48 Req:5010
+2016-03-21 15:01:39,487 RecvData: iLength:150 nLen:125 Req:5038
+2016-03-21 15:01:52,513 RecvData: iLength:205 nLen:180 Req:5011
+2016-03-21 15:02:55,755 RecvData: iLength:61 nLen:36 Req:5033
+2016-03-21 15:03:34,217 RecvData: iLength:61 nLen:36 Req:5033
+2016-03-21 15:04:31,902 RecvData: iLength:61 nLen:36 Req:5033
+2016-03-21 15:05:28,787 RecvData: iLength:61 nLen:36 Req:5033
+2016-03-21 15:05:50,518 Send:[UPIM_REQ_OLNOTIFY] userid:{"ct":2,"it":["TGUSER$1149$kikiwuqie","TGUSER$1149$youny"]}
+
+2016-03-21 15:05:50,649 StopClient
+2016-03-21 15:05:50,659 [SUCCESS]Socket Close ConnID:1
+2016-03-21 15:05:50,672 1# CMyClient::OnClose

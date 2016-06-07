@@ -1,0 +1,17 @@
+引用LoadDllFunc.h
+
+初始化:
+LoadDLLFunc();
+if (g_infoDll.m_pUEXP_Init("", "", ""))
+{
+	g_infoDll.m_pUEXP_SetLoginType(3, m_hWnd, UM_IMFEEDBACKMSG, IMFLAG_CHILD|IMFLAG_NOHQ, 0);
+	char szKhh[51]={0}, szYyb[51]={0}, szSSOCode[255]={0};
+	strcpy(szKhh, "3150");
+	g_infoDll.m_pUEXP_Login(2, szKhh, szYyb, szSSOCode, 0);
+}
+
+父窗口大小变动：
+g_infoDll.m_pUEXP_Resize();
+
+父窗口关闭：
+g_infoDll.m_pUEXP_Uninit();

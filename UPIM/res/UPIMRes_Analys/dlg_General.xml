@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="420,265" mininfo="420,265" maxinfo="420,265" sizebox="4,4,4,4" caption="0,0,0,40" roundcorner="4,4">
+	<Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+	<Font name="微软雅黑" size="14" bold="true" italic="false" />
+	<Font name="微软雅黑" size="12" bold="true" italic="false" />
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" />
+	<HorizontalLayout name="general_bg" bkimage="file='bg2.png' corner='420,200,1,1'">
+		<VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="1,0,1,0">
+			<HorizontalLayout height="30">
+				<VerticalLayout height="30" inset="2,6,2,0">
+					<Text name="general_title" text="创建群组" tooltip="创建群组"  height="21" textpadding="2,0,2,0" textcolor="#FFFFFFFF" font="1" align="wrap" />
+				</VerticalLayout>
+				<VerticalLayout />
+				<VerticalLayout width="94" height="30">
+					<Button name="general_closebtn" float="true" pos="56,0,0,0" width="39" height="19" maxheight="19" maxwidth="39" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file='btn_close_normal.png'" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png" />
+				</VerticalLayout>
+			</HorizontalLayout>
+			
+			<HorizontalLayout name="general_creategroup" visible="true" bkcolor="#FFF0F6FF" padding="1,0,1,0" bordersize="1" bordercolor="#FF000000" >
+				<VerticalLayout padding="20,20,20,20">
+					<HorizontalLayout height="30" bordersize="0" bordercolor="#FF000000" >
+						<VerticalLayout width="70">
+							<Text text="群组名称：" font="2" textpadding="2,2,2,2" textcolor="#FF000000" align="right" />
+						</VerticalLayout>
+						<VerticalLayout>
+							<Edit name="general_creategroup_name" inset="4,2,2,2" bordercolor="#FFCCCCCC" bordersize="1" visible="true" bkcolor="#FFFFFFFF" height="23" />
+						</VerticalLayout>
+					</HorizontalLayout>
+					<HorizontalLayout height="30" bordersize="0" bordercolor="#FF000000" >
+						<VerticalLayout width="70">
+							<Text text="群组类型：" font="2" width="70" textpadding="2,2,2,2" textcolor="#FF000000" align="right" />
+						</VerticalLayout>
+						<VerticalLayout>
+							<Combo name="general_creategroup_type" droptype="droplist" height="23" textpadding="4,1,1,1"  normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
+								<ListLabelElement text="内部群组" selected="true" height="23" />
+								<ListLabelElement text="外部群组" height="23" />
+							</Combo>
+						</VerticalLayout>
+					</HorizontalLayout>
+					<HorizontalLayout height="60" bordersize="0" bordercolor="#FF000000" >
+						<VerticalLayout width="70">
+							<Text text="群组公告：" font="2" width="70" textpadding="2,2,2,2" textcolor="#FF000000" align="right" />
+						</VerticalLayout>
+						<VerticalLayout>
+							<HorizontalLayout height="60" bkcolor="#FFFFFFFF" inset="5,0,0,0">
+								<RichEdit name="general_creategroup_note" multiline="true" vscrollbar="true" autovscroll="true" enabled="true" rich="false" readonly="false" wantreturn="true" wantctrlreturn="false" menu="true"/>
+							</HorizontalLayout>
+						</VerticalLayout>
+					</HorizontalLayout>
+				</VerticalLayout>
+			</HorizontalLayout>
+			
+			<HorizontalLayout height="32" bkimage="file='jb.png' corner='2,30,2,2'">
+				<VerticalLayout>
+					<HorizontalLayout height="32">
+						<Text name="general_errorstr" minwidth="170"  text="" textpadding="0,6,0,6" textcolor="#FFFF0000" />
+						<Control />
+						<Button name="general_ok" text="确定" tooltip="确定" width="69" height="24" padding="0,4,0,0" bkimage="file='unsel.bmp'" maxheight="24" maxwidth="69" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'" />
+						<Control width="10" />
+						<Button name="general_close" text="取消" tooltip="取消" width="69" height="24" padding="0,4,0,0" bkimage="file='unsel.bmp'" maxheight="24" maxwidth="69" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'" />
+						<Control width="10" />
+					</HorizontalLayout>
+				</VerticalLayout>
+			</HorizontalLayout>
+			<HorizontalLayout height="1" />
+		</VerticalLayout>
+	</HorizontalLayout>
+</Window>

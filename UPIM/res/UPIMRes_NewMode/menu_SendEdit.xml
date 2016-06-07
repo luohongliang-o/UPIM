@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window showshadow="true" shadowimage="common/shadow.png" shadowcorner="23,13,23,33">
+	<Default name="Menu" value="bordersize=&quot;1&quot; borderround=&quot;2,2&quot; bordercolor=&quot;0x303132&quot; inset=&quot;2,2,2,2&quot; itemtextpadding=&quot;30,0,0,0&quot; bkimage=&quot;file='menu/menu_bk.png' corner='26,2,2,2' source='6,6,44,24'&quot; itemselectedbkcolor=&quot;0xFF338ACA&quot;" />
+	<Default name="ExplandIcon" value="menu/menu_expand.png" />
+	<Menu>
+		<MenuElement name="Menu_Cut" text="剪切"  />
+		<MenuElement name="Menu_Copy_Send" text="复制" />
+		<MenuElement name="Menu_Paste" text="粘贴" />
+		<MenuElement name="Menu_SelAll_Send" text="全部选择" />
+		<MenuElement linetype="true" />
+		<MenuElement name="Menu_SaveAs_Send" text="另存为... " />
+		<MenuElement linetype="true" />
+		<MenuElement name="Menu_Font" text="字体" />
+	</Menu>
+</Window>

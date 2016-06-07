@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+	<ListContainerElement >
+		<HorizontalLayout inset="4,6,5,0">
+			<CheckBox name="selectme" endellipsis="true"  text="" textpadding="20,0,0,0" align="left" selectedimage="file='checkbox_p.png' dest='0,2,15,17'" normalimage="file='checkbox_h.png' dest='0,2,15,17'"  />
+		</HorizontalLayout>
+		<HorizontalLayout inset="5,5,4,4">
+			<Text name="list_1" text=""/>
+		</HorizontalLayout>
+		<HorizontalLayout inset="5,5,4,4">
+			<Text name="list_2" text=""/>
+		</HorizontalLayout>
+	</ListContainerElement>
+</Window>

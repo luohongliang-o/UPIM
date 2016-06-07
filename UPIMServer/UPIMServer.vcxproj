@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5A2EE763-53B1-462E-AE9F-7CC58436C878}</ProjectGuid>
+    <RootNamespace>UPIMServer</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <ProjectName>UPIMServer</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\Bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>..\Bin\$(ProjectName)\obj\$(Configuration)\</IntDir>
+    <TargetName>$(SolutionName)-$(Configuration)</TargetName>
+    <IncludePath>$(SolutionDir);E:\WORK\UPIMServer\mongo\include\libbson-1.0;E:\WORK\UPIMServer\mongo\include\libmongoc-1.0;$(IncludePath)</IncludePath>
+    <ReferencePath>$(ReferencePath)</ReferencePath>
+    <LibraryPath>E:\WORK\UPIMServer\mongo\lib;$(LibraryPath)</LibraryPath>
+    <EmbedManifest>false</EmbedManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\$(Configuration)\x64\</OutDir>
+    <IntDir>$(OutDir)obj\$(SolutionName)\$(ProjectName)\</IntDir>
+    <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
+    <IncludePath>$(SolutionDir);E:\boost_1_57_0\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\Bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>..\Bin\$(ProjectName)\obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)-$(Configuration)</TargetName>
+    <IncludePath>$(SolutionDir);E:\WORK\UPIMServer\mongo\include\libbson-1.0;E:\WORK\UPIMServer\mongo\include\libmongoc-1.0;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\WORK\UPIMServer\mongo\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\$(Configuration)\x64\</OutDir>
+    <IntDir>$(OutDir)obj\$(SolutionName)\$(ProjectName)\</IntDir>
+    <TargetName>$(SolutionName)-$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;STATIC_LIBMONGOCLIENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;STATIC_LIBMONGOCLIENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\Common\json\json_internalarray.inl" />
+    <None Include="..\Common\json\json_internalmap.inl" />
+    <None Include="..\Common\json\json_valueiterator.inl" />
+    <None Include="ChangeLog.txt" />
+    <None Include="ReadMe.txt" />
+    <None Include="res\output_wnd.ico" />
+    <None Include="res\output_wnd_hc.ico" />
+    <None Include="res\Sys.bmp" />
+    <None Include="res\Toolbar.bmp" />
+    <None Include="res\toolbar2.bmp" />
+    <None Include="res\Toolbar256.bmp" />
+    <None Include="res\UPIMServer.ico" />
+    <None Include="res\UPIMServer.rc2" />
+    <None Include="res\UPIMServerDoc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\define.h" />
+    <ClInclude Include="..\Common\json\assertions.h" />
+    <ClInclude Include="..\Common\json\autolink.h" />
+    <ClInclude Include="..\Common\json\config.h" />
+    <ClInclude Include="..\Common\json\features.h" />
+    <ClInclude Include="..\Common\json\forwards.h" />
+    <ClInclude Include="..\Common\json\json.h" />
+    <ClInclude Include="..\Common\json\json_batchallocator.h" />
+    <ClInclude Include="..\Common\json\json_tool.h" />
+    <ClInclude Include="..\Common\json\reader.h" />
+    <ClInclude Include="..\Common\json\value.h" />
+    <ClInclude Include="..\Common\json\writer.h" />
+    <ClInclude Include="..\Common\macro.h" />
+    <ClInclude Include="..\Common\protocol.h" />
+    <ClInclude Include="..\Common\publicstruct.h" />
+    <ClInclude Include="..\Socket\Common\Src\bufferpool.h" />
+    <ClInclude Include="..\Socket\Common\Src\bufferptr.h" />
+    <ClInclude Include="..\Socket\Common\Src\CriticalSection.h" />
+    <ClInclude Include="..\Socket\Common\Src\Event.h" />
+    <ClInclude Include="..\Socket\Common\Src\GeneralHelper.h" />
+    <ClInclude Include="..\Socket\Common\Src\PrivateHeap.h" />
+    <ClInclude Include="..\Socket\Common\Src\RWLock.h" />
+    <ClInclude Include="..\Socket\Common\Src\Semaphore.h" />
+    <ClInclude Include="..\Socket\Common\Src\Singleton.h" />
+    <ClInclude Include="..\Socket\Common\Src\STLHelper.h" />
+    <ClInclude Include="..\Socket\Common\Src\SysHelper.h" />
+    <ClInclude Include="..\Socket\Common\Src\WaitFor.h" />
+    <ClInclude Include="..\Socket\Common\Src\Win32Helper.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Global\helper.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketHelper.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketInterface.h" />
+    <ClInclude Include="..\Socket\HP-Socket\Src\TcpServer.h" />
+    <ClInclude Include="ado2.h" />
+    <ClInclude Include="CBase64Coding.h" />
+    <ClInclude Include="CustSvrMng.h" />
+    <ClInclude Include="Dlg.h" />
+    <ClInclude Include="Func.h" />
+    <ClInclude Include="FXSHDManage.h" />
+    <ClInclude Include="GenericHTTPClient.h" />
+    <ClInclude Include="globalvar.h" />
+    <ClInclude Include="GroupChatManage.h" />
+    <ClInclude Include="InfoList.h" />
+    <ClInclude Include="IniFile.h" />
+    <ClInclude Include="LinkManager.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MongoDBMgr.h" />
+    <ClInclude Include="MyServer.h" />
+    <ClInclude Include="OutputWnd.h" />
+    <ClInclude Include="ProcessReq.h" />
+    <ClInclude Include="PublicManage.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Serverlog.h" />
+    <ClInclude Include="ThreadFunc.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="struct.h" />
+    <ClInclude Include="TabCtrl\Draw.h" />
+    <ClInclude Include="TabCtrl\TabCtrl.h" />
+    <ClInclude Include="TabCtrl\Tools.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="UPIMServer.h" />
+    <ClInclude Include="UPIMServerDoc.h" />
+    <ClInclude Include="UPIMServerView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\json\json_reader.cpp" />
+    <ClCompile Include="..\Common\json\json_value.cpp" />
+    <ClCompile Include="..\Common\json\json_writer.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\bufferpool.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\RWLock.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\SysHelper.cpp" />
+    <ClCompile Include="..\Socket\Common\Src\WaitFor.cpp" />
+    <ClCompile Include="..\Socket\HP-Socket\Global\helper.cpp" />
+    <ClCompile Include="..\Socket\HP-Socket\Src\SocketHelper.cpp" />
+    <ClCompile Include="..\Socket\HP-Socket\Src\TcpServer.cpp" />
+    <ClCompile Include="ado2.cpp" />
+    <ClCompile Include="CBase64Coding.cpp" />
+    <ClCompile Include="CustSvrMng.cpp" />
+    <ClCompile Include="Dlg.cpp" />
+    <ClCompile Include="Func.cpp" />
+    <ClCompile Include="FXSHDManage.cpp" />
+    <ClCompile Include="GenericHTTPClient.cpp" />
+    <ClCompile Include="globalvar.cpp" />
+    <ClCompile Include="GroupChatManage.cpp" />
+    <ClCompile Include="InfoList.cpp" />
+    <ClCompile Include="IniFile.cpp" />
+    <ClCompile Include="LinkManager.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MongoDBMgr.cpp" />
+    <ClCompile Include="MyServer.cpp" />
+    <ClCompile Include="OutputWnd.cpp" />
+    <ClCompile Include="ProcessReq.cpp" />
+    <ClCompile Include="PublicManage.cpp" />
+    <ClCompile Include="Serverlog.cpp" />
+    <ClCompile Include="ThreadFunc.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TabCtrl\TabCtrl.cpp" />
+    <ClCompile Include="UPIMServer.cpp" />
+    <ClCompile Include="UPIMServerDoc.cpp" />
+    <ClCompile Include="UPIMServerView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPIMServer.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="UPIMServer.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

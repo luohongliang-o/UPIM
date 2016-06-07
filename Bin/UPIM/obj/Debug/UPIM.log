@@ -1,0 +1,86 @@
+﻿生成启动时间为 2016/5/26 17:16:11。
+     1>项目“E:\testim\UPIM\UPIM.vcxproj”在节点 2 上(build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output 目录未以斜杠结尾。此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
+     1>InitializeBuildStatus:
+         正在创建“..\Bin\UPIM\obj\Debug\UPIM.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+       ResourceCompile:
+         所有输出均为最新。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Bin\UPIM\Debug\UPIM_fxs.exe" /INCREMENTAL /NOLOGO /MANIFEST:NO /DEBUG /PDB:"E:\testim\Bin\UPIM\Debug\UPIM_fxs.pdb" /MAP /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Bin\UPIM\Debug\UPIM_fxs.lib" /MACHINE:X86 ..\Bin\UPIM\obj\Debug\UPIM.res
+         ..\Bin\UPIM\obj\Debug\json_reader.obj
+         ..\Bin\UPIM\obj\Debug\json_value.obj
+         ..\Bin\UPIM\obj\Debug\json_writer.obj
+         ..\Bin\UPIM\obj\Debug\bufferpool.obj
+         ..\Bin\UPIM\obj\Debug\RWLock.obj
+         ..\Bin\UPIM\obj\Debug\SysHelper.obj
+         ..\Bin\UPIM\obj\Debug\WaitFor.obj
+         ..\Bin\UPIM\obj\Debug\helper.obj
+         ..\Bin\UPIM\obj\Debug\SocketHelper.obj
+         ..\Bin\UPIM\obj\Debug\TcpClient.obj
+         ..\Bin\UPIM\obj\Debug\CalendarDlg.obj
+         ..\Bin\UPIM\obj\Debug\CBase64Coding.obj
+         ..\Bin\UPIM\obj\Debug\CBytsDialog.obj
+         ..\Bin\UPIM\obj\Debug\CreateGroupParam.obj
+         ..\Bin\UPIM\obj\Debug\Func.obj
+         ..\Bin\UPIM\obj\Debug\GenericHTTPClient.obj
+         ..\Bin\UPIM\obj\Debug\globalvar.obj
+         ..\Bin\UPIM\obj\Debug\IMExport.obj
+         ..\Bin\UPIM\obj\Debug\IniFile.obj
+         ..\Bin\UPIM\obj\Debug\LoadDllFunc.obj
+         ..\Bin\UPIM\obj\Debug\LoginDlg.obj
+         ..\Bin\UPIM\obj\Debug\MainPort.obj
+         ..\Bin\UPIM\obj\Debug\md5.obj
+         ..\Bin\UPIM\obj\Debug\MsgQueueSendMng.obj
+         ..\Bin\UPIM\obj\Debug\MyClient.obj
+         ..\Bin\UPIM\obj\Debug\MyThread.obj
+         ..\Bin\UPIM\obj\Debug\PackageManage.obj
+         ..\Bin\UPIM\obj\Debug\PackageRecvManage.obj
+         ..\Bin\UPIM\obj\Debug\ProcessAns.obj
+         ..\Bin\UPIM\obj\Debug\DbSqlite.obj
+         ..\Bin\UPIM\obj\Debug\SqliteOp.obj
+         ..\Bin\UPIM\obj\Debug\stdafx.obj
+         ..\Bin\UPIM\obj\Debug\tinystr.obj
+         ..\Bin\UPIM\obj\Debug\tinyxml.obj
+         ..\Bin\UPIM\obj\Debug\tinyxmlerror.obj
+         ..\Bin\UPIM\obj\Debug\tinyxmlparser.obj
+         ..\Bin\UPIM\obj\Debug\AddMember.obj
+         ..\Bin\UPIM\obj\Debug\ButtonExUI.obj
+         ..\Bin\UPIM\obj\Debug\ChatDialog.obj
+         ..\Bin\UPIM\obj\Debug\ColorSkin.obj
+         ..\Bin\UPIM\obj\Debug\debug.obj
+         ..\Bin\UPIM\obj\Debug\FaceCtrl.obj
+         ..\Bin\UPIM\obj\Debug\FaceList.obj
+         ..\Bin\UPIM\obj\Debug\FaceSelDlg.obj
+         ..\Bin\UPIM\obj\Debug\FileDialogEx.obj
+         ..\Bin\UPIM\obj\Debug\GeneralDialog.obj
+         ..\Bin\UPIM\obj\Debug\GifImage.obj
+         ..\Bin\UPIM\obj\Debug\HistoryMsg.obj
+         ..\Bin\UPIM\obj\Debug\ListEx.obj
+         ..\Bin\UPIM\obj\Debug\MainFrame.obj
+         ..\Bin\UPIM\obj\Debug\MsgNotifyDialog.obj
+         ..\Bin\UPIM\obj\Debug\Path.obj
+         ..\Bin\UPIM\obj\Debug\RichEditUtil.obj
+         ..\Bin\UPIM\obj\Debug\UICrack.obj
+         ..\Bin\UPIM\obj\Debug\UIFriends.obj
+         ..\Bin\UPIM\obj\Debug\UIGroups.obj
+         ..\Bin\UPIM\obj\Debug\UIListCommonDefine.obj
+         ..\Bin\UPIM\obj\Debug\UIMenu.obj
+         ..\Bin\UPIM\obj\Debug\UIMessages.obj
+         ..\Bin\UPIM\obj\Debug\UIRecentLink.obj
+         ..\Bin\UPIM\obj\Debug\UserMrgAddGroup.obj
+         ..\Bin\UPIM\obj\Debug\UserMrgDialog.obj
+         ..\Bin\UPIM\obj\Debug\UserOpenRights.obj
+         ..\Bin\UPIM\obj\Debug\Utils.obj
+         ..\Bin\UPIM\obj\Debug\UPIM.obj
+         UPIM.vcxproj -> E:\testim\UPIM\..\Bin\UPIM\Debug\UPIM_fxs.exe
+       FinalizeBuildStatus:
+         正在删除文件“..\Bin\UPIM\obj\Debug\UPIM.unsuccessfulbuild”。
+         正在对“..\Bin\UPIM\obj\Debug\UPIM.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\testim\UPIM\UPIM.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.40

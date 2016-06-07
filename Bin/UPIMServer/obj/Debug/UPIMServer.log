@@ -1,0 +1,62 @@
+﻿生成启动时间为 2016/6/2 10:25:22。
+     1>项目“E:\testim\UPIMServer\UPIMServer.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“..\Bin\UPIMServer\obj\Debug\UPIMServer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D STATIC_LIBMONGOCLIENT /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"..\Bin\UPIMServer\obj\Debug\UPIM-Debug.pch" /Fo"..\Bin\UPIMServer\obj\Debug\\" /Fd"..\Bin\UPIMServer\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ThreadFunc.cpp
+         ThreadFunc.cpp
+     1>e:\testim\upimserver\threadfunc.cpp(398): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(412): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(417): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(554): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+       ResourceCompile:
+         所有输出均为最新。
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Bin\UPIMServer\Debug\UPIM-Debug.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"..\Bin\UPIMServer\obj\Debug\UPIM-Debug.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\testim\Bin\UPIMServer\Debug\UPIM-Debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Bin\UPIMServer\Debug\UPIM-Debug.lib" /MACHINE:X86 ..\Bin\UPIMServer\obj\Debug\UPIMServer.res
+         ..\Bin\UPIMServer\obj\Debug\json_reader.obj
+         ..\Bin\UPIMServer\obj\Debug\json_value.obj
+         ..\Bin\UPIMServer\obj\Debug\json_writer.obj
+         ..\Bin\UPIMServer\obj\Debug\bufferpool.obj
+         ..\Bin\UPIMServer\obj\Debug\RWLock.obj
+         ..\Bin\UPIMServer\obj\Debug\SysHelper.obj
+         ..\Bin\UPIMServer\obj\Debug\WaitFor.obj
+         ..\Bin\UPIMServer\obj\Debug\helper.obj
+         ..\Bin\UPIMServer\obj\Debug\SocketHelper.obj
+         ..\Bin\UPIMServer\obj\Debug\TcpServer.obj
+         ..\Bin\UPIMServer\obj\Debug\ado2.obj
+         ..\Bin\UPIMServer\obj\Debug\CBase64Coding.obj
+         ..\Bin\UPIMServer\obj\Debug\CustSvrMng.obj
+         ..\Bin\UPIMServer\obj\Debug\Dlg.obj
+         ..\Bin\UPIMServer\obj\Debug\Func.obj
+         ..\Bin\UPIMServer\obj\Debug\FXSHDManage.obj
+         ..\Bin\UPIMServer\obj\Debug\GenericHTTPClient.obj
+         ..\Bin\UPIMServer\obj\Debug\globalvar.obj
+         ..\Bin\UPIMServer\obj\Debug\GroupChatManage.obj
+         ..\Bin\UPIMServer\obj\Debug\InfoList.obj
+         ..\Bin\UPIMServer\obj\Debug\IniFile.obj
+         ..\Bin\UPIMServer\obj\Debug\LinkManager.obj
+         ..\Bin\UPIMServer\obj\Debug\MainFrm.obj
+         ..\Bin\UPIMServer\obj\Debug\MongoDBMgr.obj
+         ..\Bin\UPIMServer\obj\Debug\MyServer.obj
+         ..\Bin\UPIMServer\obj\Debug\OutputWnd.obj
+         ..\Bin\UPIMServer\obj\Debug\ProcessReq.obj
+         ..\Bin\UPIMServer\obj\Debug\PublicManage.obj
+         ..\Bin\UPIMServer\obj\Debug\Serverlog.obj
+         ..\Bin\UPIMServer\obj\Debug\ThreadFunc.obj
+         ..\Bin\UPIMServer\obj\Debug\stdafx.obj
+         ..\Bin\UPIMServer\obj\Debug\TabCtrl.obj
+         ..\Bin\UPIMServer\obj\Debug\UPIMServer.obj
+         ..\Bin\UPIMServer\obj\Debug\UPIMServerDoc.obj
+         ..\Bin\UPIMServer\obj\Debug\UPIMServerView.obj
+         UPIMServer.vcxproj -> E:\testim\UPIMServer\..\Bin\UPIMServer\Debug\UPIM-Debug.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"E:\testim\UPIMServer\..\Bin\UPIMServer\Debug\UPIM-Debug.exe.manifest" /manifest "..\Bin\UPIMServer\obj\Debug\UPIM-Debug.exe.intermediate.manifest" "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+       FinalizeBuildStatus:
+         正在删除文件“..\Bin\UPIMServer\obj\Debug\UPIMServer.unsuccessfulbuild”。
+         正在对“..\Bin\UPIMServer\obj\Debug\UPIMServer.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\testim\UPIMServer\UPIMServer.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:17.56

@@ -1,0 +1,27 @@
+2016-03-03 16:38:03,408 InitRichEditCom Start!
+2016-03-03 16:38:04,144 Socket Connect OK! [ConnID:1]
+2016-03-03 16:38:04,160 RecvData: iLength:311 nLen:286 Req:5001
+2016-03-03 16:38:04,171 Recv:[UPIM_REQ_CHECKPWD]
+2016-03-03 16:38:04,258 Send:[UPIM_REQ_ALLTGROOMEX] userid:onleading market:1
+2016-03-03 16:38:04,270 T_OFFMSG ADD
+2016-03-03 16:38:04,287 RecvData: iLength:1721 nLen:1696 Req:5041
+2016-03-03 16:38:04,304 Recv:[UPIM_REQ_ALLTGROOMEX] ItemNum:5
+2016-03-03 16:38:04,351 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\my.jpg]
+2016-03-03 16:38:04,425 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1150.jpg]
+2016-03-03 16:38:04,481 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1142.jpg]
+2016-03-03 16:38:04,569 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1144.jpg]
+2016-03-03 16:38:04,626 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1143.jpg]
+2016-03-03 16:38:04,684 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1181.jpg]
+2016-03-03 16:38:04,733 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1145.jpg]
+2016-03-03 16:38:04,763 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1146.jpg]
+2016-03-03 16:38:04,793 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1147.jpg]
+2016-03-03 16:38:04,822 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1141.jpg]
+2016-03-03 16:38:04,856 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1148.jpg]
+2016-03-03 16:38:04,907 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1154.jpg]
+2016-03-03 16:38:04,933 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1155.jpg]
+2016-03-03 16:38:04,958 FILE: [E:\WORK\Bin\UPIM\Release\UPIMUser\onleading\head\1157.jpg]
+2016-03-03 16:38:06,797 T_OFFMSG DEL
+2016-03-03 16:38:06,816 Send:[UPIM_REQ_OFFMSG] userid:onleading
+2016-03-03 16:38:12,101 StopClient
+2016-03-03 16:38:12,168 [SUCCESS]Socket Close ConnID:1
+2016-03-03 16:38:12,181 1# CMyClient::OnClose

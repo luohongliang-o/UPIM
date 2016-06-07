@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+  <ListContainerElement>
+        <VerticalLayout>
+            <VerticalLayout name="logo_img" height="56">
+                <HorizontalLayout>
+                    <VerticalLayout name="logo_container" width="60">
+                        <Button name="logo" width="40" height="40"  padding="10, 8, 0, 0"/>
+                    </VerticalLayout>
+                    <VerticalLayout>
+                        <HorizontalLayout>
+                            <Label name="nickname" padding="0,6,0,0" text="" bordersize="0" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+							<Control />
+							<Label name="time" width="50" text="10:22" padding="0,6,0,0" bordersize="0" textcolor="#FF555555"/>
+                        </HorizontalLayout>
+						 <HorizontalLayout name="lastword_container" >
+                            <Label name="lastword" endellipsis="true" padding="0,0,0,6" text=""  bordersize="0" textcolor="#FF555555"/>
+                        </HorizontalLayout>
+                    </VerticalLayout>
+                </HorizontalLayout>
+            </VerticalLayout>
+        </VerticalLayout>
+    </ListContainerElement>
+</Window>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="1000,600" mininfo="400,300" sizebox="4,4,4,4" caption="0,0,0,-1" roundcorner="4,4">
+    <Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+    <Font name="微软雅黑" size="14" bold="true" italic="false" />
+    <Default name="VScrollBar" value="button1normalimage=&quot;file='common/scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='common/scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='common/scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='common/scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='common/scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='common/scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='common/scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='common/scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='common/scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='common/scrollbar.png' source='0,16,16,32'&quot;" />
+    <HorizontalLayout name="historymsg_bg" bkimage="file='common/bg2.png' corner='600,200,1,1'">
+        <VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="2,2,2,2">
+            <HorizontalLayout height="30">
+                <VerticalLayout inset="2,6,2,0">
+                    <Text name="historymsg_title" text="消息管理器" tooltip="消息管理器" width="80" height="23" textpadding="2,0,2,0" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                </VerticalLayout>
+                <VerticalLayout width="94">
+					<Button name="historymsg_minbtn" float="true" pos="0,0,28,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='common/btn_mini_normal.png'" hotimage="common/btn_mini_highlight.png" pushedimage="common/btn_mini_down.png"  />
+					<Button name="historymsg_maxbtn" float="true" pos="28,0,56,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='common/btn_max_normal.png'" hotimage="common/btn_max_highlight.png" pushedimage="common/btn_max_down.png"  />
+					<Button name="historymsg_restorebtn" visible="false" float="true" pos="28,0,56,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='common/btn_restore_normal.png'" hotimage="common/btn_restore_highlight.png" pushedimage="common/btn_restore_down.png"  />
+					<Button name="historymsg_closebtn" float="true" pos="56,0,95,19" width="39" height="19" maxheight="19" maxwidth="39"  normalimage="file='common/btn_close_normal.png'" hotimage="common/btn_close_highlight.png" pushedimage="common/btn_close_down.png"  />
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout padding="1,0,1,0" bkcolor="#FFF0F6FF">
+                <VerticalLayout width="260" padding="5,5,5,5">
+                    <HorizontalLayout bkcolor="#FFF0F6E0" bkcolor2="#FFFFFFFF">
+                        <MemberList name="historymsg_list" header="hidden" itemshowhtml="true" vscrollbar="true" />
+                    </HorizontalLayout>
+                </VerticalLayout>
+               <VerticalLayout padding="5,5,5,5">
+                    <HorizontalLayout bordersize="0" bordercolor="#FF999933" inset="5,0,0,0" >
+						<RichEdit name="historymsg_view_richedit" multiline="true" vscrollbar="true" autovscroll="true" rich="true" readonly="true"  menu="true"/>
+					</HorizontalLayout>
+					<HorizontalLayout bordersize="1" bordercolor="#FFCCCCCC" height="30" inset="5,0,0,0" >
+						<DateTime name="historymsg_DateTime" width="150" height="20" bkcolor="#FFFFFFFF" padding="0,5,0,0" />
+					</HorizontalLayout>
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout height="1" />
+        </VerticalLayout>
+    </HorizontalLayout>
+</Window>

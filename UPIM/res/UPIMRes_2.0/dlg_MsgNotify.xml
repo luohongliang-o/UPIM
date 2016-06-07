@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="258,108" mininfo="258,80" sizebox="4,4,4,4" caption="0,0,0,-1" roundcorner="4,4">
+	<Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+	<Font name="微软雅黑" size="12" bold="true" italic="false" />
+	<Font name="微软雅黑" size="14" bold="false" italic="false" />
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" />
+	<HorizontalLayout name="msgnotify_bg" bkimage="file='bg2.png' corner='380,200,1,1'">
+		<VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="1,0,1,1">
+			<VerticalLayout bkcolor="#FFFFFFFF" >
+				<!-- 顶部区域 -->
+				<HorizontalLayout height="24" bkcolor="#FFF0BC59">
+					<VerticalLayout height="24" inset="10,6,2,0">
+						<Text name="msgnotify_name" text="客户姓名" tooltip="客户姓名" height="20" textpadding="2,0,2,0" textcolor="#FF000000" font="1" align="wrap" />
+						<Control width="236" />
+						<Button name="general_set" float="true" pos="20,2,0,0" width="20" height="20" maxheight="20" maxwidth="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="Tools.png'" hotimage="Tools.png" pushedimage="Tools.png" />
+					</VerticalLayout>
+				</HorizontalLayout>
+				<!-- 消息区域 -->
+				<HorizontalLayout bkcolor="#FFFFFFFF" bordersize="1" bordercolor="#FFD2D2D2" name = "msg_friend">
+					<MessageList name="msgnotify_friends" header="hidden" itemshowhtml="true" vscrollbar="false"  />
+				</HorizontalLayout>
+				<!-- 下部区域 -->
+				<HorizontalLayout height="30" name="general_login" >
+					<Button name="msgnotify_hlsy" text="忽略全部" tooltip="忽略全部" height="21" padding="2,4,2,5" textpadding="2,0,2,0" textcolor="#FF0071C0" font="0" align = "center"  hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"/>
+					<Control width= "127" />
+					<Button name="msgnotify_cksy" text="查看所有" tooltip="查看所有" height="21" padding="2,4,2,5" textpadding="2,0,2,0" textcolor="#FF0071C0" font="0" align = "center"  hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"/>
+				</HorizontalLayout>
+				<HorizontalLayout height="1" />
+			</VerticalLayout>
+		</VerticalLayout>
+	</HorizontalLayout>
+</Window>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="664,441" mininfo="500,400" sizebox="4,4,4,4" caption="0,0,0,30" roundcorner="4,4">
+	<Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+	<Font name="微软雅黑" size="14" bold="true" italic="false" />
+	<Font name="微软雅黑" size="12" bold="true" italic="false" />
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" />
+	<HorizontalLayout name="general_bg" bkimage="file='bg2.png' corner='380,200,1,1'">
+		<VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="1,0,1,1">
+			<VerticalLayout bkcolor="#FFF0BC59">
+				<!-- 顶部区域 -->
+				<HorizontalLayout height="30">
+					<VerticalLayout height="30" width="28">
+						<Label name="mainframe_appicon" padding="10,9,0,0" width="14" height="14" bkimage="file='usermrg_icon.png'" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					</VerticalLayout>
+					<VerticalLayout height="30" inset="2,6,2,0">
+						<Text name="general_title" text="客户管理器" tooltip="客户管理器" height="21" textpadding="2,0,2,0" textcolor="#FF000000" font="1" align="wrap" />
+					</VerticalLayout>
+					<VerticalLayout />
+					<VerticalLayout width="104">
+						<Button name="general_minbtn" float="true" pos="0,0,28,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='btn_mini_normal.png'" hotimage="btn_mini_highlight.png" pushedimage="btn_mini_down.png"  />
+						<Button name="general_maxbtn" float="true" pos="28,0,56,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='btn_max_normal.png'" hotimage="btn_max_highlight.png" pushedimage="btn_max_down.png"  />
+						<Button name="general_restorebtn" visible="false" float="true" pos="28,0,56,19" width="28" height="19" maxheight="19" maxwidth="28"  normalimage="file='btn_restore_normal.png'" hotimage="btn_restore_highlight.png" pushedimage="btn_restore_down.png"  />
+						<Button name="general_closebtn" float="true" pos="56,0,95,19" width="39" height="19" maxheight="19" maxwidth="39"  normalimage="file='btn_close_normal.png'" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png"  />
+					</VerticalLayout>
+				</HorizontalLayout>
+				<!-- 描述区域 -->
+				<HorizontalLayout height="40" bkcolor="#FFFFFFFF">
+					<VerticalLayout>
+						<HorizontalLayout height="40">
+							<Text name="general_1" width="200" minwidth="200"  text="客户分组" textpadding="10,12,0,6" textcolor="#FF000000" />
+							<Text name="general_2" width="100" minwidth="100"  text="全部客户" textpadding="10,12,0,6" textcolor="#FF000000" />
+							<Control width = "50" />
+							<!-- <Button name="usermrg_delbtn" width="24" height="24" maxheight="24" maxwidth="24" padding="0,5,0,0" bkimage="file='usermrg_del.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  /> -->
+							<Button name="usermrg_delbtn" padding="4,7,0,0"  textcolor="#FFFFFFFF" tooltip="删除分组" text="删除分组" width="60" height="24" maxheight="24" maxwidth="60" bkimage="file='chat_btn.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control />
+							<Text name="general_2" minwidth="45" align="right"  text="移动到 " textpadding="0,12,0,0" textcolor="#FF000000" />
+							<Combo name="usermrg_group" droptype="droplist" width="150" height="22" padding="0,10,0,0" textpadding="5,1,1,1"  normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
+								<ListLabelElement text="未分组客户" selected="true" height="22" />
+							</Combo>
+							<Control width="10" />
+						</HorizontalLayout>
+					</VerticalLayout>
+				</HorizontalLayout>
+				<!-- 列表区域 -->
+				<HorizontalLayout name="general_login" >
+					<VerticalLayout width="172" bkcolor="#FFF0F0F2">
+						<VerticalLayout height="35" name="usermrg_fenzu">
+							<Option visible="true" width="90" valign="center" align="left" textpadding="6,3,0,0" padding="10,10,0,0" name="fz_all" text="全部客户" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group" selected="true"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_0" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_1" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_2" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_3" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_4" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_5" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_6" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_7" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_8" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_9" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+							<Option visible="false" width="70" valign="center" align="left" textpadding="6,3,0,0" padding="30,0,0,0" name="fz_10" text="" textcolor="#FF000000" selectedtextcolor="FFFFFFFF" font="3" selectedimage="file='chat_btn.png' corner='2,2,2,2'" group="usermrg_fenzu_group"/>
+						</VerticalLayout>
+						<VerticalLayout height="40">
+							<Button name="usermrg_addbtn" width="120" height="24" maxheight="24" maxwidth="120" padding="25,0,0,0" bkimage="file='usermrg_add.png' dest='10,4,110,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+						</VerticalLayout>
+					</VerticalLayout>
+					<VerticalLayout width="20" bkcolor="#FFFFFFFF">
+						
+					</VerticalLayout>
+					<VerticalLayout bkcolor="#FFF2F2F2">
+						<List name="listex" bkcolor="#FFFFFFFF" inset="0,0,0,0" itemshowhtml="true" vscrollbar="true" hscrollbar="true" headerbkimage="file='list_header_bg.png'" itemhotimage="file='tree_hot.bmp' corner='2,1,2,1'" itemselectedimage="file='tree_select.bmp' corner='2,1,2,1'" itemalign="center" itembkcolor="#FFE2DDDF" itemaltbk="true" hscrollbar="false" menu="true">
+							<ListHeader height="24" menu="true">
+								<ListHeaderItem text="" inset="1,0,1,0" width="70" minwidth="50" endellipsis="true" font="0" normalimage="headerctrl.bmp" hotimage="headerctrl.bmp" pushedimage="headerctrl.bmp" sepimage="Headerctrl_Sperator.bmp" sepwidth="2">
+									<VerticalLayout inset="3,3,5,0">
+										<CheckBox name="selall" endellipsis="true"  text="全选" disabledtextcolor="#FFbac0c5" textpadding="20,0,0,0" align="left" selectedimage="file='checkbox_p.png' dest='0,2,15,17'" normalimage="file='checkbox_h.png' dest='0,2,15,17'"  />
+									</VerticalLayout>
+								</ListHeaderItem>
+								<ListHeaderItem text="客户ID" width="150" minwidth="100" endellipsis="true" font="0" normalimage="headerctrl.bmp" hotimage="headerctrl.bmp" pushedimage="headerctrl.bmp" sepimage="Headerctrl_Sperator.bmp" sepwidth="2"/>
+								<ListHeaderItem text="分组" width="150" minwidth="100" endellipsis="true" font="0" normalimage="headerctrl.bmp" hotimage="headerctrl.bmp" pushedimage="headerctrl.bmp" sepimage="Headerctrl_Sperator.bmp" sepwidth="2"/>
+							</ListHeader>
+						</List>	
+					</VerticalLayout>
+				</HorizontalLayout>
+				<HorizontalLayout height="1" />
+			</VerticalLayout>
+		</VerticalLayout>
+	</HorizontalLayout>
+</Window>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Grid_Ctrl">
+      <UniqueIdentifier>{b8e3d0af-7d48-4203-ad4c-bdbca2990a18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewCellTypes">
+      <UniqueIdentifier>{b2f23988-0eef-4099-93cd-09df5e8738fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\pbSysTool.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\pbSysTool.ico">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pbSysTool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pbSysToolDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AddDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ModifyDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ado2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="macro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\CellRange.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\GridCell.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\GridCellBase.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\GridCtrl.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\GridDropTarget.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\InPlaceEdit.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\TitleTip.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GridCtrl_src\MemDC.h">
+      <Filter>Grid_Ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NewCellTypes\GridCellCheck.h">
+      <Filter>NewCellTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NewCellTypes\GridCellCombo.h">
+      <Filter>NewCellTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NewCellTypes\GridCellDateTime.h">
+      <Filter>NewCellTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NewCellTypes\GridCellNumeric.h">
+      <Filter>NewCellTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NewCellTypes\GridURLCell.h">
+      <Filter>NewCellTypes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pbSysTool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pbSysToolDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AddDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ModifyDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ado2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GridCtrl_src\GridCell.cpp">
+      <Filter>Grid_Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GridCtrl_src\GridCellBase.cpp">
+      <Filter>Grid_Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GridCtrl_src\GridCtrl.cpp">
+      <Filter>Grid_Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GridCtrl_src\GridDropTarget.cpp">
+      <Filter>Grid_Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GridCtrl_src\InPlaceEdit.cpp">
+      <Filter>Grid_Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GridCtrl_src\TitleTip.cpp">
+      <Filter>Grid_Ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NewCellTypes\GridCellCheck.cpp">
+      <Filter>NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NewCellTypes\GridCellCombo.cpp">
+      <Filter>NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NewCellTypes\GridCellDateTime.cpp">
+      <Filter>NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NewCellTypes\GridCellNumeric.cpp">
+      <Filter>NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NewCellTypes\GridURLCell.cpp">
+      <Filter>NewCellTypes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="pbSysTool.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

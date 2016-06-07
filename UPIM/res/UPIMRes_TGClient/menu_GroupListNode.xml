@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window showshadow="true" shadowimage="shadow.png" shadowcorner="23,13,23,33">
+	<Default name="Menu" value="bordersize=&quot;1&quot; borderround=&quot;2,2&quot; bordercolor=&quot;0x303132&quot; inset=&quot;2,2,2,2&quot; itemtextpadding=&quot;30,0,0,0&quot; bkimage=&quot;file='menu_bk.png' corner='26,2,2,2' source='6,6,44,24'&quot; itemselectedbkcolor=&quot;0xFF338ACA&quot;" />
+	<Default name="ExplandIcon" value="menu_expand.png" />
+	<Menu>
+		<MenuElement name="Group_List_send" text="发送群消息" />
+		<MenuElement linetype="true" />
+		<MenuElement name="Group_List_look" text="查看群资料" />
+		<MenuElement name="Group_List_his" text="查看消息记录" icon="msgmgr.png" iconsize="20,20" />
+		<MenuElement linetype="true" />
+		<MenuElement name="Group_List_create" text="创建一个群" />
+		<MenuElement name="Group_List_quit" text="退出该群" />
+	</Menu>
+</Window>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="600,520" mininfo="400,300" caption="0,0,0,0" sizebox="0,0,0,0" roundcorner="0,0,0,0" showshadow="false" shadowimage="shadow.png" shadowcorner="10,10,10,10">
+<Font name="微软雅黑" size="12" bold="false" default="true" />
+<Font name="微软雅黑" size="14" bold="true"/>
+<Font name="微软雅黑" size="12" bold="true"/>
+<Font name="宋体" size="12" bold="false" />
+<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" />
+<HorizontalLayout name="chatbox_bg" bkimage="file='chattg.jpg' corner='600,200,1,1'" hole="true">
+	<VerticalLayout>
+		<HorizontalLayout>
+			<VerticalLayout>
+				<HorizontalLayout>
+					<TabLayout name="Tg_switch1">
+						<VerticalLayout>
+							<HorizontalLayout name="chatbox_TopBtnList" height="75">
+								<HorizontalLayout inset="10,5,0,0">
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_0" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_1" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_2" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_3" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_4" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_5" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_6" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_7" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_8" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+									<Control width="10"/>
+									<Option visible="false" pos="0, 0, 65, 65" valign="bottom" name="tg_9" text="" textcolor="#FF386382" font="3" textpadding="0,0,0,5" foreimage="file='lts_laoshi2.png' dest='5,5,60,60'" normalimage="toolbar_normal.png" hotimage="toolbar_hover.png" pushedimage="toolbar_pushed.png" selectedimage="toolbar_pushed.png" group="quickbar"/>
+								</HorizontalLayout>
+							</HorizontalLayout>
+							<HorizontalLayout>
+								<TabLayout name="Tg_switch2">
+									<HorizontalLayout bkimage="file='jb2.png' corner='2,30,2,2'" bordersize="0" bordercolor="#FF999933" inset="5,0,0,0" >
+										<RichEdit name="chatbox_view_richedit" multiline="true" vscrollbar="true" autovscroll="true" readonly="true" menu="true"/>
+									</HorizontalLayout>
+									<VerticalLayout bkimage="file='lts_xuanzefenxishi.png' fade='125'">
+									</VerticalLayout>
+								</TabLayout>
+							</HorizontalLayout>
+						</VerticalLayout>
+						<VerticalLayout bkimage="file='lts_nolaoshi.png'">
+						</VerticalLayout>
+					</TabLayout>
+				</HorizontalLayout>
+				<HorizontalLayout name="chatbox_fontbar" bkimage="file='font_bk.bmp'" height="30" inset="4,4,4,4">
+					<Combo name="chatbox_font_type" droptype="droplist" width="100" height="22" textpadding="4,1,1,1"  normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
+						<ListLabelElement text="微软雅黑" selected="true" height="23" />
+						<ListLabelElement text="宋体" height="23" />
+						<ListLabelElement text="楷体" height="23" />
+						<ListLabelElement text="隶书" height="23" />
+						<ListLabelElement text="方正舒体" height="23"/>
+						<ListLabelElement text="方正姚体" height="23" />
+						<ListLabelElement text="仿宋_GB2312" height="23" />
+						<ListLabelElement text="黑体" height="23" />
+						<ListLabelElement text="华文彩云" height="23" />
+						<ListLabelElement text="华文仿宋" height="23" />
+						<ListLabelElement text="华文琥珀" height="23" />
+						<ListLabelElement text="华文楷体" height="23" />
+						<ListLabelElement text="华文隶书" height="23" />
+						<ListLabelElement text="华文宋体" height="23" />
+						<ListLabelElement text="华文细黑" height="23" />
+						<ListLabelElement text="华文新魏" height="23" />
+						<ListLabelElement text="华文行楷" height="23" />
+						<ListLabelElement text="华文中宋" height="23" />
+						<ListLabelElement text="宋体方正超大" height="23" />
+						<ListLabelElement text="新宋体" height="23" />
+						<ListLabelElement text="幼圆" height="23" />
+					</Combo>
+					<Combo name="chatbox_font_size" droptype="droplist" width="50" height="22" textpadding="4,1,1,1" normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
+						<ListLabelElement text="9" selected="true" height="23" />
+						<ListLabelElement text="10" height="23" />
+						<ListLabelElement text="11" height="23" />
+						<ListLabelElement text="12" height="23" />
+						<ListLabelElement text="13" height="23" />
+						<ListLabelElement text="14" height="23" />
+						<ListLabelElement text="15" height="23" />
+						<ListLabelElement text="16" height="23" />
+						<ListLabelElement text="17" height="23" />
+						<ListLabelElement text="18" height="23" />
+						<ListLabelElement text="19" height="23" />
+						<ListLabelElement text="20" height="23" />
+						<ListLabelElement text="21" height="23" />
+						<ListLabelElement text="22" height="23" />
+						<ListLabelElement text="24" height="23" />
+						<ListLabelElement text="28" height="23" />
+						<ListLabelElement text="32" height="23" />
+					</Combo>
+					<Control width="5"/>
+					<Option showhtml="true" name="chatbox_boldbtn" width="22" height="22" text="{i Bold.png}{/i}" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Option showhtml="true" name="chatbox_italicbtn" width="22" height="22" text="{i Italic.png}{/i}" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Option showhtml="true" name="chatbox_underlinebtn" width="22" height="22" text="{i underline.png}{/i}" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Option showhtml="true" name="chatbox_colorbtn" width="22" height="22" text="{i color.png}{/i}" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+				</HorizontalLayout>
+				<HorizontalLayout height="28" bordersize="1" bordercolor="#FFD3DEE5" inset="2,4,2,4">
+					<Option name="chatbox_fontbtn" width="24" height="20" maxheight="20" maxwidth="24" bkimage="file='icon_font.png' dest='2,0,22,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="5"/>
+					<Option name="chatbox_emotionbtn" width="24" height="20" maxheight="20" maxwidth="24" bkimage="file='icon_face.png' dest='2,0,22,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" selectedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="5"/>
+					<Button name="chatbox_imagebtn" width="24" height="20" maxheight="20" maxwidth="24" bkimage="file='icon_pic.png' dest='2,0,22,20'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+				</HorizontalLayout>
+				<HorizontalLayout height="80" padding="10,0,10,0" inset="5,0,0,0" bordersize="1" bordercolor="#FFD3DEE5">
+					<RichEdit name="chatbox_input_richedit" multiline="true" vscrollbar="true" autovscroll="true" wantctrlreturn="false" menu="true"/>
+				</HorizontalLayout>
+				<HorizontalLayout height="32">
+					<Control />
+					<Button name="chatbox_sendbtn" padding="0,4,0,0" tooltip="发送" text="发送" width="69" height="24" maxheight="24" maxwidth="69" bkimage="file='unsel.bmp'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+					<Control width="10"/>
+				</HorizontalLayout>
+			</VerticalLayout>
+		</HorizontalLayout>
+		<HorizontalLayout height="1" />
+	</VerticalLayout>
+</HorizontalLayout>
+</Window>

@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{46596d55-c485-457e-b7e5-17d3913076a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket\Common">
+      <UniqueIdentifier>{f78578a0-eb58-410c-bf64-94344278befc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket\Global">
+      <UniqueIdentifier>{ea0c9807-3514-41eb-94af-755373f72d2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket\HPSocket">
+      <UniqueIdentifier>{9504b705-6d9e-4ea1-811d-4e0fe5b737f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{eece5b88-ceb4-4753-8d08-160ef9970d5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TinyXML">
+      <UniqueIdentifier>{f002f1ed-d6a3-4ff0-b5d9-3ca17bfbb86a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sqlite">
+      <UniqueIdentifier>{637b237a-01a1-439b-befd-a1d2e4d5286f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Json">
+      <UniqueIdentifier>{398310a8-2c0e-4b15-acf7-fbf344be5db7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\UPIM.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UPIM.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UPIMRes.zip" />
+    <None Include="res\msg.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\notify.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\online.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shake.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Common\json\json_internalarray.inl">
+      <Filter>Json</Filter>
+    </None>
+    <None Include="..\Common\json\json_internalmap.inl">
+      <Filter>Json</Filter>
+    </None>
+    <None Include="..\Common\json\json_valueiterator.inl">
+      <Filter>Json</Filter>
+    </None>
+    <None Include="ChangeLog.txt" />
+    <None Include="res\icon2.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\IM角标.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UPIM_NEW.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\icon3.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\IMUP_Offline.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UPIM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globalvar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\bufferpool.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\bufferptr.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\CriticalSection.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Event.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\GeneralHelper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\PrivateHeap.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\RWLock.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Semaphore.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Singleton.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\STLHelper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\SysHelper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\WaitFor.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Win32Helper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClCompile Include="..\Socket\Common\Src\bufferpool.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\RWLock.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\SysHelper.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\WaitFor.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClInclude Include="..\Socket\HP-Socket\Global\helper.h">
+      <Filter>Socket\Global</Filter>
+    </ClInclude>
+    <ClCompile Include="..\Socket\HP-Socket\Global\helper.cpp">
+      <Filter>Socket\Global</Filter>
+    </ClCompile>
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketInterface.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketHelper.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClCompile Include="..\Socket\HP-Socket\Src\SocketHelper.cpp">
+      <Filter>Socket\HPSocket</Filter>
+    </ClCompile>
+    <ClInclude Include="..\Socket\HP-Socket\Src\TcpClient.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="MyClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\debug.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIFriends.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIGroups.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIListCommonDefine.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ChatDialog.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ColorSkin.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\MainFrame.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\SkinChangeEvent.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessAns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\protocol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIRecentLink.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyXML\tinystr.h">
+      <Filter>TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyXML\tinyxml.h">
+      <Filter>TinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgQueueSendMng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadDllFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ButtonExUI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\FaceCtrl.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\FaceList.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\FaceSelDlg.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\FileDialogEx.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GifImage.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\IImageOle.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Path.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Utils.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UICrack.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\RichEditUtil.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\DbSqlite.h">
+      <Filter>Sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\SqliteOp.h">
+      <Filter>Sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\publicstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\macro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\AddMember.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateGroupParam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\GeneralDialog.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\HistoryMsg.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\assertions.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\autolink.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\config.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\features.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\forwards.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\json.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\json_batchallocator.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\json_tool.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\reader.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\value.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\writer.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\observer_impl_base.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIMenu.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CBase64Coding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IMExport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PackageRecvManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericHTTPClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UserMrgDialog.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\MsgNotifyDialog.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UIMessages.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UserMrgAddGroup.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ListEx.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\CustomWebEventHandler.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UserOpenRights.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CalendarDlg.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CBytsDialog.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UPIM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="globalvar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\HP-Socket\Src\TcpClient.cpp">
+      <Filter>Socket\HPSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="MyClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\debug.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIFriends.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIGroups.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIListCommonDefine.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ChatDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ColorSkin.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\MainFrame.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Func.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessAns.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIRecentLink.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXML\tinystr.cpp">
+      <Filter>TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXML\tinyxml.cpp">
+      <Filter>TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXML\tinyxmlerror.cpp">
+      <Filter>TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="TinyXML\tinyxmlparser.cpp">
+      <Filter>TinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgQueueSendMng.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadDllFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ButtonExUI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\FaceCtrl.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\FaceList.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\FaceSelDlg.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\FileDialogEx.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GifImage.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Path.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\Utils.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UICrack.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\RichEditUtil.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\DbSqlite.cpp">
+      <Filter>Sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\SqliteOp.cpp">
+      <Filter>Sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\AddMember.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateGroupParam.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\GeneralDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\HistoryMsg.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\json\json_reader.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\json\json_value.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\json\json_writer.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIMenu.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CBase64Coding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IMExport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PackageRecvManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericHTTPClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UserMrgDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\MsgNotifyDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UIMessages.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UserMrgAddGroup.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\ListEx.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UserOpenRights.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CalendarDlg.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CBytsDialog.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPIM.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

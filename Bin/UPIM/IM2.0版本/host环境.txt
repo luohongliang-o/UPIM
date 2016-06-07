@@ -1,0 +1,7 @@
+121.14.69.18  api.upchinafund.com
+121.14.69.18  app.upchinafund.com
+121.14.69.18  js.upchinafund.com
+121.14.69.18  upia.upchinafund.com
+
+#121.14.69.18  img.upchinafund.com
+img域名不要加，否则头像取不到

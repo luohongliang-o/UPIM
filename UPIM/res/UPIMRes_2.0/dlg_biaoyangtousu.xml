@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="570,400" mininfo="570,400" sizebox="4,4,4,4" caption="0,0,0,-1" roundcorner="4,4">
+	<Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+	<Font name="微软雅黑" size="14" bold="true" italic="false" />
+	<Font name="微软雅黑" size="12" bold="true" italic="false" />
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='scrollbar.png' source='0,0,16,16'&quot; button1hotimage=&quot;file='scrollbar.png' source='16,0,32,16,16'&quot; button1pushedimage=&quot;file='scrollbar.png' source='32,0,48,16'&quot; button2normalimage=&quot;file='scrollbar.png' source='0,32,16,48'&quot; button2hotimage=&quot;file='scrollbar.png' source='16,32,32,48'&quot; button2pushedimage=&quot;file='scrollbar.png' source='32,32,48,48'&quot; thumbnormalimage=&quot;file='scrollbar.png' source='0,48,16,64' corner='0,2,0,2'&quot; thumbhotimage=&quot;file='scrollbar.png' source='16,48,32,64' corner='0,2,0,2'&quot; thumbpushedimage=&quot;file='scrollbar.png' source='32,48,48,64' corner='0,2,0,2'&quot; bknormalimage=&quot;file='scrollbar.png' source='0,16,16,32'&quot;" />
+	<HorizontalLayout name="general_bg" bkimage="file='bg2.png' corner='380,200,1,1'">
+		<VerticalLayout bkimage="file='border.png' corner='5,5,5,5'" inset="1,0,1,1">
+			<VerticalLayout bkcolor="#FFF0BC59">
+				<!-- 顶部 -->
+				<HorizontalLayout height="40">
+					<VerticalLayout height="40" width="35">
+						<Label name="mainframe_appicon" padding="10,7,0,0" width="23" height="23" bkimage="file='new_logo.png'" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					</VerticalLayout>
+					
+					<VerticalLayout height = "40">
+						<Label name = "biaoyangandtoushu" padding="5,7,0,0" width = "50" text = "表扬投诉" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" /> 
+					</VerticalLayout>
+					
+					<VerticalLayout width="104">
+						<HorizontalLayout>
+							<Control />
+							<!-- <Button name="btn_minbtn" width="28" height="19" normalimage="file='btn_mini_normal.png'" hotimage="btn_mini_highlight.png" pushedimage="btn_mini_down.png"  /> -->
+							<!-- <Button name="btn_maxbtn"  width="28" height="19"   normalimage="file='btn_max_normal.png'" hotimage="btn_max_highlight.png" pushedimage="btn_max_down.png"  /> -->
+							<Button name="btn_closebtn" width="39" height="19"   normalimage="file='btn_close_normal.png'" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png"  />
+						</HorizontalLayout>
+					</VerticalLayout>	
+				</HorizontalLayout>
+				
+				<!-- 中间主体部分-->
+				<VerticalLayout height="300" bkcolor="#FFFFFFFF" > 
+					<HorizontalLayout height = "60" >
+						<Label name = "text_name" font = "2" padding="5,27,0,0" width = "150" text = "我要：" align = "right" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" /> 
+						<CheckBox name="checkbox_tousu" font = "2" padding="5,27,0,0" width = "130" endellipsis="true"  text="投诉分析师" disabledtextcolor="#FFbac0c5" textpadding="20,0,0,0" align="left" selectedimage="file='checkbox_p.png' dest='0,2,15,17'" normalimage="file='checkbox_h.png' dest='0,2,15,17'"  />
+						<CheckBox name="checkbox_biaoyang" font = "2" padding="5,27,0,0" width = "130" endellipsis="true"  text="表扬分析师" disabledtextcolor="#FFbac0c5" textpadding="20,0,0,0" align="left" selectedimage="file='checkbox_p.png' dest='0,2,15,17'" normalimage="file='checkbox_h.png' dest='0,2,15,17'"  />
+					</HorizontalLayout>
+					
+					<HorizontalLayout>
+						<TabLayout name = " switch_face">
+							<!-- 投诉分析师-->
+							<VerticalLayout>
+								<HorizontalLayout height = "40">
+									<Label name = "text_name23" font = "2" padding="5,7,0,0" width = "150" text = "举报分析师：" align = "right" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+									<Combo name="combo_choose" droptype="droplist" width="150" height="22" padding="0,10,0,0" textpadding="5,1,1,1"  normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
+										<ListLabelElement text="服务态度恶劣" font = "2" selected="true" height="22" />
+									</Combo>
+								</HorizontalLayout>
+								
+								<HorizontalLayout height = "40">
+									<Label name = "text_name24" font = "2" padding="5,7,0,0" width = "150" text = "您的手机号：" align = "right" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+									<Edit name="phone_edit" width="150" padding="5,7,0,0" text="用于客服与您联系核实" maxchar="16" bordercolor="#FFCCCCCC" bordersize="1" visible="true" bkcolor="#FFFFFFFF" height="26"/>
+								</HorizontalLayout>
+								
+								<HorizontalLayout height = "120">
+									<Label name = "text_name25" font = "2" padding="5,7,0,0" width = "150" text = "补充说明：" align = "right"  textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+									<RichEdit name="buchongshuoming_edit" width = "300" bordercolor="#FFCCCCCC" bordersize="1" multiline="true" vscrollbar="true" autovscroll="true" readonly="false" wantreturn="true" wantctrlreturn="false" menu="true"/>
+								</HorizontalLayout>
+								
+								<HorizontalLayout height = "40">
+									<Label name = "text_name26" font = "2" padding="5,7,0,0" width = "570" text = "客户电话：020-39197373" align = "center" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+								</HorizontalLayout>
+								
+							</VerticalLayout>
+							
+							<!-- 表扬分析师-->
+							<VerticalLayout>
+								
+								<HorizontalLayout height = "40">
+									<Label name = "text_name27" font = "2" padding="5,7,0,0" width = "150" text = "您的手机号：" align = "right" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+									<Edit name="phone_edit" width="150" padding="5,7,0,0" text="用于客服与您联系核实" maxchar="16" bordercolor="#FFCCCCCC" bordersize="1" visible="true" bkcolor="#FFFFFFFF" height="26"/>
+								</HorizontalLayout>
+								
+								<HorizontalLayout height = "120">
+									<Label name = "text_name28" font = "2" padding="5,7,0,0" width = "150" text = "补充说明：" align = "right" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+									<RichEdit name="buchongshuoming_edit" width = "300" bordercolor="#FFCCCCCC" bordersize="1" multiline="true" vscrollbar="true" autovscroll="true" readonly="false" wantreturn="true" wantctrlreturn="false" menu="true"/>
+								</HorizontalLayout>
+								
+								<HorizontalLayout height = "40">
+									<Label name = "text_name29" font = "2" padding="5,7,0,0" width = "570" text = "客户电话：020-39197373" align = "center" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+								</HorizontalLayout>
+								
+							</VerticalLayout>
+						</TabLayout>
+					</HorizontalLayout>
+				</VerticalLayout>
+				
+				<!-- 提交按钮 -->
+				<HorizontalLayout name="general_login" bkcolor="#FFF2F2F2">
+					<Control />
+					<Button name="btn_submit" padding="0,15,0,0"  textcolor="#FFFFFFFF" tooltip="提交" text="提交" width="90" height="30" maxheight="30" maxwidth="90" bkimage="file='submit.png'" hotimage="file='submit.png' corner='2,3,2,2'" pushedimage="file='submit_click.png' corner='2,5,2,2'"  />
+					<Control />
+				</HorizontalLayout>
+				
+				<HorizontalLayout height="1" />
+			</VerticalLayout>
+		</VerticalLayout>
+	</HorizontalLayout>
+</Window>

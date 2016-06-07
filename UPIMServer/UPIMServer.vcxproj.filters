@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TabCtrl">
+      <UniqueIdentifier>{a9d90ef4-1060-47bf-aef1-1dc3696f46c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{5f1e9b1a-c231-4299-afe1-b394f2175ddc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket\Common">
+      <UniqueIdentifier>{48c55559-451a-4f0d-9cb2-884503406307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket\Global">
+      <UniqueIdentifier>{f57bc1d3-66f4-49c0-b1c8-c7e5d163de15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket\HPSocket">
+      <UniqueIdentifier>{f91de9d1-99d3-4318-8989-0a58646693cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Json">
+      <UniqueIdentifier>{f8790007-3006-4a8f-9510-764361a325d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MongoDB">
+      <UniqueIdentifier>{66ec3fd1-cc4c-4499-b3b6-41d688bf691c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\output_wnd.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\output_wnd_hc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UPIMServer.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UPIMServerDoc.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\UPIMServer.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Toolbar256.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Sys.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\toolbar2.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Common\json\json_internalarray.inl">
+      <Filter>Json</Filter>
+    </None>
+    <None Include="..\Common\json\json_internalmap.inl">
+      <Filter>Json</Filter>
+    </None>
+    <None Include="..\Common\json\json_valueiterator.inl">
+      <Filter>Json</Filter>
+    </None>
+    <None Include="ChangeLog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UPIMServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UPIMServerDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UPIMServerView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TabCtrl\Draw.h">
+      <Filter>TabCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="TabCtrl\TabCtrl.h">
+      <Filter>TabCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="TabCtrl\Tools.h">
+      <Filter>TabCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessReq.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ado2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globalvar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Global\helper.h">
+      <Filter>Socket\Global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketHelper.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketInterface.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Src\TcpServer.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\bufferpool.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\bufferptr.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\CriticalSection.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Event.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\GeneralHelper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\PrivateHeap.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\RWLock.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Semaphore.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Singleton.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\STLHelper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\SysHelper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\WaitFor.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\Common\Src\Win32Helper.h">
+      <Filter>Socket\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Dlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\macro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\protocol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\publicstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupChatManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\assertions.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\autolink.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\config.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\features.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\forwards.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\json.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\json_batchallocator.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\json_tool.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\reader.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\value.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\json\writer.h">
+      <Filter>Json</Filter>
+    </ClInclude>
+    <ClInclude Include="PublicManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustSvrMng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MongoDBMgr.h">
+      <Filter>MongoDB</Filter>
+    </ClInclude>
+    <ClInclude Include="Serverlog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CBase64Coding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FXSHDManage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericHTTPClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UPIMServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UPIMServerDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UPIMServerView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TabCtrl\TabCtrl.cpp">
+      <Filter>TabCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessReq.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ado2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Func.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="globalvar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\HP-Socket\Global\helper.cpp">
+      <Filter>Socket\Global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\HP-Socket\Src\SocketHelper.cpp">
+      <Filter>Socket\HPSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\HP-Socket\Src\TcpServer.cpp">
+      <Filter>Socket\HPSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\bufferpool.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\RWLock.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\SysHelper.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\Common\Src\WaitFor.cpp">
+      <Filter>Socket\Common</Filter>
+    </ClCompile>
+    <ClInclude Include="..\Socket\HP-Socket\Global\helper.h">
+      <Filter>Socket\Global</Filter>
+    </ClInclude>
+    <ClCompile Include="..\Socket\HP-Socket\Global\helper.cpp">
+      <Filter>Socket\Global</Filter>
+    </ClCompile>
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketInterface.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Src\SocketHelper.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Socket\HP-Socket\Src\TcpServer.h">
+      <Filter>Socket\HPSocket</Filter>
+    </ClInclude>
+    <ClCompile Include="..\Socket\HP-Socket\Src\SocketHelper.cpp">
+      <Filter>Socket\HPSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Socket\HP-Socket\Src\TcpServer.cpp">
+      <Filter>Socket\HPSocket</Filter>
+    </ClCompile>
+    <ClInclude Include="Func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ado2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessReq.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="GroupChatManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\json\json_reader.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\json\json_value.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\json\json_writer.cpp">
+      <Filter>Json</Filter>
+    </ClCompile>
+    <ClCompile Include="PublicManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustSvrMng.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MongoDBMgr.cpp">
+      <Filter>MongoDB</Filter>
+    </ClCompile>
+    <ClCompile Include="Serverlog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CBase64Coding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FXSHDManage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericHTTPClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UPIMServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="globalvar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Func.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ado2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessReq.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UPIMServer.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
