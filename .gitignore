@@ -7,7 +7,9 @@
 # Precompiled Headers
 *.gch
 *.pch
-
+*.pdb
+*.ilk
+*.idb
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -27,3 +29,6 @@
 *.out
 *.app
 .svn/
+*.log
+*.dmp
+*.bak
