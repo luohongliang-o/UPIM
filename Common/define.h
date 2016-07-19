@@ -6,7 +6,7 @@
 // UPIM
 
 #define UPIM_SOFT_NAME              _T("UPIM 2015")         // 软件运行时的名字 
-
+#define UPIM_REQ_COUNT              46
 #define UPIM_REQ_BASE				5000					// 请求基准
 #define UPIM_REQ_CHECKPWD			UPIM_REQ_BASE+1			// 用户登录 100
 #define UPIM_REQ_GUSER				UPIM_REQ_BASE+2			// 服务人员获取分组好友(我的客户/部门) 5830
@@ -91,6 +91,8 @@
 #define UM_USER_RIGHTHISMSG			WM_USER + 32			// im2.0右侧窗口填充历史消息
 #define UM_USER_ADDHISTORYCLENT     WM_USER + 33            // im2.0加载最近联系人 
 #define WM_USER_FINDFRIEND          WM_USER + 34            // im2.0 查找联系人  wuchao add at 2016-04-05 
+#define	UM_USER_ADDNEWPUBLIC		WM_USER + 35			// im3.0 新IM系统添加公众号
+#define UM_USER_ADDNEWLASTUSER      WM_USER + 36
 #define WM_IM_USERID                WM_USER + 4317          // up投资卫士终端  点击分析师头像  打开与分析师对话框  
 
 #define UM_UI_MESSAGELOOP			WM_USER + 100			// duilib绘图
@@ -301,6 +303,7 @@ enum EVTTYPE
 {
 	eVT_Friend = 0,					// 好友集合
 	eVT_Group,						// 群组集合
+	eVT_Recent,						// 最近联系人集合
 };
 
 enum EUITYPE
@@ -326,6 +329,7 @@ enum EDIALOGTYPE
 	eDIALOG_GroupSend = 4,			// 消息群发
 	eDIALOG_ChatTG = 5,				// 投顾端-客户聊天界面
 	eDIALOG_Analys = 6,				// 投顾端-分析师聊天界面
+	eDIALOG_RYPublic = 7,				// 新IM系统-客户聊天界面
 };
 
 enum EMSGOPENTYPE
@@ -334,6 +338,24 @@ enum EMSGOPENTYPE
 	eMSG_Group = 1,					// 群组聊天
 };
 
+enum NEWIMCATEGORYID
+{
+	newMSG_PRIVATE  = 1    ,   // 单人
+	newMSG_DISCUSSION      ,   // 讨论组
+	newMSG_GROUP           ,   // 群组
+	newMSG_CHATROOM        ,   // 聊天室
+	newMSG_CUSTOMERSERVICE ,   // 客服
+	newMSG_SYSTEM          ,   // 系统消息
+	newMSG_MC              ,   // MC消息应用公众服务
+	newMSG_MP              ,   // MP消息公众服务平台
+};
+enum NEWIMTRANSFERTYPE
+{
+	newMSG_S = 1,  // 消息数据服务器不缓存，不保证信息到达接收方
+	newMSG_N    ,  // 消息数据服务器缓存，交互方会收到通知消息
+	newMSG_P    ,  // 消息数据服务器缓存，交互方不在线会收到PUSH消息
+
+};
 // 枚举
 enum ECREATEDIALOGTYPE
 {
@@ -358,6 +380,7 @@ enum ELOGINTYPE
 	eLogin_FileSvr = 10,			// 文件服务器
 	eLogin_UPClient = 11,			// up客户登录,不校验密码
 	eLogin_Analyst = 12,			// 分析师登录
+	eLogin_KF = 13,					// 融云新客户端登陆
 };
 
 // 用户类型
@@ -378,6 +401,7 @@ enum EUSERTYPE
 	eUser_Comm=8,
 	eUser_UPExe = 9 ,               // im2.0 给UP投资卫视使用  提供EXE格式  不显示托盘图标 
 	eUser_Unknow=10,
+	eUser_UPRYExe = 11 ,               // im3.0 给UP  提供EXE格式  融云整合
 };
 
 
@@ -450,6 +474,7 @@ enum E_MSGSEND_TYPE
 	eMsgSend_Prdt=7,				// 产品消息
 	eMsgSend_PrdtFile=8,			// 产品文件
 	eMsgSend_Analyst=9,				// 分析师消息，与房间相关
+	eMsgSend_NewPublic=10
 };
 
 //通知消息的类型
@@ -487,7 +512,8 @@ enum E_CHATRECORD_TYPE
 	eRecord_GPC,					// 股票池
 	eRecord_JYXH,					// 交易信号
 	eRecord_Public,					// 公众号消息
-	eRecord_TgRoom					// 投顾聊天室消息
+	eRecord_TgRoom,					// 投顾聊天室消息
+	eRecord_NewPublic,					// 公众号消息
 };
 
 // 面板类型
@@ -509,6 +535,7 @@ enum ENODETYPE
 	eNode_Recent,					// 最近联系人
 	eNode_Public,					// 公众号
 	eNode_Analyst,					// 分析师房间
+	eNode_RYPublic,					// 融云公众号
 };
 
 // 节点类型

@@ -598,9 +598,8 @@ CString CFXSHDManage::GetUserByRoomRight()
 	wchar_t* uStr = m_httpRep.UTF8ToUnicode(contentValue.c_str(),CP_ACP);
 	char* aStr = m_httpRep.UnicodeToACP(uStr,CP_UTF8);
 	TDEL(uStr);
-	CString jsonStr = aStr;
+	CString toencrypt = aStr;
 	TDEL(aStr);
-	CString toencrypt = jsonStr;
 	int strlen = toencrypt.GetLength();
 // 	int spacecount = (8-strlen%8)%8;
 // 	for (int i = 0;i<spacecount;i++)
@@ -645,31 +644,33 @@ CString CFXSHDManage::GetUserByRoomRight()
 	return DestStr;
 }
 
-CString CFXSHDManage::URLEncode(const char* sIn)
+CString CFXSHDManage::URLEncode(const char* str)
 {
-	CString sOut;
-	for (int i = 0;i < strlen(sIn);i++)
+	CString strTemp = "";
+	size_t length = strlen(str);
+	for (size_t i = 0; i < length; i++)
 	{
-		unsigned char buf[4];
-		memset(buf,0,4);
-		if (isalnum((unsigned char)sIn[i]))
-		{
-			buf[0] = sIn[i];
-		}
+		if (isalnum((unsigned char)str[i]) || 
+			(str[i] == '-') ||
+			(str[i] == '_') || 
+			(str[i] == '.') || 
+			(str[i] == '~'))
+			strTemp += str[i];
+		else if (str[i] == ' ')
+			strTemp += "+";
 		else
 		{
-			buf[0] = '%';
-			buf[1] = ToHex((unsigned char)sIn[i]>>4);
-			buf[2] = ToHex((unsigned char)sIn[i]>>16);
+			strTemp += '%';
+			strTemp += ToHex((unsigned char)str[i] >> 4);
+			strTemp += ToHex((unsigned char)str[i] % 16);
 		}
-		sOut += (char*)buf;
 	}
-	return sOut;
+	return strTemp;
 }
 
 unsigned char CFXSHDManage::ToHex(unsigned char x)
 {
-	return x>9?x-10+'A':x+'0';
+	return  x > 9 ? x + 55 : x + 48;
 }
 
 MapRoomIDToUser* CFXSHDManage::GetRoomUser()

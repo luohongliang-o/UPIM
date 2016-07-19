@@ -75,8 +75,8 @@ void CGeneralDialog::InitWindow()
 			m_pOKBtn->SetText("µÇÂ¼");
 			m_pOKBtn->SetToolTip("µÇÂ¼");
 		}
-		m_pLoginName->SetText("1142");
-		m_pLoginPSW->SetText("888888");
+		//m_pLoginName->SetText("1142");
+		//m_pLoginPSW->SetText("888888");
 	}
 }
 

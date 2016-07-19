@@ -4,7 +4,7 @@
 #include "MainFrm.h"
 #include "Func.h"
 //////////////////////////////////////////////////////////////////////////
-void ReqLogFilter(int nProtoco,DWORD dwConnID)
+void ReqLogFilter(int nProtoco,DWORD dwConnID,int PacketLen)
 {
 #ifdef LOG_FILTER
 	TCHAR szAddress[40];
@@ -13,7 +13,7 @@ void ReqLogFilter(int nProtoco,DWORD dwConnID)
 	g_MySever.m_Server.GetRemoteAddress(dwConnID, szAddress, iAddressLen, usPort);
 	if (nProtoco != UPIM_REQ_ONLINE)
 	{
-		OP_LOG_INFO("dwConnID:%d szAddress:%s usPort:%d send protocol %d",dwConnID, szAddress,usPort,nProtoco);
+		OP_LOG_INFO("dwConnID:%d szAddress:%s usPort:%d send protocol %d PacketLen %d",dwConnID, szAddress,usPort,nProtoco,PacketLen);
 	}
 #endif
 }
@@ -25,7 +25,7 @@ BOOL OnReceive_Ex(DWORD dwConnID, const BYTE* pData, int iLength)
 	int recvLength = pHead->PacketLen;
 	short req = *(short*)(pHead + 1);
 	char* pReceive = (char*)(pHead + 1);
-	ReqLogFilter(req,dwConnID);
+	ReqLogFilter(req,dwConnID,recvLength);
 
 	CString strTmp = _T("");
 	strTmp.Format("%s session:%d Receive PKG:协议[%d] (LEN:%d)", GetNowTime(), dwConnID, req, iLength );
@@ -2686,17 +2686,15 @@ int OnGetAllRoomToUser(DWORD dwConnID, char* pReceive, ULONG leng)
 	int RoomID = m_req->roomid;
 	vector<CString> vUserName;
 	vUserName= (*g_FxsHDManage.GetRoomUser())[RoomID];
-	//vector<CString>::iterator iterUserName = unique(vUserName.begin(),vUserName.end());
 	sort(vUserName.begin() ,vUserName.end()) ; 
 	vUserName.erase(unique(vUserName.begin(),vUserName.end()),vUserName.end());
-	//GetClientToAnalyst(RoomID ,vUserName) ; 
+	// 按照是否在线和名字排序 
+	std::sort( vUserName.begin() ,vUserName.end() ,compare_by_online_name) ; 
 	FastWriter writer;
 	Value data_value;
 	Value item;
 	Value array ; 
-
 	int nCount = vUserName.size();
-
 	for (int j = 0;j<vUserName.size();j++)
 	{
 		// 这里要判定当前用户是否在线 并且将在线状态传给客户端 
@@ -2750,8 +2748,6 @@ int OnGetAllRoomToUser(DWORD dwConnID, char* pReceive, ULONG leng)
 			memcpy(pSend, &m_ansbuf, nLenAll);
 			g_MySever.m_Server.Send((CONNID)dwConnID, (LPBYTE)pSend, nLenAll);
 			nIndex = 0;
-
-
 		}
 	}
 	return nLenAll;
@@ -3177,15 +3173,15 @@ int OnSetSelfGroupUser(DWORD dwConnID, char* pReceive, ULONG leng)
 
 	if( reader.parse(szJson,value) != NULL)
 	{
-		groupID = value["groupID"].asInt() ; 
-		iType = value["nType"].asInt() ; 
+		groupID = value["g"].asInt() ; 
+		iType = value["T"].asInt() ; 
 
-		Value val_array = value["item"] ; 
+		Value val_array = value["i"] ; 
 		int iSize = val_array.size() ; 
 
 		for( int i = 0 ; i < iSize ; i++)
 		{
-			clientID = val_array[i]["clientID"].asCString() ;
+			clientID = val_array[i]["c"].asCString() ;
 			
 			if( iType == 1)
 			{

@@ -404,6 +404,19 @@ BOOL CSqliteOp::QueryAllAnalystUser(std::vector<CString>& vtUser, E_CHATRECORD_T
 			}
 		}
 		break;
+	case eRecord_NewPublic:
+		{
+			if (roomid == 0)
+			{
+				strSql.Format("select distinct fromid from chatrecord where type=%d order by seq asc limit 0,30", eRecord_NewPublic);
+			}
+			else
+			{
+				strSql.Format("select distinct fromid from chatrecord where roomid=%d and type=%d order by seq desc", roomid, eRecord_NewPublic);
+			}
+		}
+		break;
+
 	default:
 		return FALSE;
 	}

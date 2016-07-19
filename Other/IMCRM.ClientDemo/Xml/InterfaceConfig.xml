@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Interface>
+  <Uri key="CustomerDetialUrl" url="http://192.168.2.162:808/Csvr/CustomerInfo/Index?userName={0}" content="客户信息地址"></Uri>
+  <Uri key="GetList_PublicNumber" url="http://113.108.146.107:8888/PublicNumberService.svc/GETIMPUBLICCODE" content="公众号列表获取"></Uri>
+  <Uri key="GetSoftUser" url ="http://ssoapi.upchinafund.com/ssodb/uid/" content="查询软件用户名"></Uri>
+  <Uri key="GETIMUser" url ="http://113.108.146.107:8888/IMUserManage.svc/GETIMUser" content="IM帐号查询"></Uri>
+  <Uri key="ImUserReg" url ="http://113.108.146.107:855/UserInfoService.svc/USERREGIMDEV" content="IM外部用户注册ＩＭ账号"></Uri>
+  <Uri key="GetToKen" url ="http://113.108.146.107:8888/IMUserManage.svc/GETIMNToken" content="获取融云token"></Uri>
+</Interface>

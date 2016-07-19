@@ -114,7 +114,7 @@ UINT WINAPI HttpUpdate(LPVOID pv)
 
 		
 
-		Sleep(60*1000);
+		Sleep(60*10000);
 	}
 	
 	return 0;
@@ -776,4 +776,31 @@ void CMainFrame::OnMenuStop()
 {
 	// TODO: 在此添加命令处理程序代码
 	OnStop();
+}
+
+BOOL compare_by_online_name(CString strName1 ,CString strName2)
+{
+	int online1 = 0 ,online2 = 0 ; 
+
+	MYSTATE m_state1 = (MYSTATE)0;
+	DWORD dwConnectID1 = 0;
+	g_MongoDBMgr.GetUserState(strName1, m_state1, dwConnectID1);
+	MYSTATE m_state2 = (MYSTATE)0;
+	DWORD dwConnectID2 = 0;
+	g_MongoDBMgr.GetUserState(strName2, m_state2, dwConnectID2);
+	online1 = (m_state1 == MYSTATE_NORMAL) ? 1 : 0 ; 
+	online2 = (m_state2 == MYSTATE_NORMAL) ? 1 : 0 ; 
+	
+	if( online1 != online2 )
+	{
+		if( online1 > online2 )
+			return TRUE ; 
+		else
+			return FALSE ; 
+	}
+	else
+	{
+
+		return strcmp(strName1.GetBuffer() ,strName2.GetBuffer()) < 0 ; 
+	}
 }

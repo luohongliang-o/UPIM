@@ -5,6 +5,7 @@
 #include "MainPort.h"
 #include "IniFile.h"
 #include "resource.h"
+#include "char2wchar.h"
 
 int ReciveDataFromSVR(const BYTE* pData, int iLength)
 {
@@ -433,6 +434,7 @@ int OnReconnect_Ans(char* pReceive, ULONG leng)
 //用户登录成功
 void OnUserLoginSuc()
 {
+#ifndef VER_UPIM_RONGYUN
 	// 客户人员
 	if (g_MyClient.m_nUserType == eUser_Client)
 	{
@@ -503,6 +505,11 @@ void OnUserLoginSuc()
 		g_MyClient.SendGetAllRoomReq();
 	}
 
+#elif defined VER_UPIM_RONGYUN
+	GetIMDeptPublicCode();
+	g_pFrame->PostMessage(UM_USER_ADDNEWPUBLIC, 0, 0);
+	g_pFrame->PostMessage(UM_USER_GETSELFPIC, 0, 0);
+#endif
 	// 添加定时器，延时2500毫秒去取离线消息
 	USER_LOG("T_OFFMSG ADD");
 	g_pFrame->AddTimer(T_OFFMSG, eTE_OffMsg);
@@ -1379,8 +1386,8 @@ int On_GetUserByRoomID_Ans(char* pReceive, ULONG leng)
 			}
 		}
 		// 按照是否上线  且  名字顺序排序 
-		std::sort( m_vtRoomClient.begin() ,m_vtRoomClient.end() ,SortByNameAndOnlineClient) ; 
-		g_pFrame->PostMessage(UM_USER_ADDROOMCLIENT, 0, 0);
+		//std::sort( m_vtRoomClient.begin() ,m_vtRoomClient.end() ,SortByNameAndOnlineClient) ; 
+		g_pFrame->SendMessage(UM_USER_ADDROOMCLIENT, 0, 0);
 	}
 
 	// 收到客户列表了再去取自定义分组,呵呵呵
@@ -1638,4 +1645,130 @@ int OnGetUserState_Ans(char* pReceive, ULONG leng)
 	g_pFrame->PostMessage(UM_USER_STATECHANGE, (WPARAM)bChange, (LPARAM)bNoOneOnline);
 	//g_pFrame->UserStateChange(m_ans->userid, m_ans->nUserstate);
 	return 0;
+}
+
+
+void connectCallback(const wchar_t* json_str)
+{
+	int err_code = -1;
+	Json::Reader reader;
+	Json::Value jobj;
+	std::string str = txtutil::convert_wcs_to_utf8(json_str);
+	if (reader.parse(str, jobj))  // reader将Json字符串解析到jobj将包含Json里所有子元素  
+	{
+		std::string result = jobj["result"].asString();
+		std::string userId = jobj["userId"].asString();
+		err_code = jobj["err_code"].asInt();
+	}
+	if (0 == err_code )
+	{
+		g_pFrame->PostMessage(UM_USER_LOGIN, 0, 0);
+
+		LoginSuc_Ex();
+		OnUserLoginSuc();
+
+		//////////////////////////////////////////////////////////////////////////
+		// 设置主界面信息
+		if (g_pFrame)
+		{
+			g_selfunit.id = g_loginname;
+			g_selfunit.nick_name =  g_usernc;
+			g_selfunit.description = "";
+			g_pFrame->UpdateMyselfInfo(&g_selfunit, "优信");
+			g_pFrame->PostMessage(UM_USER_SETSELFINFO, 0, 0);
+		}
+	}
+};
+
+//异常监听
+void __stdcall exception_callback(const wchar_t* json_str)
+{
+	std::string str = txtutil::convert_wcs_to_utf8(json_str);
+	Json::Reader reader;
+	Json::Value jobj;
+	if (reader.parse(str, jobj))  // reader将Json字符串解析到jobj将包含Json里所有子元素  
+	{
+
+	}
+}
+
+//消息监听
+void __stdcall message_callback(const wchar_t* json_str)
+{
+	Json::Reader reader;
+	Json::Value jobj;
+	Json::Value msg_jobj;
+	//std::string str = txtutil::convert_wcs_to_utf8(json_str);
+	CString str(json_str);
+	if (reader.parse(str.GetBuffer(0), jobj))  // reader将Json字符串解析到jobj将包含Json里所有子元素  
+	{
+		NEWRECVMSGPUBLIC recvMsg2 = {0};
+		CString msgType = jobj["m_ClazzName"].asCString();
+		int m_MessageId = jobj["m_MessageId"].asInt();
+		CString m_SenderId = jobj["m_SenderId"].asCString();//公众号ID
+		CString m_SendTime = jobj["m_SendTime"].asCString();
+		if (!msgType.Compare("RC:CmdNtf"))  //自定义消息 
+		{
+			if (reader.parse(jobj["m_Message"].asString(),msg_jobj))
+			{
+				Value value_ = msg_jobj["data"];
+				CString saleid = value_["saleId"].asCString();//公众号与客户发消息的客服人员
+				CString msg = value_["msg"].asCString();
+				recvMsg2.m_dwSeq = m_MessageId;
+				COPY_USERID(recvMsg2.m_szUSERID, (LPCTSTR)saleid);
+				int year,month,day,hour,minute,second;
+				sscanf((LPCTSTR)m_SendTime,"%d-%d-%d %d:%d:%d",&year,&month,&day,&hour,&minute,&second);
+				recvMsg2.m_nSendDate = (year+1900)*10000+(month+1)*100+day;
+				recvMsg2.m_nSendTime = hour*10000+minute*100+second;
+				recvMsg2.m_ucFormat = eMsgFormat_Txt;
+				memcpy(recvMsg2.m_szMsg, (LPCTSTR)msg, msg.GetLength());
+				recvMsg2.m_nMsglen = strlen(recvMsg2.m_szMsg);
+				recvMsg2.m_ucMsgType = eMsgSend_NewPublic;
+				COPYSTRARRAY(recvMsg2.nPublicID ,(LPCTSTR)m_SenderId);
+				COPY_USERID(recvMsg2.m_szInnerID, NULL);
+
+				g_pFrame->SendMessage(UM_USER_ADDNEWLASTUSER, (WPARAM)saleid.GetBuffer(saleid.GetLength()), 0);
+				
+			}
+		}
+		else if(!msgType.Compare("RC:TxtMsg")) {
+			if (reader.parse(jobj["m_Message"].asString(),msg_jobj))
+			{
+				CString msg = msg_jobj["content"].asCString();
+				recvMsg2.m_dwSeq = m_MessageId;
+				COPY_USERID(recvMsg2.m_szUSERID, (LPCTSTR)m_SenderId);
+				int year,month,day,hour,minute,second;
+				sscanf((LPCTSTR)m_SendTime,"%d-%d-%d %d:%d:%d",&year,&month,&day,&hour,&minute,&second);
+				recvMsg2.m_nSendDate = (year+1900)*10000+(month+1)*100+day;
+				recvMsg2.m_nSendTime = hour*10000+minute*100+second;
+				recvMsg2.m_ucFormat = eMsgFormat_Txt;
+				memcpy(recvMsg2.m_szMsg, (LPCTSTR)msg, msg.GetLength());
+				recvMsg2.m_nMsglen = strlen(recvMsg2.m_szMsg);
+				recvMsg2.m_ucMsgType = eMsgSend_NewPublic;
+				COPYSTRARRAY(recvMsg2.nPublicID ,(LPCTSTR)m_SenderId);
+				COPY_USERID(recvMsg2.m_szInnerID, NULL);
+			}
+		}
+		g_pFrame->ProcessRecvMsg(&recvMsg2);
+// 		if (reader.parse(ansi_msg_json_str,msg_jobj))
+// 		{
+// 			wstring content_str = txtutil::convert_utf8_to_wcs(msg_jobj["content"].asString());
+// 		}
+	}
+}
+
+void __stdcall custom_message_callback(const wchar_t* json_str)//自定义消息回调
+{
+	Json::Reader reader;
+	Json::Value jobj;
+	Json::Value msg_jobj;
+	std::string str = txtutil::convert_wcs_to_utf8(json_str);
+	if (reader.parse(str, jobj))  // reader将Json字符串解析到jobj将包含Json里所有子元素  
+	{
+		string ansi_msg_json_str = jobj["m_Message"].asString();
+		if (reader.parse(ansi_msg_json_str,msg_jobj))
+		{
+			wstring content_str = txtutil::convert_utf8_to_wcs(msg_jobj["content"].asString());
+		}
+	}
 }

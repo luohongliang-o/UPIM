@@ -101,3 +101,4 @@ public:
 };
 
 
+BOOL compare_by_online_name(CString strName1 ,CString strName2) ;

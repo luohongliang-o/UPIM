@@ -1,15 +1,101 @@
-﻿生成启动时间为 2016/6/2 10:25:22。
-     1>项目“E:\testim\UPIMServer\UPIMServer.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2016/7/19 10:50:21。
+     1>项目“E:\testim\UPIMServer\UPIMServer.vcxproj”在节点 3 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“..\Bin\UPIMServer\obj\Debug\UPIMServer.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         所有输出均为最新。
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D STATIC_LIBMONGOCLIENT /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"..\Bin\UPIMServer\obj\Debug\UPIM-Debug.pch" /Fo"..\Bin\UPIMServer\obj\Debug\\" /Fd"..\Bin\UPIMServer\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ThreadFunc.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D STATIC_LIBMONGOCLIENT /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"..\Bin\UPIMServer\obj\Debug\UPIM-Debug.pch" /Fo"..\Bin\UPIMServer\obj\Debug\\" /Fd"..\Bin\UPIMServer\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         Make sure you go to Tools.Options.Directories.Library files and add the paths to msado15.dll and msjro.dll will usually be in C:\Program Files\Common Files\System\ado
+     1>e:\testim\common\macro.h(178): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(363) : 参见“_vsnprintf”的声明
+     1>e:\testim\common\macro.h(194): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(363) : 参见“_vsnprintf”的声明
+     1>e:\testim\common\macro.h(213): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(363) : 参见“_vsnprintf”的声明
+     1>e:\testim\common\macro.h(231): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(363) : 参见“_vsnprintf”的声明
+     1>e:\testim\common\macro.h(248): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(188) : 参见“strncpy”的声明
+     1>e:\testim\common\macro.h(262): warning C4996: 'strncat': This function or variable may be unsafe. Consider using strncat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(175) : 参见“strncat”的声明
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D STATIC_LIBMONGOCLIENT /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"..\Bin\UPIMServer\obj\Debug\UPIM-Debug.pch" /Fo"..\Bin\UPIMServer\obj\Debug\\" /Fd"..\Bin\UPIMServer\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Common\json\json_reader.cpp ..\Common\json\json_value.cpp ..\Common\json\json_writer.cpp ..\Socket\Common\Src\RWLock.cpp ..\Socket\Common\Src\SysHelper.cpp ..\Socket\Common\Src\WaitFor.cpp ..\Socket\Common\Src\bufferpool.cpp "..\Socket\HP-Socket\Global\helper.cpp" "..\Socket\HP-Socket\Src\SocketHelper.cpp" "..\Socket\HP-Socket\Src\TcpServer.cpp" CBase64Coding.cpp CustSvrMng.cpp Dlg.cpp FXSHDManage.cpp Func.cpp GenericHTTPClient.cpp GroupChatManage.cpp InfoList.cpp IniFile.cpp LinkManager.cpp MainFrm.cpp MongoDBMgr.cpp MyServer.cpp OutputWnd.cpp ProcessReq.cpp PublicManage.cpp Serverlog.cpp TabCtrl\TabCtrl.cpp ThreadFunc.cpp UPIMServer.cpp UPIMServerDoc.cpp UPIMServerView.cpp ado2.cpp globalvar.cpp
+         globalvar.cpp
+         ado2.cpp
+         UPIMServerView.cpp
+     1>e:\testim\upimserver\upimserverview.cpp(156): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(157): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(171): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(172): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(173): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(174): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(207): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(208): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(222): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(223): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(224): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+     1>e:\testim\upimserver\upimserverview.cpp(225): warning C4244: “=”: 从“double”转换到“LONG”，可能丢失数据
+         UPIMServerDoc.cpp
+         UPIMServer.cpp
          ThreadFunc.cpp
-     1>e:\testim\upimserver\threadfunc.cpp(398): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
-     1>e:\testim\upimserver\threadfunc.cpp(412): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
-     1>e:\testim\upimserver\threadfunc.cpp(417): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
-     1>e:\testim\upimserver\threadfunc.cpp(554): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(389): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(403): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(408): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+     1>e:\testim\upimserver\threadfunc.cpp(545): warning C4244: “参数”: 从“time_t”转换到“long”，可能丢失数据
+         TabCtrl.cpp
+         Serverlog.cpp
+         PublicManage.cpp
+     1>e:\testim\upimserver\publicmanage.cpp(318): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\publicmanage.cpp(379): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\publicmanage.cpp(395): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\publicmanage.cpp(578): warning C4018: “<”: 有符号/无符号不匹配
+         ProcessReq.cpp
+     1>e:\testim\upimserver\processreq.cpp(2535): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\processreq.cpp(2597): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\processreq.cpp(2610): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\processreq.cpp(2698): warning C4018: “<”: 有符号/无符号不匹配
+         OutputWnd.cpp
+         MyServer.cpp
+     1>e:\testim\upimserver\myserver.cpp(142): warning C4345: 行为更改: 使用 () 形式的初始值设定项构造的 POD 类型的对象将被默认初始化
+         MongoDBMgr.cpp
+         MainFrm.cpp
+     1>e:\testim\upimserver\mainfrm.cpp(86): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\mainfrm.cpp(100): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\mainfrm.cpp(406): warning C4018: “<”: 有符号/无符号不匹配
+         LinkManager.cpp
+         IniFile.cpp
+         InfoList.cpp
+         GroupChatManage.cpp
+         GenericHTTPClient.cpp
+     1>e:\testim\upimserver\generichttpclient.cpp(123): warning C4244: “参数”: 从“DWORD”转换到“unsigned short”，可能丢失数据
+         Func.cpp
+         正在生成代码...
+         正在编译...
+         FXSHDManage.cpp
+     1>e:\testim\upimserver\fxshdmanage.cpp(463): warning C4018: “<”: 有符号/无符号不匹配
+     1>e:\testim\upimserver\fxshdmanage.cpp(518): warning C4018: “<”: 有符号/无符号不匹配
+         Dlg.cpp
+     1>e:\testim\upimserver\dlg.cpp(147): warning C4018: “<”: 有符号/无符号不匹配
+         CustSvrMng.cpp
+     1>e:\testim\upimserver\custsvrmng.cpp(60): warning C4018: “<”: 有符号/无符号不匹配
+         CBase64Coding.cpp
+     1>e:\testim\upimserver\cbase64coding.cpp(31): warning C4005: “new”: 宏重定义
+                 e:\testim\socket\common\src\debug\win32_crtdbg.h(173) : 参见“new”的前一个定义
+         TcpServer.cpp
+         SocketHelper.cpp
+         helper.cpp
+         bufferpool.cpp
+         WaitFor.cpp
+         SysHelper.cpp
+         RWLock.cpp
+         json_writer.cpp
+         json_value.cpp
+         json_reader.cpp
+     1>e:\testim\common\json\json_reader.cpp(835): warning C4018: “>”: 有符号/无符号不匹配
+     1>e:\testim\common\json\json_reader.cpp(835): warning C4018: “>”: 有符号/无符号不匹配
+     1>e:\testim\common\json\json_reader.cpp(851): warning C4018: “>”: 有符号/无符号不匹配
+     1>e:\testim\common\json\json_reader.cpp(852): warning C4018: “>”: 有符号/无符号不匹配
+     1>e:\testim\common\json\json_reader.cpp(852): warning C4018: “>”: 有符号/无符号不匹配
+         正在生成代码...
        ResourceCompile:
          所有输出均为最新。
        Link:
@@ -59,4 +145,4 @@
 
 生成成功。
 
-已用时间 00:00:17.56
+已用时间 00:00:16.10

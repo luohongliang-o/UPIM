@@ -38,8 +38,8 @@ public:
 	void OnUserState(WPARAM wParam , LPARAM lParam);
     void SendMsg();
 	void SendMsg_More();
-	COMPLEX_MSG_DATA* GetMsgData(BOOL bOnLine=TRUE, CString strFileInfo="", CString strProductName="");
-	COMPLEX_MSG_DATA* GetMsgData_More(tstring strText, BOOL bOnLine=TRUE, CString strFileInfo="", CString strProductName="");
+	COMPLEX_MSG_DATA* GetMsgData(BOOL bOnLine=TRUE, CString strFileInfo=_T(""), CString strProductName=_T(""));
+	COMPLEX_MSG_DATA* GetMsgData_More(tstring strText, BOOL bOnLine=TRUE, CString strFileInfo=_T(""), CString strProductName=_T(""));
 	void DeleteMsgData(COMPLEX_MSG_DATA*& pMsgData);
 	void InsertChatHistory(RECEIVED_MSG *pMsg, LPCTSTR szSendName);
 	void InsertChatHistory_More(RECEIVED_MSG *pMsg, LPCTSTR szSendName, LPCTSTR szSendId);
@@ -140,7 +140,7 @@ protected:
 	void AddMsgToSendEdit(LPCTSTR lpText, BOOL bPaste = FALSE);
 	void AddMsgToRecvEdit(LPCTSTR lpText);
 	void AddMsgToRecvEdit_Text(LPCTSTR lpText);
-	void AddMsgToRichEdit_More(CRichEditUI* m_pEdit, LPCTSTR lpText, CFontInfo mfontInfo, bool bisselfmsg=false, bool bshowid=true, CDuiString sid="", CDuiString sname="", CDuiString strSendTime="", bool bFromXML=false);
+	void AddMsgToRichEdit_More(CRichEditUI* m_pEdit, LPCTSTR lpText, CFontInfo mfontInfo, bool bisselfmsg=false, bool bshowid=true, CDuiString sid=_T(""), CDuiString sname=_T(""), CDuiString strSendTime=_T(""), bool bFromXML=false);
 	void AddMsgToRecvEdit_Link(LPCTSTR lpText);
 
 	BOOL GetObjectInfoPic(LPCTSTR& p, tstring& strFileName);
@@ -215,6 +215,7 @@ private:
 	SELECTNODE m_selectNode;
 	CDuiString m_PublicSveID;		//公众号中跟我会话的服务人员ID
 	int nRouteID;					//路由ID
+	CDuiString m_pIncodeID;
 	int nPublicID;					//公众号ID
 	time_t	tmStart_;				//开始计时(difftime算时间间隔)
 	BOOL	bsendPubconClose;		//发送断开消息

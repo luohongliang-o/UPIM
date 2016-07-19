@@ -1,56 +1,12 @@
-﻿生成启动时间为 2016/5/26 16:52:37。
-     1>项目“E:\testim\UiLib\DuiLib.vcxproj”在节点 3 上(build 个目标)。
+﻿生成启动时间为 2016/6/20 15:47:28。
+     1>项目“E:\testim\UiLib\DuiLib.vcxproj”在节点 2 上(build 个目标)。
      1>InitializeBuildStatus:
          正在创建“..\Bin\DuiLib\obj\Debug\DuiLib.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
-       MakeDirsForCl:
-         正在创建目录“E:\testim\UiLib\.\Build\Debug”。
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Build\Debug/DuiLib.pch" /Fo"..\Bin\DuiLib\obj\Debug\\" /Fd"..\Bin\DuiLib\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
-         StdAfx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Build\Debug/DuiLib.pch" /Fo"..\Bin\DuiLib\obj\Debug\\" /Fd"..\Bin\DuiLib\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Control\UIGifAnim.cpp UIlib.cpp Utils\UIShadow.cpp Utils\WinImplBase.cpp Utils\UIDelegate.cpp Utils\Utils.cpp Core\UIBase.cpp Core\UIContainer.cpp Core\UIControl.cpp Core\UIDlgBuilder.cpp Core\UIManager.cpp Core\UIMarkup.cpp Core\UIRender.cpp Layout\UIChildLayout.cpp Layout\UIHorizontalLayout.cpp Layout\UITabLayout.cpp Layout\UITileLayout.cpp Layout\UIVerticalLayout.cpp Control\UIActiveX.cpp Control\UIButton.cpp Control\UICheckBox.cpp Control\UICombo.cpp Control\UIComboBox.cpp Control\UIDateTime.cpp Control\UIEdit.cpp Control\UIFlash.cpp Control\UILabel.cpp Control\UIList.cpp Control\UIOption.cpp Control\UIProgress.cpp Control\UIRichEdit.cpp Control\UIScrollBar.cpp Control\UISlider.cpp Control\UIText.cpp Control\UITreeView.cpp Control\UIWebBrowser.cpp
-         UIWebBrowser.cpp
-         UITreeView.cpp
-         UIText.cpp
-         UISlider.cpp
-         UIScrollBar.cpp
-         UIRichEdit.cpp
-         UIProgress.cpp
-         UIOption.cpp
-         UIList.cpp
-         UILabel.cpp
-         UIFlash.cpp
-         UIEdit.cpp
-         UIDateTime.cpp
-         UIComboBox.cpp
-         UICombo.cpp
-         UICheckBox.cpp
-         UIButton.cpp
-         UIActiveX.cpp
-         UIVerticalLayout.cpp
-         UITileLayout.cpp
-         正在生成代码...
-         正在编译...
-         UITabLayout.cpp
-         UIHorizontalLayout.cpp
-         UIChildLayout.cpp
-         UIRender.cpp
-         UIMarkup.cpp
-         UIManager.cpp
-         UIDlgBuilder.cpp
-         UIControl.cpp
-         UIContainer.cpp
-         UIBase.cpp
-         Utils.cpp
-         UIDelegate.cpp
-         WinImplBase.cpp
-         UIShadow.cpp
-         UIlib.cpp
-         UIGifAnim.cpp
-         正在生成代码...
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Bin\DuiLib\obj\Debug\\" /Fd"..\Bin\DuiLib\obj\Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt Utils\stb_image.c
-         stb_image.c
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"..\Bin\DuiLib\obj\Debug\\" /Fd"..\Bin\DuiLib\obj\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Utils\XUnzip.cpp
-         XUnzip.cpp
+         所有输出均为最新。
+         所有输出均为最新。
+         所有输出均为最新。
+         所有输出均为最新。
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Bin\UPIM\Debug\DuiLib_d.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:.\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"..\Bin\UPIM\Debug\DuiLib_d.pdb" /TLBID:1 /BASE:"0x11000000" /DYNAMICBASE /NXCOMPAT /IMPLIB:"lib\DuiLib_d.lib" /MACHINE:X86 /DLL ..\Bin\DuiLib\obj\Debug\UIGifAnim.obj
          ..\Bin\DuiLib\obj\Debug\StdAfx.obj
@@ -100,4 +56,4 @@
 
 生成成功。
 
-已用时间 00:00:06.78
+已用时间 00:00:00.55

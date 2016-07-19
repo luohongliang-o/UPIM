@@ -79,7 +79,7 @@ BOOL CUPIMApp::InitInstance()
 #ifdef IM_EXE_TO_UP
 	// 客户版继承到安全卫士第三方软件调用时，要求只能启动IM一次
 	// 并隐藏主窗口 
-	if( 4 == VER_UPIM_NUMS )
+	if( 4 == VER_UPIM_NUMS)
 	{
 		// 系统运行的exe目录所在
 		CString strHomePath = _T("") ;
@@ -119,7 +119,7 @@ BOOL CUPIMApp::InitInstance()
 #ifndef IM_EXE_TO_UP
 	COPYSTRARRAY(g_loginname, g_config.szLoginName/*"laifuwei"*/); 
 	g_nMarket = g_config.dwMarket;
-#else 
+#else
 	DWORD t1 = GetTickCount() ; 
 	USER_LOG("UP调用入口时间:%d" ,t1 );
 	// wuchao add at 20160322  UP调用IM过程： UP将用户名传过来，根据用户名登录  
@@ -202,6 +202,122 @@ BOOL CUPIMApp::InitInstance()
 	
 #endif // VER_UPIM_CLIENT
 
+#ifdef VER_UPIM_RONGYUN
+	/*
+	CString strHomePath = _T("") ;
+	strHomePath.Format("%s" ,g_config.szHomePath) ; 
+	if( strHomePath.Right(1) != "\\")
+		strHomePath+="\\" ;
+
+	CString tempMutexStr  = _T("") ;
+	tempMutexStr = strHomePath + "UPIM_kh.exe" ; 
+	tempMutexStr.Replace("\\" ," ") ; 
+	// 客户版继承到安全卫士第三方软件调用时，要求只能启动IM一次
+	// 并隐藏主窗口 
+	m_hMutex = CreateMutex(NULL ,FALSE ,UPIM_CLIENT_MUTEX) ; 
+	DWORD iRet = GetLastError() ; 
+	if( m_hMutex == NULL ||iRet == ERROR_ALREADY_EXISTS)
+	{
+		//::MessageBox(NULL ,_T("一个目录里面只能运行一个该程序"),_T("提示") ,MB_OK|MB_ICONERROR) ; 
+		// 系统存在实例 
+		CloseHandle(m_hMutex) ; 
+		m_hMutex = NULL ;
+		return FALSE ; 
+	}
+
+	DWORD t1 = GetTickCount() ; 
+	USER_LOG("UP调用入口时间:%d" ,t1 );
+	// wuchao add at 20160322  UP调用IM过程： UP将用户名传过来，根据用户名登录  
+	// 从命令行中读取UP传过来的用户名
+	// 传过来的参数格式为： "dir"username#nMarketID  wuchao modify at 20160418 
+	CString strCommand = ::GetCommandLine() ; 
+	USER_LOG("UP传过来的启动IM参数%s" ,strCommand) ;
+
+	int index = strCommand.ReverseFind('\"') ;
+	if(index == -1 )
+	{
+		USER_LOG("解析UP传过来的用户名错误") ; 
+		return FALSE ; 
+	}
+	USER_LOG("\"出现的位置：%d" ,index);
+
+	// 将用户名和市场ID解析出来username#nMarketID
+	int strCommandLength = strCommand.GetLength() ; 
+	CString strNameMarket = strCommand.Right(strCommandLength - index - 1 ) ;
+	strNameMarket.Trim() ; 
+
+	CString strUserName ;  // 用户名 
+	CString strUserID ;    // 用户ID  
+	CString strMarketID ;  // 市场代码 
+
+	USER_LOG("strNameMarket：%s" ,strNameMarket) ; 
+	// 解析#号出现的位置 
+	int nNetIndex = strNameMarket.Find('#') ; // #出现的位置
+	if( nNetIndex == -1 )
+	{
+		USER_LOG("没有市场代码 请检查UP安全卫士：InvestAdviserView.cpp 1282行") ;
+		return FALSE ; 
+	}
+	USER_LOG("#出现的位置:%d" ,nNetIndex) ; 
+
+	AfxExtractSubString(strUserName,(LPCTSTR)strNameMarket ,0,'#') ;
+	AfxExtractSubString(strUserID,(LPCTSTR)strNameMarket ,1,'#') ;
+	AfxExtractSubString(strMarketID,(LPCTSTR)strNameMarket ,2,'#') ; 
+	
+	if( !strUserName.IsEmpty())
+		USER_LOG("用户名%s",strUserName) ;
+	else
+	{
+		USER_LOG("无法获取用户名") ;
+		return FALSE ; 
+	}
+	if( !strUserID.IsEmpty())
+	{
+		USER_LOG("用户ID %s" ,strUserID) ; 
+	}
+	else
+	{
+		USER_LOG("无法获取用户名") ;
+		return FALSE ; 
+	}
+	if( !strMarketID.IsEmpty())
+		USER_LOG("市场代码%s",strMarketID) ;
+	else
+	{
+		USER_LOG("无法获取市场代码") ;
+		return FALSE ; 
+	}
+	COPYSTRARRAY(g_loginname, strUserName.GetBuffer());
+	COPYSTRARRAY(g_khID, strUserID.GetBuffer()) ; 
+
+	USER_LOG("g_loginname = %s " ,g_loginname) ;
+	USER_LOG("g_khID = %s " ,g_khID) ;
+
+	// wuchao add at 20160418  
+	// 解析UP传过来的用户名和市场ID  
+	int nMarkeID = atoi(strMarketID.GetBuffer()) ;
+
+	if( nMarkeID == 3 )
+		g_nMarket = 3 ; 
+	else 
+		g_nMarket = g_config.dwMarket; 
+			*/
+	//COPYSTRARRAY(g_loginname, "测试");
+// 	COPYSTRARRAY(g_khID, (LPCTSTR)strUserID);
+// 	COPYSTRARRAY(g_usernc, (LPCTSTR)strUserName);
+	COPYSTRARRAY(g_khID, "60002001");
+	COPYSTRARRAY(g_usernc, "优品财富");
+
+	COPYSTRARRAY(g_jtcode, "B");
+	COPYSTRARRAY(g_regcampaignid, "5001");
+	g_nUserType = eUser_UPRYExe;
+	GetSysimgURL();
+	if(!GetIMUser(g_khID))
+		UserRegimdev(g_khID,g_usernc);
+	GetIMNToken(g_loginname,g_usernc,g_userHeadUrl);
+
+#endif
+	
 	//////////////////////////////////////////////////////////////////////////
 	LPTOP_LEVEL_EXCEPTION_FILTER pPrevFilter =  ::SetUnhandledExceptionFilter(MyExptFilter);  
 	if(pPrevFilter != NULL)  

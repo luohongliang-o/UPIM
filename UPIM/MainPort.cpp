@@ -5,11 +5,58 @@
 #include "Func.h"
 #include "MainPort.h"
 #include "UI/Utils.h"
+#include "LoadDllFunc.h"
+#include "ProcessAns.h"
+
 
 //////////////////////////////////////////////////////////////////////////
+
+
+
+// 123 obaby
+//D68r3cXNJdPlfh+M6ZPP2JT7jnHE1PkWabGAI6ucwXMdSkCkEROlK+uzUIJg7eldTQWTUC7Cz3QquJIcbJf2eA==
+
+// 123456 lhl
+//SZyqhQM1O/w2QWCZhVwD+ZT7jnHE1PkWabGAI6ucwXMdSkCkEROlK2fa/qIUfCWE7ZMKLlfpXe67XJ7NU3FRPQ==
 // 初始连接
 VOID InitConnect()
 {
+#ifdef VER_UPIM_RONGYUN
+	CString strUserFolder = "";
+	strUserFolder.Format("%s\\UPIMUser\\", g_config.szHomePath);
+	CreateDirectory(strUserFolder, NULL);
+	CHAR szUserDir[MAX_PATH] = {0};
+	nsprintf(szUserDir, sizeof(g_config.szUserDir), "%s\\UPIMUser", g_config.szHomePath);
+	WCHAR * IMPath = Utf8ToUnicode(szUserDir);
+	g_RongCloudDll.m_pInitClient("pgyu6atqyliru", "IM.WINFORM", "deviceId",IMPath,IMPath); //vnroth0krxiwo
+	delete IMPath;
+	g_RongCloudDll.m_pSetDeviceInfo("Apple", "iPhone 6 Simulator", "8.1.1", "WIFI", "");
+	//char szToken[] = {"SZyqhQM1O/w2QWCZhVwD+ZT7jnHE1PkWabGAI6ucwXMdSkCkEROlK2fa/qIUfCWE7ZMKLlfpXe67XJ7NU3FRPQ==" };
+	g_RongCloudDll.m_pConnect(g_strToken, (ConnectAckListenerCallback)&connectCallback,false);//g_strToken
+
+	g_RongCloudDll.m_pRegisterMessageType("RC:TxtMsg", 3);
+	//图片消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:ImgMsg", 3);
+	//图文消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:VcMsg", 3);
+	//位置消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:LBSMsg", 3);
+	//添加联系人消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:ContactNtf", 3);
+	//提示条（小灰条）通知消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:InfoNtf", 3);
+	//资料通知消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:ProfileNtf", 3);
+	//通用命令通知消息
+	g_RongCloudDll.m_pRegisterMessageType("RC:CmdNtf", 3);
+
+	//设置消息监听
+	g_RongCloudDll.m_pSetMessageListener(message_callback);
+
+	//设置网络异常监听
+	g_RongCloudDll.m_pSetExceptionListener(exception_callback);
+
+#else
 	if (g_MyClient.m_bConnect)			//如果已连接，跳过
 		return;
 	g_MyClient.InitClient();
@@ -23,6 +70,8 @@ VOID InitConnect()
 		g_MyClient.m_bConnect = TRUE;
 		USER_LOG("Socket Connect OK! [ConnID:%d]", g_MyClient.m_Client.GetConnectionID());
 	}
+	
+#endif
 	return;
 }
 
@@ -121,8 +170,10 @@ VOID LoginIN()
 // 停止
 VOID StopConnect()
 {
+#ifndef VER_UPIM_RONGYUN
 	g_MyClient.m_bMainWndClose = TRUE;
 	g_MyClient.StopClient();
+#endif
 	return;
 }
 
@@ -138,6 +189,8 @@ VOID InitMainFrame()
 	{
 		g_pFrame->Create(NULL,_T("UPIM 2015"), WS_EX_APPWINDOW, WS_EX_TOOLWINDOW, 0, 0, 600, 800);
 	}
+	else if (5 == VER_UPIM_NUMS)
+		g_pFrame->Create(NULL,_T("UPIM 2016"), WS_EX_APPWINDOW, WS_EX_TOOLWINDOW, 0, 0, 600, 800);
 	else 
 	{
 		// 分析师和其他版本 
@@ -145,17 +198,20 @@ VOID InitMainFrame()
 	}
  	g_pFrame->CenterWindow();
 
-	//////////////////////////////////////////////////////////////////////////
-	if (g_pFrame)
-	{
-#ifdef VER_UPIM_ANALYS2
-		g_pFrame->UpdateMyselfInfo(&g_selfunit, "秘书");
-		g_pFrame->PostMessage(UM_USER_SETSELFINFO, 0, 0);
-#else
-		g_pFrame->UpdateMyselfInfo(&g_selfunit, "UPIM");
-		g_pFrame->PostMessage(UM_USER_SETSELFINFO, 0, 0);
-#endif // VER_UPIM_ANALYS2
-	}
+// 	//////////////////////////////////////////////////////////////////////////
+// 	if (g_pFrame)
+// 	{
+// #ifdef VER_UPIM_ANALYS2
+// 		g_pFrame->UpdateMyselfInfo(&g_selfunit, "秘书");
+// 		g_pFrame->PostMessage(UM_USER_SETSELFINFO, 0, 0);
+// #elif defined VER_UPIM_RONGYUN
+// 		g_pFrame->UpdateMyselfInfo(&g_selfunit, "优信");
+// 		g_pFrame->PostMessage(UM_USER_SETSELFINFO, 0, 0);
+// #else
+// 		g_pFrame->UpdateMyselfInfo(&g_selfunit, "UPIM");
+// 		g_pFrame->PostMessage(UM_USER_SETSELFINFO, 0, 0);
+// #endif // VER_UPIM_ANALYS2
+// 	}
 
 	g_pFrame->StartLogin();
 

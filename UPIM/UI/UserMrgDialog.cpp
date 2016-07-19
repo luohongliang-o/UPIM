@@ -66,7 +66,7 @@ void CUserMrgDialog::InitWindow()
 	m_pList = static_cast<CListUIEx*>(m_PaintManager.FindControl(_T("listex")));
 	m_pChenkBox = static_cast<CCheckBoxUI*>(m_PaintManager.FindControl(_T("selall")));
 	m_pUserMrgDelBtn = static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("usermrg_delbtn")));
-
+	m_pMoveto        = static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("usermrg_moveto"))); 
 	for (int nIndex = 0; nIndex <= USERMRG_FENZU; nIndex++)
 	{
 		CString strOptionName = "";
@@ -184,7 +184,7 @@ void CUserMrgDialog::ChangeFenZu(int nIndex)
 
 	// 鼠标点击的分组ID  
 	nChooseGroup = nIndex;
-	
+	m_pGroupList->SelectItem(0,true) ; 
 	m_pChenkBox->SetCheck(false);
 
 	m_pList->RemoveAll();
@@ -502,20 +502,36 @@ void CUserMrgDialog::OnCbo_SelChange_Group(TNotifyUI& msg)
 
 	// 获取选中分组的ID 
 	int iGroupID = GetGroupIDByName(m_pGroupList->GetText().GetData()) ; 
+	if (nChooseGroup == -1){
+		::MessageBox(NULL, _T("请选择分组！"), _T("提示"), MB_OK);
+		return ;
+	}
+	string strName = m_pFenZu[nChooseGroup]->GetText().GetData() ; 
 	
-	// nChooseGroup是左边的分组列表中当前选中的列表ID，也就是将nChooseGroup分组中选中的用户移动到
-	// IGroupID去，最后nChooseGroup和IGroupID分组的标题都要更新。
+	// 去掉括号
+	int indexStart = strName.find("(") ;
+	int indexEnd   = strName.find(")") ;
+	// 没找到 
+	if( ( indexEnd == -1 )|| ( indexStart == -1 ))
+		return ; 
+	int iCustomerInFenzu = atoi( (strName.substr(indexStart+1,indexEnd-indexStart-1)).c_str()) ; 
+	string name = strName.substr(0,indexStart ) ;
 
+	if( name.compare(strText) == 0 )
+	{
+		::MessageBox(NULL, _T("源分组不能与目标分组相同，请重新选择目标分组！"), _T("提示"), MB_OK);
+		return ; 
+	}
 	//////////////////////////////////////////////////////////////////////////
 	// 检测那些条目是选中的
 	int nAllClomum = m_pList->GetCount();
 
 	// 选择的项 
 	std::vector<int> chooseItemRemove(nAllClomum,-1) ; 
+	std::vector<int> delItem( nAllClomum , -1 ) ; 
+
 	int removeCount = 0 ; 
-
 	int nListIndex = 0 ; 
-
 	Reader reader ;
 	Value  data_add_value ; 
 	Value  data_del_value ; 
@@ -527,6 +543,7 @@ void CUserMrgDialog::OnCbo_SelChange_Group(TNotifyUI& msg)
 
 	// 为了避免溢出，当有50条数据时就发送socket给服务器 
 	int iMaxSendMsgCount = 0 ; 
+	BOOL hasSeleteItem = FALSE ; 
 
 	for (; nListIndex < nAllClomum; nListIndex ++)
 	{
@@ -541,32 +558,32 @@ void CUserMrgDialog::OnCbo_SelChange_Group(TNotifyUI& msg)
 			//   0 表示 将客户成员从组ID中移出 
 			//   1 表示 将客户成员添加到组ID中
 			// json包 { "groupID":"XXX" ,"nType":"XXX" ,"item":[{"clientID":"XXX"},...,{"clientID":"XXX"}]}
-			data_add_value["groupID"] = m_mapGroupIdToControls[nChooseGroup] ; 
-			data_add_value["nType"]   = 0 ; 
+			data_add_value["g"] = m_mapGroupIdToControls[nChooseGroup] ; 
+			data_add_value["T"]   = 0 ; 
 
-			data_del_value["groupID"]   = iGroupID ; 
-			data_del_value["nType"]   = 1 ;
+			data_del_value["g"]   = iGroupID ; 
+			data_del_value["T"]   = 1 ;
 
 			if (pCheckBox->GetCheck())
 			{
+				delItem[nListIndex] = nListIndex ; 
+				hasSeleteItem = TRUE ; 
 				pText_Group->SetText(strText.c_str()) ; 
 				CString strCustomID = pText_ID->GetText() ;  // 客户ID 
 				CString strCustomGroupName = pText_Group->GetText() ;  // 组名称
 				// 在m_vtRoomClient找到该用户，并且将原来所在的list中删除该项  
 				int iSize = m_vtRoomClient.size() ;
-				
- 
 				for( int i = 0 ; i < iSize ; i++)
 				{
 					if( strcmp(m_vtRoomClient[i].m_szUPID ,strCustomID.GetBuffer()) == 0 )
 					{
 						m_vtRoomClient[i].m_nGroupID = iGroupID ;
 
-						item["clientID"] = (LPCSTR)(strCustomID) ; 
+						item["c"] = (LPCSTR)(strCustomID) ; 
 						array.append(item) ;
 
-						data_add_value["item"] = array ; 
-						data_del_value["item"] = array ; 
+						data_add_value["i"] = array ; 
+						data_del_value["i"] = array ; 
 
 						iMaxSendMsgCount++;
 						// 删除该项
@@ -598,16 +615,15 @@ void CUserMrgDialog::OnCbo_SelChange_Group(TNotifyUI& msg)
 
 					}
 				}
-				pCheckBox->SetCheck(false);
-			}
-			else
-			{
-				//::MessageBox(NULL, _T("请选择要移动的客户"), _T("提示"), MB_OK);
-				//return ; 
 			}
 		}
 	}
 
+	if( hasSeleteItem == FALSE)
+	{
+		::MessageBox(NULL, _T("请选择要移动的客户"), _T("提示"), MB_OK);
+		return ; 
+	}
 	// 发送小于50项的数据  
 	if ( iMaxSendMsgCount > 0 )
 	{
@@ -619,10 +635,29 @@ void CUserMrgDialog::OnCbo_SelChange_Group(TNotifyUI& msg)
 		g_MyClient.SendSetSelfGroupUserReq(strdata) ; 
 	}
 
+	if( !delItem.empty())
+	{
+		int len = delItem.size() ; 
+		int delindex = 0;
+		for( int index = 0 ; index < len ; index++)
+		{
+			int delValueInde = delItem.at(index) ; 
+			if( delValueInde != -1 )
+			{
+				if (0!=delindex)
+				{
+					delValueInde-=delindex;
+				}
+				m_pList->RemoveAt(delValueInde) ;
+				delindex++;
+			}
+		}
+	}
+	m_pList->NeedUpdate();
 	if( nGroupIndex != -1)
 	{
 		// 从未分组中移除
-		RemoveCustomFromGroup(chooseItemRemove,removeCount) ; 
+		//RemoveCustomFromGroup(chooseItemRemove,removeCount) ; 
 		// 将分组ID 转化为 控件的ID  
 		int nContorlID = ConvertGroupIDToControl(iGroupID) ; 
 		
@@ -829,6 +864,8 @@ void CUserMrgDialog::Notify(TNotifyUI& msg)
 			OnBtn_DelGroup(msg) ; 
 		else if (msg.pSender == m_pAllClient)
 			OnBtn_AllClient(msg);
+		else if( msg.pSender == m_pMoveto )
+			OnCbo_SelChange_Group(msg);
 
 		for (int nIndex = 0; nIndex<=USERMRG_FENZU; nIndex++)
 		{
@@ -865,11 +902,11 @@ void CUserMrgDialog::Notify(TNotifyUI& msg)
 			OnCheckBoxSelected();
 		}
 	}
-	else if (_tcsicmp(msg.sType, _T("itemselect")) == 0)
-	{
-		if (msg.pSender == m_pGroupList)
-			OnCbo_SelChange_Group(msg);
-	}
+	//else if (_tcsicmp(msg.sType, _T("itemselect")) == 0)
+	//{
+	//	if (msg.pSender == m_pGroupList)
+	//		OnCbo_SelChange_Group(msg);
+	//}
 }
 
 void CUserMrgDialog::OnBtnFenzuList(TNotifyUI& msg, CString strName)

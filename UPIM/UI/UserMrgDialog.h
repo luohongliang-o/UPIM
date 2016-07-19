@@ -70,7 +70,7 @@ private:
 	ECREATEDIALOGTYPE CreateType;
 	CButtonUI * m_pMinSysBtn, * m_pMaxSysBtn, * m_pRestoreSysBtn, * m_pCloseSysBtn, *m_pUserMrgAddBtn;
 	CButtonUI * m_pUserMrgDelBtn ; 
-	
+	CButtonUI * m_pMoveto ;   // 移动到
 	COptionUI* m_pAllClient;				// 全部客户
 	CControlUI* m_pFenZuList;
 	CComboUI* m_pGroupList;

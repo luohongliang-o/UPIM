@@ -33,7 +33,9 @@
 							<!-- <Button name="usermrg_delbtn" width="24" height="24" maxheight="24" maxwidth="24" padding="0,5,0,0" bkimage="file='usermrg_del.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  /> -->
 							<Button name="usermrg_delbtn" padding="4,7,0,0"  textcolor="#FFFFFFFF" tooltip="删除分组" text="删除分组" width="60" height="24" maxheight="24" maxwidth="60" bkimage="file='chat_btn.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
 							<Control />
-							<Text name="general_2" minwidth="45" align="right"  text="移动到 " textpadding="0,12,0,0" textcolor="#FF000000" />
+							<!-- <Text name="general_2" minwidth="45" align="right"  text="移动到 " textpadding="0,12,0,0" textcolor="#FF000000" /> -->
+							<Button name="usermrg_moveto" padding="4,7,0,0"  textcolor="#FFFFFFFF" tooltip="移动到" text="移动到" width="60" height="24" maxheight="24" maxwidth="60" bkimage="file='chat_btn.png'" hotimage="file='btn_hot.png' corner='2,3,2,2'" pushedimage="file='btn_push.png' corner='2,5,2,2'"  />
+							<Control />
 							<Combo name="usermrg_group" droptype="droplist" width="150" height="22" padding="0,10,0,0" textpadding="5,1,1,1"  normalimage="file='combo.png' source='0,0,100,22' corner='2,2,20,2'" hotimage="file='combo.png' source='0,22,100,44' corner='2,2,22,2'" pushedimage="file='combo.png' source='0,44,100,66' corner='2,2,22,2'">
 								<ListLabelElement text="未分组客户" selected="true" height="22" />
 							</Combo>

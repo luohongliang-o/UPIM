@@ -2,8 +2,9 @@
 #include "Func.h"
 #include "IniFile.h"
 #include <Windows.h>
-
+#include "GenericHTTPClient.h"
 #pragma  comment(lib,"Rpcrt4.lib")			//UUIDÐèÒª
+
 
 BOOL InitReqBufHead(IMREQBUFFER& m_reqbuf, long PacketLen , long RawLen)
 {
@@ -522,7 +523,13 @@ void LoginSuc_Ex()
 	CreateDirectory(strUserFolder, NULL);
 
 	// wuchao modify at 20160509 
+#ifndef VER_UPIM_RONGYUN
 	nsprintf( g_config.szUserDir, sizeof(g_config.szUserDir), "%s\\UPIMUser\\%s", g_config.szHomePath, /*g_MyClient.m_strUserid*/g_MyClient.m_strUserName );
+#else
+	nsprintf( g_config.szUserDir, sizeof(g_config.szUserDir), "%s\\UPIMUser\\%s", g_config.szHomePath,g_loginname);
+#endif
+
+	
 	nsprintf( g_config.szUserFile, sizeof(g_config.szUserFile), "%s\\file", g_config.szUserDir );
 	nsprintf( g_config.szUserImage, sizeof(g_config.szUserImage), "%s\\image", g_config.szUserDir );
 	nsprintf( g_config.szUserHead, sizeof(g_config.szUserHead), "%s\\head", g_config.szUserDir );
@@ -1633,4 +1640,687 @@ int astr_ustr( const char *ansistr, WCHAR *unicodestr )
 	{
 		//ShowError();
 	}
+}
+
+typedef struct _PLAINTEXTBLOB
+{
+	BLOBHEADER Blob;
+	DWORD      dwKeyLen;
+	CHAR       bKey[8];
+} PLAINTEXTBLOB;
+
+NTSTATUS
+CreateSymmetricKey(HCRYPTPROV  hProv,
+				   IN ALG_ID     Algid,
+				   IN DWORD       cbKey,
+				   IN UCHAR      *pbKey,
+				   IN UCHAR      *pbIV,
+				   OUT HCRYPTKEY *phKey
+				   )
+{
+	PLAINTEXTBLOB PlainBlob = {0};
+
+
+
+	if (cbKey > 8)
+	{
+		goto CleanUp;
+	}
+
+
+	PlainBlob.Blob.bType = PLAINTEXTKEYBLOB;
+	PlainBlob.Blob.bVersion = CUR_BLOB_VERSION;
+	PlainBlob.Blob.reserved = 0;
+	PlainBlob.Blob.aiKeyAlg = Algid;
+	memcpy(PlainBlob.bKey, pbKey, cbKey);
+	PlainBlob.dwKeyLen = cbKey;
+
+
+	// import thw simpleblob to get a handle to the symmetric key
+	if (!CryptImportKey(hProv,
+		(BYTE *)&PlainBlob,
+		sizeof(PlainBlob),
+		0,
+		0,
+		phKey))
+	{
+		goto CleanUp;
+	}
+
+
+	if ((Algid == CALG_DES) || (Algid == CALG_3DES_112))
+	{
+
+		if (!pbIV)
+		{
+		}
+		else
+		{
+			if (!CryptSetKeyParam(*phKey, KP_IV, pbIV, 0))
+			{
+				goto CleanUp;
+			}
+			// set the IV
+			/*
+			DWORD dwMode = CRYPT_MODE_CBC;
+			if(!CryptSetKeyParam(*phKey, KP_MODE, (const BYTE*)&dwMode, 0)) {
+				goto CleanUp;
+			}
+
+
+			dwMode = PKCS5_PADDING;
+				if(!CryptSetKeyParam(*phKey, KP_PADDING, (const BYTE*)&dwMode, 0)) {
+					goto CleanUp;
+				}*/
+
+		}
+
+	}
+
+CleanUp:
+
+	return 0;
+}
+
+int Encrypt(BYTE  Data3[],int leng,BOOL b,BYTE** pRet)
+{
+	//--------------------------------------------------------------------
+	// Declare variables.
+	//
+	// hProv:           Handle to a cryptographic service provider (CSP). 
+	//                  This example retrieves the default provider for  
+	//                  the PROV_RSA_FULL provider type.  
+	// hHash:           Handle to the hash object needed to create a hash.
+	// hKey:            Handle to a symmetric key. This example creates a 
+	//                  key for the RC4 algorithm.
+	// hHmacHash:       Handle to an HMAC hash.
+	// pbHash:          Pointer to the hash.
+	// dwDataLen:       Length,in bytes, of the hash.
+	// IV:           Password string used to create a symmetric key.
+	// Keys:           Message string to be hashed.
+	// HmacInfo:        Instance of an HMAC_INFO structure that contains 
+	//                  information about the HMAC hash.
+	// 
+	HCRYPTPROV  hProv       = NULL;
+	HCRYPTHASH  hHash       = NULL;
+	HCRYPTKEY   hKey        = NULL;
+	HCRYPTHASH  hHmacHash   = NULL;
+	PBYTE       pbHash      = NULL;
+	DWORD       dwDataLen   = 0;
+	BYTE        IV[]     = {'u','p','c','h','i','n','a','1'};
+	//BYTE        Keys[]     = {'u','p','c','h','i','n','a','8'};
+	//BYTE        Keys[]     = {'1','6','2','2','a','9','2','d'};// website
+	//BYTE        Keys[]     = {'c','2','6','8','a','2','c','d'}; //product
+	BYTE        Keys[]     = {'c','9','d','e','6','p','c','.'};
+	//BYTE        Data3[]     = {'u','p','c','h','i','n','a','1',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+	//--------------------------------------------------------------------
+	// Acquire a handle to the default RSA cryptographic service provider.
+
+	if (!CryptAcquireContext(
+		&hProv,                   // handle of the CSP
+		NULL,                     // key container name
+		NULL,                     // CSP name
+		PROV_RSA_FULL,            // provider type
+		CRYPT_VERIFYCONTEXT))     // no key access is requested
+	{
+		printf(" Error in AcquireContext 0x%08x \n",
+			GetLastError());
+		goto ErrorExit;
+	}
+
+
+	DWORD cb2=leng;
+	DWORD cb=cb2+8;
+	DWORD dwErr;
+
+	CreateSymmetricKey(hProv,CALG_DES, 8, Keys, IV, &hKey);
+	BYTE* pOut=(BYTE*)malloc(cb);
+	memset(pOut,0,cb);
+	memcpy(pOut,Data3,cb2);
+	if (b)
+	{
+		CryptEncrypt(hKey, NULL, TRUE, 0, pOut, &cb2, cb);
+		//CryptDecrypt(hKey, NULL, TRUE, 0, pOut, &cb2);
+	}
+	else
+		CryptDecrypt(hKey, NULL, TRUE, 0, pOut, &cb2);
+
+	*pRet = pOut;
+
+	dwErr = GetLastError();       
+
+
+	// Free resources.
+ErrorExit:
+	if(hKey)
+		CryptDestroyKey(hKey);
+	if(hProv)
+		CryptReleaseContext(hProv, 0);
+	if(pbHash)
+		free(pbHash);
+	return cb2;
+}
+
+BYTE * MacHash(BYTE        Keys[],int leng,int* pMd5Out)
+{
+	//--------------------------------------------------------------------
+	// Declare variables.
+	//
+	// hProv:           Handle to a cryptographic service provider (CSP). 
+	//                  This example retrieves the default provider for  
+	//                  the PROV_RSA_FULL provider type.  
+	// hHash:           Handle to the hash object needed to create a hash.
+	// hKey:            Handle to a symmetric key. This example creates a 
+	//                  key for the RC4 algorithm.
+	// hHmacHash:       Handle to an HMAC hash.
+	// pbHash:          Pointer to the hash.
+	// dwDataLen:       Length,in bytes, of the hash.
+	// IV:           Password string used to create a symmetric key.
+	// Keys:           Message string to be hashed.
+	// HmacInfo:        Instance of an HMAC_INFO structure that contains 
+	//                  information about the HMAC hash.
+	// 
+	HCRYPTPROV  hProv       = NULL;
+	HCRYPTHASH  hHash       = NULL;
+	HCRYPTKEY   hKey        = NULL;
+	HCRYPTHASH  hHmacHash   = NULL;
+	PBYTE       pbHash      = NULL;
+	DWORD       dwDataLen   = 0;
+	//BYTE        IV[]     = {1,2,3,4,5,6,7,8};
+	//BYTE        Keyss[]     = {(BYTE)'u',(BYTE)'p',(BYTE)'c','h','i','n','a','8'};
+	//BYTE        Keyss[]      = {'c','2','6','8','a','2','c','d'};// product 
+	//BYTE        Keyss[]      = {'1','6','2','2','a','9','2','d'};//website
+	BYTE        Keyss[]      = {'c','9','d','e','6','p','c','.'};
+	HMAC_INFO   HmacInfo;
+	CString strError =_T("");
+	//--------------------------------------------------------------------
+	// Zero the HMAC_INFO structure and use the SHA1 algorithm for
+	// hashing.
+
+	ZeroMemory(&HmacInfo, sizeof(HmacInfo));
+	HmacInfo.HashAlgid = CALG_MD5;
+
+	//--------------------------------------------------------------------
+	// Acquire a handle to the default RSA cryptographic service provider.
+
+	if (!CryptAcquireContext(
+		&hProv,                   // handle of the CSP
+		NULL,                     // key container name
+		NULL,                     // CSP name
+		PROV_RSA_FULL,            // provider type
+		CRYPT_VERIFYCONTEXT))     // no key access is requested
+	{
+		printf(" Error in AcquireContext 0x%08x \n",
+			GetLastError());
+		strError.Format(_T("Error in AcquireContext 0x%08x"),GetLastError());
+		
+		goto ErrorExit;
+	}
+
+
+	CreateSymmetricKey(hProv,CALG_RC4, 8, Keyss, NULL, &hKey);
+
+	//--------------------------------------------------------------------
+	// Create an HMAC by performing the following steps:
+	//    1. Call CryptCreateHash to create a hash object and retrieve 
+	//       a handle to it.
+	//    2. Call CryptSetHashParam to set the instance of the HMAC_INFO 
+	//       structure into the hash object.
+	//    3. Call CryptHashData to compute a hash of the message.
+	//    4. Call CryptGetHashParam to retrieve the size, in bytes, of
+	//       the hash.
+	//    5. Call malloc to allocate memory for the hash.
+	//    6. Call CryptGetHashParam again to retrieve the HMAC hash.
+
+	if (!CryptCreateHash(
+		hProv,                    // handle of the CSP.
+		CALG_HMAC,                // HMAC hash algorithm ID
+		hKey,                     // key for the hash (see above)
+		0,                        // reserved
+		&hHmacHash))              // address of the hash handle
+	{
+		printf("Error in CryptCreateHash 0x%08x \n", 
+			GetLastError());
+		strError.Format(_T("Error in CryptCreateHash 0x%08x"),GetLastError());
+		
+		goto ErrorExit;
+	}
+
+	if (!CryptSetHashParam(
+		hHmacHash,                // handle of the HMAC hash object
+		HP_HMAC_INFO,             // setting an HMAC_INFO object
+		(BYTE*)&HmacInfo,         // the HMAC_INFO object
+		0))                       // reserved
+	{
+		printf("Error in CryptSetHashParam 0x%08x \n", 
+			GetLastError());
+		strError.Format(_T("Error in CryptSetHashParam 0x%08x"),GetLastError());
+		goto ErrorExit;
+	}
+
+	if (!CryptHashData(
+		hHmacHash,                // handle of the HMAC hash object
+		Keys,                    // message to hash
+		leng,//sizeof(Keys),            // number of bytes of data to add
+		0))                       // flags
+	{
+		printf("Error in CryptHashData 0x%08x \n", 
+			GetLastError());
+		strError.Format(_T("Error in CryptHashData 0x%08x"),GetLastError());
+		
+		goto ErrorExit;
+	}
+
+	//--------------------------------------------------------------------
+	// Call CryptGetHashParam twice. Call it the first time to retrieve
+	// the size, in bytes, of the hash. Allocate memory. Then call 
+	// CryptGetHashParam again to retrieve the hash value.
+
+	if (!CryptGetHashParam(
+		hHmacHash,                // handle of the HMAC hash object
+		HP_HASHVAL,               // query on the hash value
+		NULL,                     // filled on second call
+		&dwDataLen,               // length, in bytes,of the hash
+		0))
+	{
+		printf("Error in CryptGetHashParam 0x%08x \n", 
+			GetLastError());
+		strError.Format(_T("Error in CryptGetHashParam 0x%08x"),GetLastError());
+		
+		goto ErrorExit;
+	}
+
+	pbHash = (BYTE*)malloc(dwDataLen);
+	*pMd5Out = dwDataLen;
+	if(NULL == pbHash) 
+	{
+		printf("unable to allocate memory\n");
+		strError.Format(_T("unable to allocate memory"));
+		
+		goto ErrorExit;
+	}
+
+	if (!CryptGetHashParam(
+		hHmacHash,                 // handle of the HMAC hash object
+		HP_HASHVAL,                // query on the hash value
+		pbHash,                    // pointer to the HMAC hash value
+		&dwDataLen,                // length,in bytes, of the hash
+		0))
+	{
+		printf("Error in CryptGetHashParam 0x%08x \n", GetLastError());
+		strError.Format(_T("Error in CryptGetHashParam 0x%08x"),GetLastError());
+		
+		goto ErrorExit;
+	}
+
+	// Print the hash to the console.
+
+
+	// Free resources.
+ErrorExit:
+	if(hHmacHash)
+		CryptDestroyHash(hHmacHash);
+	if(hKey)
+		CryptDestroyKey(hKey);
+	if(hHash)
+		CryptDestroyHash(hHash);    
+	if(hProv)
+		CryptReleaseContext(hProv, 0);
+	return pbHash;
+}
+
+char ToHex(unsigned char x)
+{
+	return  x > 9 ? x + 55 : x + 48;
+}
+
+CString URLEncode(const char* str)
+{
+	CString strTemp = "";
+	size_t length = strlen(str);
+	for (size_t i = 0; i < length; i++)
+	{
+		if (isalnum((unsigned char)str[i]) || 
+			(str[i] == '-') ||
+			(str[i] == '_') || 
+			(str[i] == '.') || 
+			(str[i] == '~'))
+			strTemp += str[i];
+		else if (str[i] == ' ')
+			strTemp += "+";
+		else
+		{
+			strTemp += '%';
+			strTemp += ToHex((unsigned char)str[i] >> 4);
+			strTemp += ToHex((unsigned char)str[i] % 16);
+		}
+	}
+	return strTemp;
+}
+CString EncryptContent(const char* content)
+{	
+	CString csContent(content);
+	csContent.Remove('\r');
+	csContent.Remove('\n');
+	CString toencrypt = UTF8Convert(csContent,CP_ACP,CP_UTF8);
+	int strlen = toencrypt.GetLength();
+	BYTE* pByte = (BYTE*)toencrypt.GetBuffer(0);
+	char lpDestStr[4096];
+	int destLen = 4096;
+	BYTE* pOutByte = NULL;
+	int retlen = Encrypt(pByte,strlen,TRUE,&pOutByte);
+	if (retlen>0)
+	{
+		Base64Encode(pOutByte,retlen,lpDestStr,&destLen);
+		if(destLen > 0)
+			lpDestStr[destLen] = '\0';
+		if(pOutByte)
+			free(pOutByte);
+	}
+	CString DestStr(lpDestStr);
+ 	DestStr.Remove('\r');
+ 	DestStr.Remove('\n');
+	return DestStr;
+}
+
+CString EncryptSign(CString encontent)
+{
+	CString utf8Content = UTF8Convert(encontent,CP_ACP,CP_UTF8);
+	int len = utf8Content.GetLength();
+	const char* pMd5 = utf8Content.GetBuffer(0);
+	int md5Len = 0;
+	BYTE* md5 = MacHash((BYTE*)pMd5,utf8Content.GetLength(),&md5Len);
+	char lpMd5Str[4096] = "";
+	int md5RetLen = 4096;
+	Base64Encode(md5,md5Len,lpMd5Str,&md5RetLen);
+	lpMd5Str[md5RetLen]=0;
+	CString sign(lpMd5Str);
+	if (md5)
+	{
+		free(md5);
+	}
+	return sign;
+}
+char* ParseStrToJsonstr(CString csResponse)
+{
+	int  destlen = 1024*100;
+	Base64Decode((LPCTSTR)csResponse,csResponse.GetLength(),NULL,&destlen);
+	destlen++;
+	LPBYTE pDest = new BYTE[destlen];
+	memset(pDest,0,destlen);
+	Base64Decode(csResponse,csResponse.GetLength(),pDest,&destlen);
+
+	BYTE* pOutByte = NULL;
+	int retLen = Encrypt(pDest,destlen,FALSE,&pOutByte);
+	if(retLen <= 0 || NULL == pOutByte)
+		return NULL;
+
+	pOutByte[retLen] = '\0';
+	char* strRet = new char[strlen((char*)pOutByte)+1];
+	memcpy(strRet,(char*)pOutByte,strlen((char*)pOutByte)+1);
+	if(pOutByte) {
+		free (pOutByte);
+		pOutByte = NULL;
+	}
+	return strRet;
+}
+BOOL GetIMUser(char* userno)
+{
+	BOOL bRet = TRUE;
+ 	GenericHTTPClient *httpClient = new GenericHTTPClient;
+	char* httpurl = HTTPAPIUSERMANAGE("GETIMUser");
+	Value content;
+	FastWriter writer;
+	string strJson;
+	content["JTCODE"] = g_jtcode;
+	content["REGCAMPAIGNID"] = g_regcampaignid;
+	content["USERNO"] = userno;
+	strJson = writer.write(content);
+	CString szContent = EncryptContent(strJson.c_str());
+	CString szSign = EncryptSign(szContent);
+	CString szHttpUrl = "";
+	szHttpUrl.Format("%s?content=%s&clientid=IMCLINET_PC&sign=%s",httpurl,
+		URLEncode(szContent.GetBuffer(0)).GetBuffer(0),URLEncode(szSign.GetBuffer(0)).GetBuffer(0));
+	if (httpClient->Request(szHttpUrl,GenericHTTPClient::RequestGetMethod,NULL)){
+		CString csResponse = (CString)httpClient->QueryHTTPResponse();
+		char* retStr = ParseStrToJsonstr(csResponse);
+		CString csretStr(retStr);
+		CString parseStr = UTF8Convert(csretStr,CP_UTF8,CP_ACP);
+		Reader _read;
+		Value  _value;
+		if ( !_read.parse( parseStr.GetBuffer(parseStr.GetLength()),_value ) )  {
+			TDEL(retStr);
+			return FALSE;
+		}
+		bool result = _value["result"].asBool();
+		int retcode = _value["retcode"].asInt();
+		if (10000 == retcode && result)
+		{
+			Value  _array = _value["retmsg"];
+			COPYSTRARRAY(g_loginname,_array["IMN"].asCString()) ;
+			COPY_NICKNAME(g_usernc,_array["NC"].asCString());
+			if (!_array["IMR"].isNull()) COPYSTRARRAY(g_userHeadUrl,_array["IMR"].asCString());
+			else strcpy(g_userHeadUrl,"");
+		}
+		else
+		{
+			CString erromsg = _value["retmsg"].asCString();
+			USER_LOG(erromsg);
+			bRet = FALSE;
+		}
+		TDEL(retStr);
+	}
+	TDEL(httpClient);
+	return bRet;
+}
+BOOL GetIMNToken(char* imn,char* nc,char* imr)
+{
+	BOOL bRet = FALSE;
+	GenericHTTPClient* httpClient = new GenericHTTPClient;
+	char* httpurl = HTTPAPIUSERMANAGE("GETIMNToken");
+	Value content;
+	FastWriter writer;
+	string strJson;
+	content["IMN"] = imn;
+	content["NC"] = nc;
+	content["IMR"] = imr;
+	strJson = writer.write(content);
+	CString szContent = EncryptContent(strJson.c_str());
+	CString szSign = EncryptSign(szContent);
+	CString szHttpUrl = "";//"http://113.108.146.107:8888/IMUserManage.svc/GETIMNToken?content=SrBbXZjGUhRRN53jWFH0xb05ZC6SAwWy2ye%2BKeurVMcqJ6hA%2FnULOdFNtmjKISdNZEHW0lmZyp8yY4xcGy5kzdldpSTQz3%2FCaxYH6RvkDzd8XPloxQByTc7BOr3hIg93&clientid=IMCLINET_PC&sign=zMbBB3I218C5CtIB7pBJtA%3D%3D";
+ 	szHttpUrl.Format("%s?content=%s&clientid=IMCLINET_PC&sign=%s",httpurl,
+ 		URLEncode(szContent.GetBuffer(0)).GetBuffer(0),URLEncode(szSign.GetBuffer(0)).GetBuffer(0));
+	if (httpClient->Request(szHttpUrl,GenericHTTPClient::RequestGetMethod,NULL)){
+		CString csResponse = (CString)httpClient->QueryHTTPResponse();
+		char* retStr = ParseStrToJsonstr(csResponse);
+		CString csretStr(retStr);
+		CString parseStr = UTF8Convert(csretStr,CP_UTF8,CP_ACP);
+		Reader _read;
+		Value  _value;
+		if (!_read.parse( parseStr.GetBuffer(parseStr.GetLength()),_value )  )  {
+			TDEL(retStr);
+			return FALSE;
+		}
+		bool result = _value["result"].asBool();
+		int retcode = _value["retcode"].asInt();
+		if (10000 == retcode && result){
+			bRet = TRUE;
+			Value  _array = _value["retmsg"];
+			COPYSTRARRAY(g_strToken,_array["Token"].asCString());
+		}
+		else
+		{
+			CString erromsg = _value["retmsg"].asCString();
+			USER_LOG(erromsg);
+		}
+		TDEL(retStr);
+	}
+	TDEL(httpClient);
+	return bRet;
+}
+
+BOOL UserRegimdev(char* userno,char* nc, char* img)
+{
+	BOOL bRet = TRUE;
+	GenericHTTPClient* httpClient = new GenericHTTPClient;
+	char* httpurl = HTTPAPIUSERINFO("USERREGIMDEV");
+	Value content;
+	FastWriter writer;
+	string strJson;
+	content["JTCODE"] = g_jtcode;
+	content["REGCAMPAIGNID"] = g_regcampaignid;
+	content["USERNO"] = userno;
+	content["NC"] = nc;
+	content["IMG"] = "001.PNG";
+	strJson = writer.write(content);
+	CString szContent = EncryptContent(strJson.c_str());
+	CString szSign = EncryptSign(szContent);
+	CString szHttpUrl = "";
+	szHttpUrl.Format("%s?content=%s&clientid=IMCLINET_PC&sign=%s",httpurl,
+		URLEncode(szContent.GetBuffer(0)).GetBuffer(0),URLEncode(szSign.GetBuffer(0)).GetBuffer(0));
+	if (httpClient->Request(szHttpUrl,GenericHTTPClient::RequestGetMethod,NULL)){
+		CString csResponse = (CString)httpClient->QueryHTTPResponse();
+		char* retStr = ParseStrToJsonstr(csResponse);
+		CString csretStr(retStr);
+		CString parseStr = UTF8Convert(csretStr,CP_UTF8,CP_ACP);
+		Reader _read;
+		Value  _value;
+		if ( !_read.parse( parseStr.GetBuffer(parseStr.GetLength()),_value ) )  {
+			TDEL(retStr);
+			return FALSE;
+		}
+		bool result = _value["result"].asBool();
+		int retcode = _value["retcode"].asInt();
+		if (10000 == retcode && result){
+			Value  _array = _value["retmsg"];
+			COPYSTRARRAY(g_loginname,_array["IMN"].asCString()) ;
+			COPY_NICKNAME(g_usernc,_array["NC"].asCString());
+			if(!_array["IMR"].isNull()) COPYSTRARRAY(g_userHeadUrl,_array["IMR"].asCString());
+			else COPYSTRARRAY(g_userHeadUrl,"");
+		}
+		else
+		{
+			bRet = FALSE;
+			CString erromsg = _value["retmsg"].asCString();
+			USER_LOG(erromsg);
+		}
+		TDEL(retStr);
+	}
+	TDEL(httpClient);
+	return bRet;
+}
+
+BOOL GetSysimgURL()
+{
+	BOOL bRet = TRUE;
+	GenericHTTPClient* httpClient = new GenericHTTPClient;
+	char* httpurl = HTTPAPIUSERMANAGE("GETSYSIMGURL");
+	Value content;
+	FastWriter writer;
+	string strJson;
+	content["TYPE"] = "ALL";
+	strJson = writer.write(content);
+	CString szContent = EncryptContent(strJson.c_str());
+	CString szSign = EncryptSign(szContent);
+	CString szHttpUrl = "";
+	szHttpUrl.Format("%s?content=%s&clientid=IMCLINET_PC&sign=%s",httpurl,
+		URLEncode(szContent.GetBuffer(0)).GetBuffer(0),URLEncode(szSign.GetBuffer(0)).GetBuffer(0));
+	if (httpClient->Request(szHttpUrl,GenericHTTPClient::RequestGetMethod,NULL)){
+		CString csResponse = (CString)httpClient->QueryHTTPResponse();
+		char* retStr = ParseStrToJsonstr(csResponse);
+		CString csretStr(retStr);
+		CString parseStr = UTF8Convert(csretStr,CP_UTF8,CP_ACP);
+		Reader _read;
+		Value  _value;
+		if ( !_read.parse( parseStr.GetBuffer(parseStr.GetLength()),_value ) )  {
+			TDEL(retStr);
+			return FALSE;
+		}
+		bool result = _value["result"].asBool();
+		int retcode = _value["retcode"].asInt();
+		if (10000 == retcode && result){
+			Value  _array = _value["retmsg"];
+			int size = _array.size();
+			for (int i = 0;i<size;i++)
+			{
+// 				if(!_array[i]["IMG"].isNull()) COPYSTRARRAY(g_userHeadIMG,_array[i]["IMG"].asCString()) ;
+// 				else COPYSTRARRAY(g_userHeadIMG,"");
+// 				if(!_array[i]["IMR"].isNull()) COPYSTRARRAY(g_userHeadUrl,_array[i]["IMR"].asCString());
+// 				else COPYSTRARRAY(g_userHeadUrl,"");
+			}
+			
+		}
+		else{
+			CString erromsg = _value["retmsg"].asCString();
+			USER_LOG(erromsg);
+			bRet = FALSE;
+		}
+		TDEL(retStr);
+	}
+	TDEL(httpClient);
+	return bRet;
+}
+
+BOOL GetIMDeptPublicCode() 
+{
+	BOOL bRet = TRUE;
+	GenericHTTPClient* httpClient = new GenericHTTPClient;
+	char* httpurl = HTTPAPIUSERMANAGE("GETIMDEPTPUBLICCODE");
+	Value content;
+	FastWriter writer;
+	string strJson;
+	content["JTCODE"] = g_jtcode;
+	content["REGCAMPAIGNID"] = g_regcampaignid;
+	strJson = writer.write(content);
+	CString szContent = EncryptContent(strJson.c_str());
+	CString szSign = EncryptSign(szContent);
+	CString szHttpUrl = "";
+	szHttpUrl.Format("%s?content=%s&clientid=IMCLINET_PC&sign=%s",httpurl,
+		URLEncode(szContent.GetBuffer(0)).GetBuffer(0),URLEncode(szSign.GetBuffer(0)).GetBuffer(0));
+	if (httpClient->Request(szHttpUrl,GenericHTTPClient::RequestGetMethod,NULL)){
+		CString csResponse = (CString)httpClient->QueryHTTPResponse();
+		char* retStr = ParseStrToJsonstr(csResponse);
+		CString csretStr(retStr);
+		CString parseStr = UTF8Convert(csretStr,CP_UTF8,CP_ACP);
+		Reader _read;
+		Value  _value;
+		if ( !_read.parse( parseStr.GetBuffer(parseStr.GetLength()),_value ) )  {
+			TDEL(retStr);
+			return FALSE;
+		}
+		bool result = _value["result"].asBool();
+		int retcode = _value["retcode"].asInt();
+		if (10000 == retcode && result){
+			Value  _array = _value["retmsg"];
+			int size = _array.size();
+			for (int i = 0;i<size;i++)
+			{
+				NEWPUBLIC_INFO publicInfo;
+				COPYSTRARRAY(publicInfo.publicnum,_array[i]["PUBLICNUM"].asCString()) ;
+				COPYSTRARRAY(publicInfo.publiccode,_array[i]["PUBLICCODE"].asCString());
+				COPYSTRARRAY(publicInfo.publicname,_array[i]["PUBLICNAME"].asCString());
+				
+				vector<IncodeInfo>* pIncode = new vector<IncodeInfo>;
+				Value _incodeArray = _array[i]["ACCESSARRAY"];
+				for (int j = 0;j<_incodeArray.size();j++)
+				{
+					IncodeInfo incode;
+					COPYSTRARRAY(incode.accesscode,_incodeArray[j]["ACCESSCODE"].asCString());
+					COPYSTRARRAY(incode.accessname,_incodeArray[j]["ACCESSNAME"].asCString());
+					pIncode->push_back(incode);
+				}
+				publicInfo.pIncode = pIncode;
+				g_mapNewPublicInfo[publicInfo.publicnum] = publicInfo;
+			}
+		}
+		else{
+			bRet = FALSE;
+			CString erromsg = _value["retmsg"].asCString();
+			USER_LOG(erromsg);
+		}
+		TDEL(retStr);
+	}
+	TDEL(httpClient);
+	return bRet;
 }

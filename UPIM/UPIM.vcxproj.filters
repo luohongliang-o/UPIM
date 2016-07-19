@@ -37,6 +37,9 @@
     <Filter Include="Json">
       <UniqueIdentifier>{398310a8-2c0e-4b15-acf7-fbf344be5db7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RongCloud">
+      <UniqueIdentifier>{d389675c-a08e-48f0-9a2c-1adde3ea948a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -383,6 +386,21 @@
     <ClInclude Include="CBytsDialog.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="char2wchar.h">
+      <Filter>RongCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="rcsdk.h">
+      <Filter>RongCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="txtutil.h">
+      <Filter>RongCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8.h">
+      <Filter>RongCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="write_log.h">
+      <Filter>RongCloud</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UPIM.cpp">
@@ -561,6 +579,12 @@
     </ClCompile>
     <ClCompile Include="CBytsDialog.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="char2wchar.cpp">
+      <Filter>RongCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="txtutil.cpp">
+      <Filter>RongCloud</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -127,3 +127,7 @@ int OnSetSelfGroup_Ans(char* pReceive, ULONG leng);
 
 // im2.0添加/修改用户的分组
 int OnSetSelfGroupUser_Ans(char* pReceive, ULONG leng);
+
+void connectCallback(const wchar_t* json_str);
+void __stdcall exception_callback(const wchar_t* json_str);
+void __stdcall message_callback(const wchar_t* json_str);

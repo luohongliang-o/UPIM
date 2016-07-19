@@ -135,20 +135,10 @@ DWORD WINAPI _AfxSendUserState(LPVOID lpParam)
 					if (m_state == MYSTATE_NORMAL)
 					{
 						// 推送在线状态数据包
-						g_MySever.m_Server.Send((CONNID)dwConnectID, (LPBYTE)pSend, nLenAll);
+						//g_MySever.m_Server.Send((CONNID)dwConnectID, (LPBYTE)pSend, nLenAll);
 
 						CString strTmp = "";
 						strTmp.Format("2#[%s] 在线状态 [%d] 推送状态至 [%s] CID:%d", uUserState.m_szUSERID, uUserState.m_ucState, paToUser.mIDVT[nFriendIdx].m_szUID, dwConnectID);
-						//OP_LOG_INFO(strTmp.GetBuffer(0));
-					}
-					// 离线 
-					else if( m_state == MYSTATE_OFFLINE )
-					{
-						//// 推送在线状态数据包
-						//g_MySever.m_Server.Send((CONNID)dwConnectID, (LPBYTE)pSend, nLenAll);
-
-						//CString strTmp = "";
-						//strTmp.Format("2#[%s] 离线状态 [%d] 推送状态至 [%s] CID:%d", uUserState.m_szUSERID, uUserState.m_ucState, paToUser.mIDVT[nFriendIdx].m_szUID, dwConnectID);
 						//OP_LOG_INFO(strTmp.GetBuffer(0));
 					}
 					else 
@@ -158,6 +148,7 @@ DWORD WINAPI _AfxSendUserState(LPVOID lpParam)
 						//OP_LOG_INFO(strTmp.GetBuffer(0));
 
 					}
+					g_MySever.m_Server.Send((CONNID)dwConnectID, (LPBYTE)pSend, nLenAll);
 				}
 			}
 			Sleep(5);

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="310,768" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="300,500" roundcorner="4,4">
+    <Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+    <Font name="微软雅黑" size="12" bold="true" italic="false" />
+    <Font name="微软雅黑" size="13" bold="true" italic="false" />
+    <Font name="微软雅黑" size="20" bold="false" italic="false" />
+    <Font name="微软雅黑" size="14" bold="false" italic="false" />
+    <Font name="微软雅黑" size="14" bold="true" italic="false" />
+    <Default name="VScrollBar" value="button1normalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,0,16,16&apos;&quot; button1hotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,0,32,16,16&apos;&quot; button1pushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,0,48,16&apos;&quot; button2normalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,32,16,48&apos;&quot; button2hotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,32,32,48&apos;&quot; button2pushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,32,48,48&apos;&quot; thumbnormalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,48,16,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbhotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,48,32,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbpushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,48,48,64&apos; corner=&apos;0,2,0,2&apos;&quot; bknormalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,16,16,32&apos;&quot;" />
+    <HorizontalLayout name="mainframe_bg" bkimage="file=&apos;top.png&apos; corner=&apos;600,200,1,1&apos;">
+        <VerticalLayout bkimage="file=&apos;border.png&apos; corner=&apos;5,5,5,5&apos;" inset="1,0,1,1">
+            <HorizontalLayout height="55">
+                <VerticalLayout width="80" inset="10,4,0,0">
+                    <HorizontalLayout height="25">
+                        <Label name="mainframe_appicon" width="23" height="23" bkimage="file=&apos;new_logo.png&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                        <Control width="8" />
+                        <Label name="mainframe_apptitle" text="秘书" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="5" />
+                    </HorizontalLayout>
+                </VerticalLayout>
+                <VerticalLayout />
+                <VerticalLayout width="95">
+                    <Button name="mainframe_minbtn" float="true" pos="28,0,0,0" width="28" height="19" maxheight="19" maxwidth="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_mini_normal.png&apos;" hotimage="btn_mini_highlight.png" pushedimage="btn_mini_down.png" />
+                    <Button name="mainframe_closebtn" float="true" pos="56,0,0,0" width="39" height="19" maxheight="19" maxwidth="39" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close_normal.png&apos;" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png" />
+                </VerticalLayout>
+            </HorizontalLayout>
+            <VerticalLayout name="friend_list_part" width="308" height="668">
+                <TabLayout name="mainframe_switch">
+                    <VerticalLayout bkimage="file=&apos;glow2.png&apos; corner=&apos;2,2,2,2&apos;">
+                        <HorizontalLayout height="30">
+                            <HorizontalLayout>
+                                <HorizontalLayout width="50">
+                                    <Option name="mainframe_friendbtn" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="file=&apos;main_kh2.png&apos; dest=&apos;0,7,50,23&apos;" group="true" selected="true" selectedimage="file=&apos;main_kh1.png&apos; dest=&apos;0,7,50,23&apos;" />
+                                </HorizontalLayout>
+                                <HorizontalLayout />
+                                <HorizontalLayout />
+                            </HorizontalLayout>
+                            <HorizontalLayout>
+                                <HorizontalLayout width="50">
+                                    <Option name="mainframe_groupbtn" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="file=&apos;main_fz2.png&apos; dest=&apos;0,7,50,23&apos;" group="true" selectedimage="file=&apos;main_fz1.png&apos; dest=&apos;0,7,50,23&apos;" />
+                                </HorizontalLayout>
+                                <HorizontalLayout />
+                                <HorizontalLayout />
+                            </HorizontalLayout>
+                            <HorizontalLayout>
+                                <HorizontalLayout />
+                                <HorizontalLayout />
+                            </HorizontalLayout>
+                        </HorizontalLayout>
+                        <HorizontalLayout bordersize="1" bordercolor="#FFD3DEE5">
+                            <HorizontalLayout width="1" />
+                            <TabLayout name="mainframe_tabs" bkimage="file=&apos;list_bk.png&apos;">
+                                <HorizontalLayout name="mainframe_friends_">
+                                    <FriendList header="hidden" itemshowhtml="true" name="mainframe_friends" vscrollbar="true" />
+                                </HorizontalLayout>
+                                <HorizontalLayout name="mainframe_selfgroup_">
+                                    <SelfList header="hidden" itemshowhtml="true" name="mainframe_selfgroup" vscrollbar="true" />
+                                </HorizontalLayout>
+                                <HorizontalLayout name="mainframe_recent_">
+                                    <RecentLink header="hidden" itemshowhtml="true" name="mainframe_recent" vscrollbar="true" />
+                                </HorizontalLayout>
+                            </TabLayout>
+                            <HorizontalLayout width="1" inset="0,1,1,0" />
+                        </HorizontalLayout>
+                        <HorizontalLayout height="36" bkimage="file=&apos;search_bk.png&apos;">
+                            <RichEdit />
+                        </HorizontalLayout>
+                    </VerticalLayout>
+                    <VerticalLayout bkimage="file=&apos;glow2.png&apos; corner=&apos;2,2,2,2&apos;">
+                        <HorizontalLayout height="36" bkimage="file=&apos;search_bk2.png&apos;">
+                            <RichEdit />
+                            <Button name="mainframe_closebtn_friend" text="{i search_close.png}{/i}" width="40" height="34" showhtml="true" align="center" />
+                        </HorizontalLayout>
+                        <HorizontalLayout name="mainframe_findfriends_" bkimage="file=&apos;glow2.png&apos;">
+                            <FindFriendList header="hidden" itemshowhtml="true" name="mainframe_findfriends" vscrollbar="true" />
+                        </HorizontalLayout>
+                    </VerticalLayout>
+                </TabLayout>
+            </VerticalLayout>
+            <VerticalLayout height="40" bkimage="file=&apos;main_buttom_2.png&apos;">
+                <HorizontalLayout>
+                    <HorizontalLayout />
+                    <HorizontalLayout width="120" padding="0,10,0,0">
+                        <Button name="mainframe_usermrg" width="110" height="24" bkimage="file=&apos;main_khglq2.png&apos; dest=&apos;10,4,100,20&apos; mask=&apos;0xffffffff&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;main_khglq.png&apos; dest=&apos;10,4,100,20&apos; mask=&apos;0xffffffff&apos;" hotimage="file=&apos;allbtn_over.png&apos; corner=&apos;2,2,2,2&apos; mask=&apos;0xffffffff&apos;" pushedimage="file=&apos;allbtn_down.png&apos; corner=&apos;2,2,2,2&apos; mask=&apos;0xffffffff&apos;" />
+                    </HorizontalLayout>
+                </HorizontalLayout>
+            </VerticalLayout>
+        </VerticalLayout>
+    </HorizontalLayout>
+</Window>

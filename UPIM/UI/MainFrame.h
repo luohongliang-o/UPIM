@@ -155,6 +155,7 @@ public:
 	void ModifySign(CDuiString m_strSign);
 	
 	BOOL ProcessRecvMsg(LPRECVMSG2 lpRecvMsg, BOOL bOffMsg = FALSE);			// 收到消息后进行处理
+	BOOL ProcessRecvMsg(LPNEWRECVMSGPUBLIC lpRecvMsg);			// 收到消息后进行处理
 	BOOL ProcessRecvGroupMsg(GROUP_CHAT_HIS_MSG* lpHisMsg);						// 收到历史群组消息后进行处理
 	BOOL ProcessRecvGroupMsg(gcrecvmsg_ans* lpRecvMsg, BOOL bOffMsg = FALSE);	// 收到群组消息后进行处理
 	BOOL GCGetList(ROOMID mRoomID);
@@ -220,6 +221,8 @@ public:
 	LRESULT OnOpenChatDialog(WPARAM wParam, LPARAM lParam) ; 
 	LRESULT OnFindFriends(WPARAM wParam, LPARAM lParam) ;    // wuchao add at 2016-04-05 查找好友 
 	LRESULT OnSetFocus(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled); 
+	LRESULT OnAddNewPublic(WPARAM wParam, LPARAM lParam);
+	LRESULT OnAddNewLastUser(WPARAM wParam, LPARAM lParam);
 public:
 	SkinChangedObserver					skin_changed_observer_;
 	CGeneralDialog*						pLoginDialog;
@@ -249,6 +252,7 @@ private:
 
 	CDuiString							m_AppTitle;
 	std::vector<FriendListItemInfo>		friends_;
+	std::vector<FriendListItemInfo>		Recentfriends_;
 	std::vector<FriendListItemInfo>		groups_;
 	CMsgNotifyDialog m_NotifyDlg ;      // 消息提示框   
 	BOOL                                m_bRecvFriendsMsg ; // wuchao add 是否是收到了好友发送的消息，标志是显示MainFrame还是ChatDialog
@@ -280,6 +284,7 @@ private:
 	CRect     m_rtMsgDlg ; 
 	//TrayIconMessage trayIconMessage ; 
 	POINT m_ptMouseHover ;  //鼠标悬停的位置
+
 public:
 	// 客户管理窗口 
 	CUserMrgDialog *m_pUserMrgDialog  ; 

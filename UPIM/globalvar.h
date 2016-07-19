@@ -86,6 +86,8 @@ extern int		m_nCilentRightsIdx;
 extern std::map<PUBLICID, PUBLIC_INFO>		m_mapPublicInfo;
 typedef map<PUBLICID, PUBLIC_INFO>::iterator PUB_ITER;
 
+extern std::map< CString,NEWPUBLIC_INFO>	g_mapNewPublicInfo;
+
 // Analyst
 // 对于分析师来说，存储的是他提供服务的房间号
 extern std::map<TGROOMID, TGROOM_INFO>		m_mapTgRoomInfo;
@@ -118,4 +120,10 @@ extern CString g_strAddGroupName;   // 增加的分组
 extern CString g_strDelGroupName ;  // 要删除的分组 
 extern BOOL g_downPicLock  ;        // 记录是否下载图片  线程锁 
 
+extern char g_jtcode[2];			//B为业务版、U是优品终端
+extern char g_regcampaignid[10];	//软件用户注册渠道码
+extern char g_usernc[S_NICKNAME_LEN];           //用户昵称
+extern char g_userHeadUrl[256];      // 用户头像
+extern char g_strToken[128];      // 用户token
+extern char g_userHeadIMG[256];
 #endif

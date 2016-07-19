@@ -55,6 +55,7 @@ std::vector<USER_ROOMCLIENT_INFO>	m_vtRoomClient;
 int		m_noomClientIdx = 0;
 
 
+std::map<CString,NEWPUBLIC_INFO>	g_mapNewPublicInfo;
 ////////////////////////////////////////////////////////////////
 // wuchao add at 2016-03-29
 // 分析师中 当前在线人员的详细信息和离线人员
@@ -96,3 +97,10 @@ int	g_nRoomID_im2_0 = 0;
 CString g_strAddGroupName = _T("");
 CString g_strDelGroupName = _T("") ;
 BOOL  g_downPicLock = FALSE ; 
+
+char g_jtcode[2] = "";
+char g_regcampaignid[10] = "";
+char g_usernc[S_NICKNAME_LEN]="";
+char g_userHeadUrl[256] = "";
+char g_userHeadIMG[256] = "";
+char g_strToken[128] = "";

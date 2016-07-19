@@ -289,7 +289,7 @@ void CMsgNotifyDialog::DeleteFriend(CDuiString strName)
 	{
 		if( itBegin->numid == strName )
 		{
-			m_vecFriend.erase(itBegin) ; 
+			itBegin = m_vecFriend.erase(itBegin) ; 
 		}
 		else
 			itBegin++ ; 
@@ -300,7 +300,7 @@ void CMsgNotifyDialog::DeleteFriend(CDuiString strName)
 	{
 		if( itBeginFriend->numid == strName )
 		{
-			friends_.erase(itBeginFriend) ; 
+			itBeginFriend = friends_.erase(itBeginFriend) ; 
 		}
 		else
 			itBeginFriend++ ; 
@@ -410,8 +410,8 @@ void CMsgNotifyDialog::OnListItemClick(TNotifyUI& msg)
 		if( !pSelectNode)
 			return ; 
 		CDuiString strNumID = pNode->data().numid ; 
-		DeleteFriend(strNumID) ; 
-		g_pFrame->DeleteFriend(strNumID) ; 
+// 		DeleteFriend(strNumID) ; 
+// 		g_pFrame->DeleteFriend(strNumID) ; 
 		//Òþ²Ø×Ô¼º´°¿Ú 
 		this->ShowWindow(false) ; 
 		
@@ -431,6 +431,9 @@ void CMsgNotifyDialog::OnListItemClick(TNotifyUI& msg)
 		// ÍÐÅÌÍ¼±êÍ£Ö¹ÉÁ¶¯ 
 		if( m_vecFriend.size() == 0 )
 			g_pFrame->StopNotifyiconFlash() ; 
+		DeleteFriend(strNumID) ; 
+		g_pFrame->DeleteFriend(strNumID) ; 
+
 	}
  
 }

@@ -80,6 +80,16 @@ BOOL CMyServer::DelPkgInfoFromMap(LONG mConID)
 EnHandleResult CMyServer::OnReceive(CONNID dwConnID, const BYTE* pData, int iLength)
 {
 	INITCOM();				//init_com
+
+	struct tagIMReqHeader* pHead = (struct tagIMReqHeader*)pData;
+	short req = *(short*)(pHead + 1);
+	vector<int> reqList(UPIM_REQ_COUNT,0);
+	for (int i = 0;i<UPIM_REQ_COUNT;++i){
+		reqList[i]=UPIM_REQ_BASE+i;
+	}	
+	vector<int>::iterator itReq = find(reqList.begin(),reqList.end(),req);
+	if(itReq == reqList.end()) goto reqReten;
+
 	BOOL bSendSuc = FALSE;
 	//::PostOnReceive(dwConnID, pData, iLength);
 	m_PackInfo.RecieveDataLen+=iLength;
@@ -197,7 +207,7 @@ EnHandleResult CMyServer::OnReceive(CONNID dwConnID, const BYTE* pData, int iLen
 	}
 #endif // __NEW_MODE
 	UNINITCOM();	//uninit_com
-
+reqReten:return HR_OK;
 	return HR_OK;
 }
 

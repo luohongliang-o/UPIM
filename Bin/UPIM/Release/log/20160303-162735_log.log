@@ -1,6 +1,0 @@
-2016-03-03 16:27:35,768 InitRichEditCom Start!
-2016-03-03 16:27:37,090 Socket Connect OK! [ConnID:1]
-2016-03-03 16:27:37,112 RecvData: iLength:311 nLen:286 Req:5001
-2016-03-03 16:27:38,053 StopClient
-2016-03-03 16:27:38,078 [SUCCESS]Socket Close ConnID:1
-2016-03-03 16:27:38,088 1# CMyClient::OnClose

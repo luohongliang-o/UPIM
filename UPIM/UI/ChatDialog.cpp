@@ -87,6 +87,7 @@ ChatDialog::ChatDialog(const CDuiString& bgimage, DWORD bkcolor, const FriendLis
 
 	SELECTNODE m_selectNode = {0};
 	m_PublicSveID = _T("");
+	m_pIncodeID = _T("");
 	nRouteID = -1;
 	nPublicID = -1;
 	bsendPubconClose = FALSE;
@@ -431,6 +432,11 @@ void ChatDialog::InitWindow()
 				desciption->SetFixedWidth(nLen * WLEN_TO_PIX);
 		}
 	}
+	else if (eDIALOG_RYPublic == eDialogType)
+	{
+		RecvPublicInfo();
+	}
+
 	bIsInitWindow = true;
 	return;
 }
@@ -840,6 +846,7 @@ void ChatDialog::OnMenuClick(WPARAM wParam , LPARAM lParam)
 // 公众号中的文本超链接
 void ChatDialog::OnRichEditLink(CDuiString strLink)
 {
+#ifndef VER_UPIM_RONGYUN
 	PUB_ITER iter_ = m_mapPublicInfo.find(atoi(friend_.numid));
 	// 搜寻问题路由，看点击的是哪个问题
 	if (iter_->second.pVtRoute != NULL)
@@ -858,6 +865,26 @@ void ChatDialog::OnRichEditLink(CDuiString strLink)
 			}
 		}
 	}
+#else
+	map<CString,NEWPUBLIC_INFO>::iterator iter_ = g_mapNewPublicInfo.find(friend_.numid.GetData());
+	if (iter_->second.pIncode != NULL)
+	{
+		std::vector<IncodeInfo>::iterator iter_info;
+		for (iter_info = iter_->second.pIncode->begin(); iter_info != iter_->second.pIncode->end(); iter_info++)
+		{
+			CString strRName = _T("");
+			strRName.Format("%s", iter_info->accessname);
+			if (-1 != strLink.Find(strRName))
+			{
+				CString strTmp = _T("");
+				strTmp.Format("  您选择的是[%s]，请直接输入您的问题，我们将为您转接服务专员。", strRName, iter_info->accesscode);
+				m_pIncodeID = iter_info->accesscode;
+				AddMsgToRichEdit_More(m_pRecvEdit, strTmp, g_userconfig.m_fontInfo, false, false, friend_.id.GetData(), friend_.nick_name.GetData(), "");
+			}
+		}
+	}
+#endif
+
 }
 
 void ChatDialog::AddTimer(UINT nTimerID, UINT uElapse)
@@ -1026,13 +1053,13 @@ void ChatDialog::OnPrepare(TNotifyUI& msg)
 	m_pSendEdit->ReplaceSel(_T(""), false);
 	m_pBackground->SetFocus();
 	m_pSendEdit->SetFocus();
-	
 	tmStart_ = time(NULL);
+#ifndef VER_UPIM_RONGYUN
 	if (g_MyClient.IsClientLoginIn() && eDialogType == eDIALOG_Public)
 	{
 		AddTimer(T_CHATBOX, eTE_Chatbox);
 	}
-
+#endif
 	if (eDialogType == eDIALOG_ChatTG)
 	{
 		AddTimer(T_REFRESHSTATUS, eTE_RefreshStatus);
@@ -3246,9 +3273,10 @@ BOOL ChatDialog::CheckTextInput()
 		::MessageBox(m_hWnd, _T("您输入的文本太长，无法发送！"), _T("提示"), MB_OK);
 		return FALSE;
 	}
-
+#ifndef VER_UPIM_RONGYUN
 	if (!g_MyClient.m_bConnect)
 	{
+
 		if (eDialogType == eDIALOG_ChatTG && !g_bUserKickOff)
 		{
 			// 如果是投顾聊天室，直接重新连接服务器
@@ -3282,6 +3310,8 @@ BOOL ChatDialog::CheckTextInput()
 #endif 
 		}
 	}
+#endif
+
 	if (eDialogType == eDIALOG_ChatTG)
 	{
 		if (bControlImg)
@@ -3325,7 +3355,14 @@ void ChatDialog::SendMsg_More()
 			::MessageBox(m_hWnd, GetLastErrorStr(), _T("提示"), MB_OK);
 		return;
 	}
+#ifdef VER_UPIM_RONGYUN
+	if (m_pIncodeID.IsEmpty())
+	{
+		::MessageBox(m_hWnd, "请选择相应问题后再进行提问！", _T("提示"), MB_OK);
+		return;
+	}
 
+#endif
 	//个人聊天，原始途径发送
 	if (eDialogType == eDIALOG_Single)
 	{
@@ -3371,6 +3408,32 @@ void ChatDialog::SendMsg_More()
 		g_MyClient.m_BigPackageSend.CreateMsg(friend_.numid, pData, eMsgFormat_Def, eMsgSend_Analyst, friend_.Parentid.GetData());
 	}
 
+	else if (eDialogType == eDIALOG_RYPublic)
+	{
+		Value jobj;
+		FastWriter writer;
+		CDuiString numid;
+		if (m_PublicSveID.IsEmpty())
+		{
+			CString extrastr;
+			extrastr.Format("%s|%s",friend_.numid.GetData(),m_pIncodeID.GetData());
+			jobj["content"] = strText.c_str();
+			jobj["extra"] = extrastr.GetBuffer(extrastr.GetLength());
+			numid = friend_.numid;
+		}
+		else{
+			jobj["content"] = strText.c_str();
+			jobj["extra"] = extrastr.GetBuffer(extrastr.GetLength());
+			numid = m_PublicSveID;
+		}
+		string strjson = writer.write(jobj);
+		int messageId = 0;
+
+		messageId = g_RongCloudDll.m_pSaveMessage(numid, newMSG_PRIVATE, "RC:TxtMsg", numid, txtutil::convert_ansi_to_wcs(strjson).c_str(), "", "");
+		g_RongCloudDll.m_psendMessage(numid,newMSG_PRIVATE,newMSG_N,"RC:TxtMsg",
+			txtutil::convert_ansi_to_wcs(strjson).c_str(),"", " ",messageId,(PublishAckListenerCallback)&sendMessageCallback);
+	}
+
 	m_pSendEdit->SetText(_T(""));
 	m_pSendEdit->SetFocus();
 
@@ -3380,7 +3443,9 @@ void ChatDialog::SendMsg_More()
 	// 文本消息中转换成简要信息显示在界面上，图片显示[图片],表情显示[表情]
 	CString strDispairMsg = ConvertMsgToChiefMsg(eMsgFormat_Txt, strText.c_str());
 	// 填充最近联系人
+#ifndef VER_UPIM_RONGYUN
 	g_pFrame->ModifyDisRecentInfo(CDuiString(friend_.numid.GetData()), ""/*CDuiString(friend_.nick_name.GetData())*/, CDuiString(strDispairMsg), GetNowTimeHourAndMin(), atoi(friend_.Parentid.GetData()));
+#endif
 }
 
 //发送消息，在这里处理
@@ -3753,7 +3818,7 @@ void ChatDialog::InsertChatHistory_More(RECEIVED_MSG *pMsg, LPCTSTR szSendName, 
 		pMsg->senddate/10000, (pMsg->senddate%10000)/100, pMsg->senddate%100, pMsg->sendtime/10000, (pMsg->sendtime%10000)/100, pMsg->sendtime%100);
 
 	//从公众号信息中 判断当前发来消息的客服ID m_PublicSveID
-	if (pMsg->msgtype == eMsgSend_Public)
+	if (pMsg->msgtype == eMsgSend_Public||eMsgSend_NewPublic == pMsg->msgtype)
 		m_PublicSveID = pMsg->imid;
 
 	if (pMsg->format == eMsgFormat_System)
@@ -3891,6 +3956,8 @@ LPCTSTR  ChatDialog::GetLastErrorStr()
 */
 void ChatDialog::RecvPublicInfo()
 {
+#ifndef VER_UPIM_RONGYUN
+
 	if (g_MyClient.IsClientLoginIn())
 	{
 		PUB_ITER iter_ = m_mapPublicInfo.find(atoi(friend_.numid));
@@ -3913,6 +3980,24 @@ void ChatDialog::RecvPublicInfo()
 	{
 
 	}
+#else
+	std::map<CString,NEWPUBLIC_INFO>::iterator iter_ = g_mapNewPublicInfo.find(friend_.numid.GetData());
+	if (iter_!=g_mapNewPublicInfo.end())
+	{
+		char welcomstr[] = "您好，欢迎使用在线客服。请点击下列连接，快速准确获取答案!";
+		AddMsgToRichEdit_More(m_pRecvEdit, welcomstr, g_userconfig.m_fontInfo, false, false, friend_.id.GetData(), friend_.nick_name.GetData(), "");
+		if (iter_->second.pIncode != NULL)
+		{
+			std::vector<IncodeInfo>::iterator iter_info;
+			for (iter_info = iter_->second.pIncode->begin(); iter_info != iter_->second.pIncode->end(); iter_info++)
+			{
+				CString strTmp = _T("");
+				strTmp.Format("%d.%s", iter_info->accesscode, iter_info->accessname);
+				AddMsgToRecvEdit_Link(strTmp);
+			}
+		}
+	}
+#endif
 }
 
 //////////////////////////////////////////////////////////////////////////

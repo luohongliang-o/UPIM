@@ -26,7 +26,7 @@ public:
 
 	BOOL SendClientMsg(const BYTE* pBuffer, int iLength, int iOffset = 0);
 	BOOL IsClientLoginIn() {return m_nUserType == eUser_Client;}
-	BOOL IsMyUserID(LPCUSERID imid) {return strcmp(m_strUserName.GetBuffer(0), imid)==0;}
+	BOOL IsMyUserID(LPCUSERID imid) {return strcmp((char*)m_strUserName.GetBuffer(0), imid)==0;}
 
 	BOOL SendCheckPwdReq(LPCTSTR UID, LPCTSTR PWD, short nCheckType);
 	BOOL SendGUserReq(short nGroupID, short nType);

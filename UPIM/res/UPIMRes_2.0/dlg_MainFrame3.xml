@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="320,768" sizebox="4,4,4,4" caption="0,0,0,-1" mininfo="300,500" roundcorner="4,4">
+    <Font name="微软雅黑" size="12" bold="false" italic="false" default="true" />
+    <Font name="微软雅黑" size="12" bold="true" italic="false" />
+    <Font name="微软雅黑" size="13" bold="true" italic="false" />
+    <Font name="微软雅黑" size="20" bold="false" italic="false" />
+    <Font name="微软雅黑" size="14" bold="false" italic="false" />
+    <Font name="微软雅黑" size="14" bold="true" italic="false" />
+    <Default name="VScrollBar" value="button1normalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,0,16,16&apos;&quot; button1hotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,0,32,16,16&apos;&quot; button1pushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,0,48,16&apos;&quot; button2normalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,32,16,48&apos;&quot; button2hotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,32,32,48&apos;&quot; button2pushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,32,48,48&apos;&quot; thumbnormalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,48,16,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbhotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,48,32,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbpushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,48,48,64&apos; corner=&apos;0,2,0,2&apos;&quot; bknormalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,16,16,32&apos;&quot;" />
+    <HorizontalLayout name="mainframe_bg" bkimage="file=&apos;top3.png&apos; corner=&apos;600,200,1,1&apos;">
+        <VerticalLayout bkimage="file=&apos;border_3.png&apos; corner=&apos;5,5,5,5&apos;" inset="1,0,1,1">
+            <HorizontalLayout width="320" height="34" bordercolor="#00999999" focusbordercolor="#00999999">
+                <VerticalLayout width="80" bordercolor="#00999999" focusbordercolor="#00999999" inset="10,4,0,0">
+                    <HorizontalLayout height="25">
+                        <Label name="mainframe_appicon" width="23" height="23" bkimage="file=&apos;new_logo3.png&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                        <Control width="8" />
+                        <Label name="mainframe_apptitle" text="优信" textcolor="#33333333" disabledtextcolor="#FFA7A6AA" font="5" />
+                    </HorizontalLayout>
+                </VerticalLayout>
+                <VerticalLayout />
+                <VerticalLayout width="95">
+                    <Button name="mainframe_minbtn" float="true" pos="28,0,0,0" width="28" height="19" maxheight="19" maxwidth="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_mini_normal.png&apos;" hotimage="btn_mini_highlight.png" pushedimage="btn_mini_down.png" />
+                    <Button name="mainframe_closebtn" float="true" pos="56,0,0,0" width="39" height="19" maxheight="19" maxwidth="39" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close_normal.png&apos;" hotimage="btn_close_highlight.png" pushedimage="btn_close_down.png" />
+                </VerticalLayout>
+            </HorizontalLayout>
+            <VerticalLayout name="friend_list_part" bordercolor="#00999999" focusbordercolor="#00999999">
+                <TabLayout name="mainframe_switch">
+                    <VerticalLayout bkimage="file=&apos;glow2.png&apos; corner=&apos;2,2,2,2&apos;">
+                        <HorizontalLayout width="308" height="36" bordercolor="#00999999" focusbordercolor="#00999999">
+                            <HorizontalLayout width="160" bordercolor="#999999">
+                                <Option name="mainframe_friendbtn" width="154" height="36" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="file=&apos;all_user_disable.png&apos; dest=&apos;0,0,154,36&apos;" group="true" selected="true" selectedimage="file=&apos;all_user.png&apos; dest=&apos;0,0,154,36&apos;" />
+                            </HorizontalLayout>
+                            <HorizontalLayout width="160" height="36">
+                                <Option name="mainframe_recentbtn" width="154" height="36" padding="6,0,0,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="file=&apos;recent_disable.png&apos; dest=&apos;0,0,154,36&apos;" group="true" selectedimage="file=&apos;recent.png&apos; dest=&apos;0,0,154,36&apos;" />
+                            </HorizontalLayout>
+                        </HorizontalLayout>
+                        <HorizontalLayout bordercolor="#00999999">
+                            <HorizontalLayout width="1" />
+                            <TabLayout name="mainframe_tabs" bkimage="file=&apos;list_bk.png&apos;">
+                                <HorizontalLayout name="mainframe_friends_">
+                                    <FriendList header="hidden" itemshowhtml="true" name="mainframe_friends" vscrollbar="true" />
+                                </HorizontalLayout>
+                                <HorizontalLayout name="mainframe_selfgroup_">
+                                    <SelfList header="hidden" itemshowhtml="true" name="mainframe_selfgroup" vscrollbar="true" />
+                                </HorizontalLayout>
+                                <HorizontalLayout name="mainframe_recent_">
+                                    <RecentLink header="hidden" itemshowhtml="true" name="mainframe_recent" vscrollbar="true" />
+                                </HorizontalLayout>
+                            </TabLayout>
+                            <HorizontalLayout width="1" inset="0,1,1,0" />
+                        </HorizontalLayout>
+                    </VerticalLayout>
+                </TabLayout>
+            </VerticalLayout>
+            <VerticalLayout height="40" bkimage="file=&apos;main_buttom_2.png&apos;">
+                <HorizontalLayout>
+                    <HorizontalLayout width="320" height="40" />
+                </HorizontalLayout>
+            </VerticalLayout>
+        </VerticalLayout>
+    </HorizontalLayout>
+</Window>

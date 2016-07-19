@@ -12,7 +12,7 @@ public:
 	{
 		m_nSize = 10;
 		m_clrText = RGB(0,0,0);
-		m_strName = STR_DEFAULT_FONT;
+		m_strName.copy((char*)STR_DEFAULT_FONT,strlen((const char*)STR_DEFAULT_FONT));
 		m_bBold = FALSE;
 		m_bItalic = FALSE;
 		m_bUnderLine = FALSE;
@@ -301,7 +301,20 @@ typedef struct tagRECVMSG2
 	WORD	m_nMsglen;					// 消息长,仅对复文本有意义
 	char	m_szMsg[MAX_TEXT_LEN+1];	// 用户发送的消息
 }RECVMSG2,*LPRECVMSG2;
-
+typedef struct tagNewRECVMSGPublic
+{
+	DWORD	m_dwSeq;					// 序列
+	char	m_szUSERID[USERID_SIZE];	// 发包人id;
+	BYTE	m_ucUserType;				// 用户类型
+	BYTE	m_ucMsgType;				// 消息类型
+	char	m_szInnerID[USERID_SIZE];	// 内部ID
+	long	m_nSendDate;				// 发送日期
+	long	m_nSendTime;				// 发送时间
+	BYTE	m_ucFormat;					// 消息的格式 EMSGTEXTFORMAT
+	char    nPublicID[56];					// 公众号ID
+	WORD	m_nMsglen;					// 消息长,仅对复文本有意义
+	char	m_szMsg[MAX_TEXT_LEN+1];	// 用户发送的消息
+}NEWRECVMSGPUBLIC,*LPNEWRECVMSGPUBLIC;
 // 用户分组信息
 struct USER_GROUP_INFO
 {
@@ -463,6 +476,23 @@ typedef struct tagPUBLIC_INFO
 	bool	m_bLoad;					// 是否加载
 	vector<ROUTE_INFO>* pVtRoute;		// 问题路由
 }PUBLIC_INFO,*LPPUBLIC_INFO;
+
+
+struct IncodeInfo
+{
+	char    accesscode[32];  // 接入码代码
+	char    accessname[32];  // 接入码名称
+};
+// 新IM系统 融云公众号的信息结构
+typedef struct tagNewPUBLIC_INFO
+{
+	char    publicnum[32];              //IM公众帐号编码
+	char    publiccode[32];             //公众号编号
+	char    publicname[32];             //公众号名称
+	vector<IncodeInfo>* pIncode;		// 接入码
+}NEWPUBLIC_INFO,*NEWLPPUBLIC_INFO;
+
+
 
 // 投顾聊天室的信息结构
 typedef struct tagTGROOM_INFO

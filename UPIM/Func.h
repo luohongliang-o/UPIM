@@ -1,4 +1,11 @@
 #pragma once
+#include <WinCrypt.h>
+#include <atlenc.h>
+
+const char IMUserManage[2][32] = {"113.108.146.107:8888","IMUserManage.svc"};
+const char UserInfoService[2][32] ={"113.108.146.107:855", "UserInfoService.svc"};
+
+
 extern BOOL InitReqBufHead(IMREQBUFFER& m_reqbuf, long PacketLen, long RawLen);
 extern WORD	GetBuildNo( LPSTR lpszDateTime, const WORD wSize );					// 获取编译序列号
 extern bool CreateGUID(char * guid);											// 创建一个全球唯一标识
@@ -108,3 +115,12 @@ extern void GetClientInfoInGroup(Node*pGroupNode,std::vector<USER_ROOMCLIENT_INF
 extern int astr_ustr( const char *ansistr, WCHAR *unicodestr ) ; 
 
 extern std::string _EncodeURL(  char *str) ; 
+
+
+BOOL GetIMUser(char* userno);                             //IM用户帐号信息查询
+BOOL GetIMNToken(char* imn,char* nc,char* imr);          //IM用户帐号获取Token
+BOOL UserRegimdev(char* userno,char* nc, char* img = "001.png"); //IM用户端注册ＩＭＣＲＭ接口
+BOOL UserUpdateIMDev(char* imn,char* nc, char* img);     //用户修改资料(昵称、头像)
+BOOL GetSysimgURL();                                     //获取系统头像列表
+BOOL GetIMPublicCode(char* pucbliccode);                 //公众号查询
+BOOL GetIMDeptPublicCode();                              //根据渠道获取公众号

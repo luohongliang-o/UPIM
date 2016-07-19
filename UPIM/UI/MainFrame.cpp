@@ -155,7 +155,9 @@ CDuiString MainFrame::GetSkinFile()
 #ifdef VER_UPIM_CLIENT
 	return _T("dlg_MainFrame2.xml");
 #endif // VER_UPIM_CLIENT
-
+#ifdef VER_UPIM_RONGYUN
+	return _T("dlg_MainFrame3.xml");
+#endif
 	return _T("dlg_MainFrame.xml");
 }
 
@@ -268,7 +270,9 @@ void MainFrame::OnTimer(TNotifyUI& msg)
 		{
 			USER_LOG("T_OFFMSG DEL");
 			m_PaintManager.KillTimer(m_pBackground, T_OFFMSG);
+#ifndef VER_UPIM_RONGYUN
 			g_MyClient.SendOFFMSGReq();
+#endif
 		}
 		break;
 	case T_NOTIFYICON:
@@ -278,7 +282,9 @@ void MainFrame::OnTimer(TNotifyUI& msg)
 		break;
 	case T_CONNECT:
 		{
+#ifndef VER_UPIM_RONGYUN
 			CheckConnectStatus();
+#endif
 		}
 		break;
 
@@ -428,10 +434,10 @@ void MainFrame::GetClientRights(CString strUpID)
 {
 	CString strURL = "";
 	strURL.Format("%s%s", WEB_RIGHT_JK, strUpID);
-	GenericHTTPClient httpClient;
-	if(httpClient.Request(strURL))
+	GenericHTTPClient* httpClient = new GenericHTTPClient;
+	if(httpClient->Request(strURL))
 	{
-		LPCTSTR szResult = httpClient.QueryHTTPResponse();    //返回的数据流
+		LPCTSTR szResult = httpClient->QueryHTTPResponse();    //返回的数据流
 
 		Reader reader;
 		Value value;
@@ -453,6 +459,7 @@ void MainFrame::GetClientRights(CString strUpID)
 			}
 		}
 	}
+	TDEL(httpClient);
 	return;
 }
 
@@ -476,12 +483,13 @@ CString MainFrame::GetUserPicURL(CString strUpID)
 	CString strReturn = "";
 	CString strURL = "";
 	strURL.Format("%s%s&pictype=48", WEB_USERPIC_URL, strUpID);
-	GenericHTTPClient httpClient;
-	if(httpClient.Request(strURL))
+	GenericHTTPClient* httpClient = new GenericHTTPClient;
+	if(httpClient->Request(strURL))
 	{
-		LPCTSTR szResult = httpClient.QueryHTTPResponse();    //返回的数据流
+		LPCTSTR szResult = httpClient->QueryHTTPResponse();    //返回的数据流
 		strReturn = szResult;
 	}
+	TDEL(httpClient);
 	return strReturn;
 }
 
@@ -638,6 +646,7 @@ void MainFrame::StopFlashItem(CDuiString strID, EPANELTYPE e_pType)
 // 自己的状态改变之后，直接推送到好友列表中在线的好友
 BOOL MainFrame::SendStateNotify(int nstate)
 {
+#ifndef VER_UPIM_RONGYUN
 	if (friends_.size() > 0)
 	{
 		int nIdx = 0;
@@ -668,6 +677,8 @@ BOOL MainFrame::SendStateNotify(int nstate)
 		}
 		g_MyClient.SendStateNotifyReq(strdata, nstate);
 	}
+
+#endif
 	return TRUE;
 }
 ////////////////////////////////////////////////////////////////////////////
@@ -1048,7 +1059,7 @@ int MainFrame::GetClientOnlineCount()
 
 std::vector<USER_ROOMCLIENT_INFO>* MainFrame::GetOnlineClientInfo()
 {
-	std::vector<USER_ROOMCLIENT_INFO> *pVecClientInfo; 
+/*	std::vector<USER_ROOMCLIENT_INFO> *pVecClientInfo; 
 
 	int iCount = m_vtRoomClient.size() ; 
 	for( int i = 0 ; i < iCount ; i++)
@@ -1058,7 +1069,8 @@ std::vector<USER_ROOMCLIENT_INFO>* MainFrame::GetOnlineClientInfo()
 			pVecClientInfo->push_back(m_vtRoomClient[i]) ; 
 		}
 	}
-	return pVecClientInfo ; 
+	return pVecClientInfo ;*/
+	return NULL ; 
 }
 void MainFrame::UserKickOff()
 {
@@ -1168,7 +1180,12 @@ void MainFrame::SetBkInfo()
 		if (g_userconfig.m_bkInfo.m_nBkType == 0)
 		{	
 			TCHAR szBuf[MAX_PATH] = {0};
+#ifndef VER_UPIM_RONGYUN
 			_stprintf_s(szBuf, MAX_PATH - 1, _T("file='bg%d.jpg' corner='600,200,1,1'"), g_userconfig.m_bkInfo.m_nBkIndex);
+#else
+			_stprintf_s(szBuf, MAX_PATH - 1, _T("file='top3.png' corner='600,200,1,1'"));
+#endif
+			
 			m_pBackground->SetBkImage(szBuf);
 
 			bk_image_index_ = g_userconfig.m_bkInfo.m_nBkIndex;
@@ -2776,9 +2793,10 @@ void MainFrame::OnMenu_UserOnline()
 
 	// wuchao add 
 	SendStateNotify(eUSER_ONLINE) ; // 发送上线消息给好友 
-
+#ifndef VER_UPIM_RONGYUN
 	if (!g_MyClient.m_bConnect)
 		ReConnect();
+#endif
 
 	SetMainFace(eUSER_ONLINE) ; 
 	return;
@@ -2864,6 +2882,7 @@ CDuiString MainFrame::GetMainBkImage()
 	if (_tcslen(m_pBackground->GetBkImage()) > 0)
 	{
 		_stprintf_s(szBuf, MAX_PATH - 1, _T("bg%d.jpg"), bk_image_index_);
+		
 	}
 	strBkImage = szBuf;
 	return strBkImage;
@@ -2996,6 +3015,31 @@ BOOL MainFrame::GetIteratorOfID(FriendList_ITER &friend_iterator, CDuiString str
 			}
 		}
 	}
+	else if (eType == eVT_Recent)
+	{
+		for (FriendList_ITER citer = Recentfriends_.begin(); citer != Recentfriends_.end(); citer++)
+		{
+			if (id)
+			{
+				if (_tcsicmp(citer->id, strID.GetData()) == 0)
+				{
+					friend_iterator = citer;
+					bFind = TRUE;
+					return bFind;
+				}
+			}
+			else
+			{
+				if (_tcsicmp(citer->numid, strID.GetData()) == 0)
+				{
+					friend_iterator = citer;
+					bFind = TRUE;
+					return bFind;
+				}
+			}
+		}
+
+	}
 	return bFind;
 }
 
@@ -3030,6 +3074,8 @@ void MainFrame::StartLogin()
 		nLoginMode_ = 2;
 	else if (VER_UPIM_NUMS == 4)	// im2.0的客户版，exe传参数调用，后台登录
 		nLoginMode_ = 1;
+	else if (VER_UPIM_NUMS == 5)	// im3.0的客户版，exe传参数调用，后台登录
+		nLoginMode_ = 3;
 
 	//////////////////////////////////////////////////////////////////////////
 	if (nLoginMode_ == 0)
@@ -3076,7 +3122,10 @@ void MainFrame::StartLogin()
 		pLoginDialog->CenterWindow();
 		::ShowWindow(*pLoginDialog, SW_SHOW);
 	}
-
+	else if (nLoginMode_ == 3)
+	{
+		InitConnect();
+	}
 
 	return;
 }
@@ -3267,7 +3316,7 @@ void MainFrame::OnListItemClick(TNotifyUI& msg)
 					else // 如果是好友
 					{
 						// wuchao add. fixed #17225  itemactivate与itemclick有何区别？？？
-						OnListItemActivate(msg);
+						//OnListItemActivate(msg);
 					}
 				}
 			}
@@ -3364,7 +3413,8 @@ void MainFrame::RecentNodeClick(TNotifyUI& msg)
 
 					// 打开窗口的同时，停止图标闪烁
 					StopFlashItem(friend_info.id, ePanel_Single);
-
+					// 停止托盘图标闪烁 
+					StopNotifyiconFlash() ; 
 					CDuiString strDialogName = friend_info.nick_name;
 					pChatDialog->Create(NULL, strDialogName, UI_WNDSTYLE_FRAME | WS_POPUP, NULL, 0, 0, 600, 800);
 					skin_changed_observer_.AddReceiver(pChatDialog);
@@ -3549,6 +3599,8 @@ void MainFrame::FindFriendNodeClick(TNotifyUI& msg )
 					}
 					pChatDialog = new ChatDialog(GetMainBkImage(), GetMainBkColor(), myself_info_, friend_info, eDIALOG_Analys);
 				}
+				else if (friend_info.nodetype == eNode_RYPublic)
+					pChatDialog = new ChatDialog(GetMainBkImage(), GetMainBkColor(), myself_info_, friend_info,eDIALOG_RYPublic);
 				if( pChatDialog == NULL )
 					return;
 
@@ -3633,9 +3685,10 @@ void MainFrame::FriendNodeClick(TNotifyUI& msg)
 			if (!m_pFriendsList->CanExpand(node) && (m_pBackground != NULL))
 			{
 				// 如果节点是自己的名字，直接返回
+#ifndef VER_UPIM_RONGYUN
 				if (strcmp(node->data().id, g_MyClient.m_strUserid) == 0)
 					return;
-
+#endif
 				FriendList_ITER _iterator;
 				//// wuchao test 
 				//char *str ="1142" ; 
@@ -3674,6 +3727,10 @@ void MainFrame::FriendNodeClick(TNotifyUI& msg)
 							}
 						}
 						pChatDialog = new ChatDialog(GetMainBkImage(), GetMainBkColor(), myself_info_, friend_info, eDIALOG_Analys);
+					}
+					else if (friend_info.nodetype == eNode_RYPublic)
+					{
+						pChatDialog = new ChatDialog(GetMainBkImage(), GetMainBkColor(), myself_info_, friend_info,eDIALOG_RYPublic);
 					}
 					if( pChatDialog == NULL )
 						return;
@@ -3978,8 +4035,129 @@ BOOL MainFrame::ProcessRecvMsg(LPRECVMSG2 lpRecvMsg, BOOL bOffMsg/* =FALSE */)
 		// 如果是投顾收到处理消息
 		else if (g_MyClient.m_nUserType == eUser_UPAnalyst2 || g_MyClient.m_nUserType == eUser_UPClient2)
 		{
-			strPUid.Format("TGUSER$%d$%s", nTgRoomID, lpRecvMsg->m_szUSERID);
 
+			USER_ROOMCLIENT_INFO m_info ;
+			memset(&m_info,0,sizeof(USER_ROOMCLIENT_INFO)) ;
+			COPYSTRARRAY(m_info.m_szUPID, lpRecvMsg->m_szUSERID);
+			m_info.m_bIsOnLine = TRUE ;
+			// 查找m_vtRoomClient中有没有这个客户 
+			std::vector<USER_ROOMCLIENT_INFO>::iterator findIt = find( m_vtRoomClient.begin() ,m_vtRoomClient.end() ,m_info) ; 
+			if( findIt == m_vtRoomClient.end() )
+			{
+				m_vtRoomClient.push_back(m_info);
+				// 将新客户插入到分析师的朋友列表中  
+				// 1 好友列表的父节点   好友列表  
+				CString mGroupID = _T("");
+				Node* retrunptr = NULL;
+				int nRoomID = g_nRoomID_im2_0;
+				CString strUser = m_info.m_szUPID;
+				mGroupID.Format("ANALYST$%d", nRoomID);
+				if( !m_pFriendsList)
+				{
+					USER_LOG("新开通好友插入好友列表失败，好友列表不存在") ; 
+					return FALSE ; 
+				}
+				Node* m_mode = m_pFriendsList->SelectNodeByID(mGroupID);
+				// 2 AddNode 
+				if(!m_mode)
+				{
+					USER_LOG("找不到插入节点的父节点");
+					return false; 
+				}
+				CDuiString  mTgRoomID = _T(" ");
+				mTgRoomID.Format("TGUSER$%d$%s", nRoomID, strUser);
+
+				FriendListItemInfo item;
+				CString logoName =  _T(" ") ;
+				CString strDown  =  _T(" ") ;		// 下载的头像
+				CString strHead  =  _T(" ") ;		// 在线的正常头像
+				CString strHead2 =  _T(" ") ;		// 离线时的灰化头像
+
+				if( strlen(m_info.m_szUPID) != 0 )
+				{
+					strDown.Format(_T("%s\\%s.jpg"), g_config.szUserHead,  m_info.m_szUPID);
+					strHead.Format(_T("%s\\%s_n.jpg"), g_config.szUserHead,  m_info.m_szUPID);
+					strHead2.Format(_T("%s\\%s_g.jpg"), g_config.szUserHead,  m_info.m_szUPID);
+				}
+				if(GetFileAttributes(strHead) != -1 )
+				{
+					COPYSTRARRAY(m_info.m_szImgName , strDown) ; 
+					COPYSTRARRAY(m_info.m_szLNomalImgName , strHead) ;
+					COPYSTRARRAY(m_info.m_szLGrayImgName , strHead2) ;
+				}
+				if(m_info.m_bIsOnLine && strlen(m_info.m_szLNomalImgName)!=0 )
+				{
+					logoName.Format(_T("%s"),m_info.m_szLNomalImgName) ; 
+					item.logo = logoName ; 
+				}
+				else 
+				{
+					if( strlen(m_info.m_szLGrayImgName)!=0)
+					{
+						logoName.Format(_T("%s"),m_info.m_szLGrayImgName) ;
+						item.logo = logoName ; 
+					}
+				}
+				if( item.logo.IsEmpty())
+				{
+					if( m_info.m_bIsOnLine ) 
+						item.logo = _T("public.png");
+					else
+						item.logo = _T("public_g.png") ; 
+				}
+				// 将节点的在线状态  加进好友列表集合中 
+				item.nstate = m_info.m_bIsOnLine ; 
+				item.nodetype = eNode_Analyst;
+				item.type = eNode_Analyst;
+				item.id = mTgRoomID;
+				item.Parentid = IntToStr(nRoomID);
+				item.numid = strUser;
+				item.nick_name = strUser;
+
+#ifdef NOT_DISPLAY_ID_LIKE_MOBLIE_NUM
+				strUser = ConvertIdToNoPhonrNum(strUser);
+#endif // NOT_DISPLAY_ID_LIKE_MOBLIE_NUM
+				item.showname = strUser;
+
+				retrunptr = m_pFriendsList->AddNode(item, m_mode);
+				if (retrunptr)
+				{
+					m_info.m_bLoad = TRUE;
+					m_pFriendsList->SetChildVisible(m_mode, true); 
+					friends_.push_back(item);
+					if(m_info.m_bIsOnLine)
+					{
+						m_vtOnlineClient.push_back(m_info) ; 
+					}
+					else
+						m_vtOfflineClient.push_back(m_info) ; 
+				}
+
+				// 设置标题 
+				int nOnlineNums = GetRoomClientOnlineNums() ;
+				SetAnalysNodeNickName(g_nRoomID_im2_0,nOnlineNums,m_vtRoomClient.size()) ;
+
+
+				//// 分组中  父节点  默认插入到未分组列表中 
+				CDuiString strGroupID = _T(" ") ;
+				int nGroupID = 0 ; 
+				strGroupID.Format("SELFGROUP$%d",nGroupID);
+
+				// （1）先找到分组ID为nGroupID的分组 
+				if( !m_pSelfGroup)
+					return FALSE;
+				Node* findNode = m_pSelfGroup->GetNodeItem(strGroupID) ; 
+				if(!findNode)
+					return FALSE; 
+
+				// （2）在该分组的好友列表的最后面添加好友 
+				m_pSelfGroup->AddNode(item,findNode) ; 
+				m_pSelfGroup->SetNodeName(findNode,GetGroupClientOnlineNums(0),findNode->num_children()) ; 
+				//AddSelfGroupClientNode(0,m_info.m_szUPID) ; 
+
+			} // end of if(findIt == m_vtRoomClient.end())
+
+			strPUid.Format("TGUSER$%d$%s", nTgRoomID, lpRecvMsg->m_szUSERID);
 			FriendList_ITER iterator;
 			// 在好友列表中找到发消息来的好友
 			BOOL bFindNode = GetIteratorOfID(iterator, (CDuiString)strPUid, eVT_Friend);
@@ -4045,7 +4223,7 @@ BOOL MainFrame::ProcessRecvMsg(LPRECVMSG2 lpRecvMsg, BOOL bOffMsg/* =FALSE */)
 			// 文本消息中转换成简要信息显示在界面上，图片显示[图片],表情显示[表情]
 			CString strDispairMsg = ConvertMsgToChiefMsg(lpRecvMsg->m_ucFormat, lpRecvMsg->m_szMsg);
 			// 填充最近联系人
-			g_pFrame->ModifyDisRecentInfo(CDuiString(lpRecvMsg->m_szUSERID), "", CDuiString(strDispairMsg), GetNowTimeHourAndMin(), nTgRoomID);
+			ModifyDisRecentInfo(CDuiString(lpRecvMsg->m_szUSERID), "", CDuiString(strDispairMsg), GetNowTimeHourAndMin(), nTgRoomID);
 		}
 
 		return TRUE;
@@ -4109,6 +4287,96 @@ BOOL MainFrame::ProcessRecvMsg(LPRECVMSG2 lpRecvMsg, BOOL bOffMsg/* =FALSE */)
 	return TRUE;
 }
 
+BOOL MainFrame::ProcessRecvMsg(LPNEWRECVMSGPUBLIC lpRecvMsg)
+{
+	if(!lpRecvMsg) 
+		return FALSE;
+
+	if(lpRecvMsg->m_ucFormat == eMsgFormat_DbMsg){}
+	else if(lpRecvMsg->m_ucFormat == eMsgFormat_OffimageReceipt){}
+
+	RECEIVED_MSG txtmsg;
+	strcpy(txtmsg.imid, lpRecvMsg->m_szUSERID);
+	strcpy(txtmsg.innerID, lpRecvMsg->m_szInnerID);
+	int nMsgLen = lpRecvMsg->m_nMsglen;
+	txtmsg.msg = new char[nMsgLen+1];
+	strncpy(txtmsg.msg, lpRecvMsg->m_szMsg, nMsgLen);
+	txtmsg.msg[nMsgLen] = 0;
+	txtmsg.msgtype = lpRecvMsg->m_ucMsgType;
+	txtmsg.format = lpRecvMsg->m_ucFormat;
+	txtmsg.senddate = lpRecvMsg->m_nSendDate;
+	txtmsg.sendtime = lpRecvMsg->m_nSendTime;
+
+	//////////////////////////////////////////////////////////////////////////
+	// 如果是服务器发来的公众号消息
+	if (txtmsg.msgtype == eMsgSend_NewPublic)
+	{		
+		CString strKFID(lpRecvMsg->m_szUSERID);
+		CString strPublicID(lpRecvMsg->nPublicID);
+		FriendList_ITER iterator;
+		BOOL bFindNode;
+		if (strPublicID.IsEmpty())
+		{
+			bFindNode= GetIteratorOfID(iterator, (CDuiString)strKFID, eVT_Recent);
+			if (bFindNode)
+			{
+				if(iterator->pMsg == NULL)
+					iterator->pMsg = new VECTOR_RECEIVED_MSG;
+				iterator->pMsg->push_back(txtmsg);
+			}
+		}
+		else
+		{
+			bFindNode = GetIteratorOfID(iterator, (CDuiString)strPublicID, eVT_Friend);
+			if (bFindNode)
+			{
+				if(iterator->pMsg == NULL)
+					iterator->pMsg = new VECTOR_RECEIVED_MSG;
+				iterator->pMsg->push_back(txtmsg);
+			}
+		}
+		ChatDialog* pChatDialog = NULL;
+		if (allopenwnd[(CDuiString)strPublicID] != NULL)
+		{
+			//公众号窗口没关闭直接填消息
+			pChatDialog = (ChatDialog*)allopenwnd[(CDuiString)strPublicID];
+			pChatDialog->PostMessage(UM_USER_RECVMSG, 0, 0);
+		}
+		else{
+			// 公众号窗口关闭 直接与客服窗口发送消息
+			if (allopenwnd[(CDuiString)strKFID] != NULL)
+			{
+				pChatDialog = (ChatDialog*)allopenwnd[(CDuiString)strKFID];
+				pChatDialog->PostMessage(UM_USER_RECVMSG, 0, 0);
+			}
+			else
+			{
+				if (txtmsg.format != eMsgFormat_Shake)
+				{
+					// 若未打开，图标闪烁/托盘图标闪烁
+					InsertIntoFlashVt((CDuiString)strKFID, ePanel_Single);
+					g_pFrame->SetNotifyiconFlash();
+					// 收到了好友发送来的消息 
+					m_bRecvFriendsMsg = TRUE ; 
+				}
+			}
+		}
+		// 声音提示，在不关闭的情况下
+		g_pFrame->PostMessage(UM_SOUND_PLAY, IDR_WAVE_MSG);
+		int nRecordType = eRecord_NewPublic;
+		if(lpRecvMsg->m_ucFormat != eMsgFormat_File)
+		{
+			// 写入历史消息库,文件消息单独处理
+			g_SqliteOp.DBInsertRecordRaw(lpRecvMsg->m_szUSERID, g_loginname, 0, lpRecvMsg->m_nSendDate, 
+				lpRecvMsg->m_nSendTime, nRecordType, lpRecvMsg->m_ucFormat, lpRecvMsg->m_szMsg);
+		}
+		CString strDispairMsg = ConvertMsgToChiefMsg(lpRecvMsg->m_ucFormat, lpRecvMsg->m_szMsg);
+		// 填充最近联系人
+		ModifyDisRecentInfo(CDuiString(lpRecvMsg->m_szUSERID), "", CDuiString(strDispairMsg), GetNowTimeHourAndMin(), 0);
+		return TRUE;
+	}
+	return 1;
+}
 
 BOOL MainFrame::ProcessRecvGroupMsg(GROUP_CHAT_HIS_MSG* lpHisMsg)
 {
@@ -4510,21 +4778,22 @@ void MainFrame::DeleteRoomMember(ROOMID mRoomID, LPCTSTR szID, short nUserType)
 
 BOOL MainFrame::DownLoadPic(CString strUrl, CString strFile)
 {
-	GenericHTTPClient httpClient;
+	GenericHTTPClient *httpClient = new GenericHTTPClient;
 	if( strUrl.IsEmpty())
 		return FALSE ; 
 
-	if(httpClient.Request(strUrl, GenericHTTPClient::RequestGetMethod, ""))
+	if(httpClient->Request(strUrl, GenericHTTPClient::RequestGetMethod, ""))
 	{
 		LPCTSTR szResult;
-		szResult = httpClient.QueryHTTPResponse();    //返回的数据流
-		int nSize = httpClient.GetResponseBodySize();
+		szResult = httpClient->QueryHTTPResponse();    //返回的数据流
+		int nSize = httpClient->GetResponseBodySize();
 		if (nSize > 1200)
 		{
 			CFile file;
 			if(file.Open((LPCTSTR)strFile, CFile::modeCreate|CFile::modeWrite))
 			{
-				file.Write((PBYTE)szResult, httpClient.GetResponseBodySize());
+				file.Write((PBYTE)szResult, httpClient->GetResponseBodySize());
+				TDEL(httpClient);
 				USER_LOG("FILE: [%s]", strFile);
 				file.Close();
 			}
@@ -4532,16 +4801,17 @@ BOOL MainFrame::DownLoadPic(CString strUrl, CString strFile)
 		}
 		else
 		{
+			TDEL(httpClient);
 			USER_LOG("Pic size Error [%s](%d)", strUrl, nSize);
 			return FALSE;
 		}
 	}
 	else
 	{
+		TDEL(httpClient);
 		USER_LOG("http req Error [%s]", strUrl);
 		return FALSE;
 	}
-
 	return TRUE;
 }
 
@@ -4556,7 +4826,7 @@ LRESULT MainFrame::OnLoadRecentClientNode(WPARAM wParam, LPARAM lParam)
 {
 	// 查询所有联系人
 	std::vector<CString> vtUsers;
-	if(!g_SqliteOp.QueryAllAnalystUser(vtUsers, eRecord_TgRoom, 1149))
+	if(!g_SqliteOp.QueryAllAnalystUser(vtUsers, eRecord_TgRoom, g_nRoomID_im2_0))
 		return 0;
 	// 当前分析师的ID 
 	CString strAnalyName = g_MyClient.m_strUserid ; 
@@ -4621,6 +4891,62 @@ LRESULT MainFrame::OnFindFriends(WPARAM wParam, LPARAM lParam)
 
 	return 1 ; 
 }
+LRESULT MainFrame::OnAddNewLastUser(WPARAM wParam, LPARAM lParam)
+{
+	char* saleid = (char*)wParam;
+	FriendListItemInfo item;
+	item.numid =saleid;
+	item.id = saleid;
+	item.folder = false;
+	item.empty = false;
+	item.logo = _T("public.png");
+	item.nick_name = saleid;
+	item.showname =  saleid;
+	item.nodetype = eNode_RYPublic;
+	item.type = eNode_RYPublic;
+	item.description = "";
+	friends_.push_back(item);
+	return 1;
+}
+
+LRESULT MainFrame::OnAddNewPublic(WPARAM wParam, LPARAM lParam)
+{
+	if (m_pFriendsList != NULL)
+	{
+		Node* retrunptr = NULL;
+		std::map<CString,NEWPUBLIC_INFO>::iterator iter_ = g_mapNewPublicInfo.begin();
+		for (;iter_!=g_mapNewPublicInfo.end();iter_++)
+		{
+			FriendListItemInfo item;
+			NEWPUBLIC_INFO newPublicInfo = iter_->second;
+			COPYSTRARRAY(newPublicInfo.publicnum,iter_->second.publicnum);               //IM公众帐号编码
+			COPYSTRARRAY(newPublicInfo.publiccode,iter_->second.publiccode);             //公众号编号
+			COPYSTRARRAY(newPublicInfo.publicname,iter_->second.publicname);             //公众号名称
+			std::vector<IncodeInfo>* pincode = newPublicInfo.pIncode;
+		
+			item.numid =newPublicInfo.publicnum;
+			item.id = newPublicInfo.publicnum;
+			item.folder = false;
+			item.empty = false;
+			item.logo = _T("public.png");
+			item.nick_name = newPublicInfo.publicname;
+			item.showname =  newPublicInfo.publicname;
+			item.nodetype = eNode_RYPublic;
+			item.type = eNode_RYPublic;
+			item.description = newPublicInfo.publicname;
+
+			retrunptr = m_pFriendsList->AddNode(item, NULL);
+				
+			if (retrunptr)
+				friends_.push_back(item);
+		
+		}
+		//USER_LOG("CreatePUBLIC[%d] NAME:%s GroupID:%s", m_nPublicID, m_szGroupName.GetData(), mPublicID.GetData());
+	}
+	PostMessage(UM_USER_GETUSERPIC, 0, 0);
+	return 1;
+}
+
 LRESULT MainFrame::OnOpenChatDialog(WPARAM wParam, LPARAM lParam) 
 {
 	if( VER_UPIM_NUMS != 4)
@@ -4707,6 +5033,18 @@ LRESULT MainFrame::OnGetSelfPic(WPARAM wParam, LPARAM lParam)
 	strDown.Format("%s\\my.jpg", g_config.szUserHead);
 	strHead.Format("%s\\my_n.jpg", g_config.szUserHead);
 	strHead2.Format("%s\\my_g.jpg", g_config.szUserHead);
+#ifdef VER_UPIM_RONGYUN
+	BOOL bIsImgDownLoad = DownLoadPic(g_userHeadUrl, strDown);
+	// 将头像转换成62*62像素
+	if (bIsImgDownLoad)
+	{
+		bool bHandImg = HandleHeadImage2(strDown, "my_n.jpg", "my_g.jpg");
+		if (bHandImg)
+			SetMainFace2(eUSER_ONLINE, strHead, strHead2);
+	}
+	else
+		SetMainFace2(eUSER_ONLINE, "self2.png", "self2.png");
+#endif
 
 	// 分析师新版本
 	if (VER_UPIM_NUMS == 3)
@@ -4857,7 +5195,9 @@ LRESULT MainFrame::OnUserOffLine(WPARAM wParam, LPARAM lParam)
 LRESULT MainFrame::OnUserOnLine(WPARAM wParam, LPARAM lParam)
 {
 	SetMainFace(eUSER_ONLINE);
+#ifndef VER_UPIM_RONGYUN    // 取得离线消息
 	g_MyClient.SendOFFMSGReq();
+#endif
 	return 1;
 }
 
@@ -5690,7 +6030,14 @@ LRESULT MainFrame::HandleCustomMessage(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 		OnOpenChatDialog( wParam, lParam) ; 
 		break ;
 	case WM_USER_FINDFRIEND:
-		OnFindFriends(wParam,lParam) ;  
+		OnFindFriends(wParam,lParam) ;
+		break;
+	case UM_USER_ADDNEWPUBLIC:
+		OnAddNewPublic(wParam,lParam);
+		break;
+	case UM_USER_ADDNEWLASTUSER:
+		OnAddNewLastUser(wParam,lParam);
+		break;
 	default:
 		bHandled = FALSE;
 		break;

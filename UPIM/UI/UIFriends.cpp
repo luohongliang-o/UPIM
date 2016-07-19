@@ -17,9 +17,15 @@ namespace DuiLib
 	const int kFriendListItemNormalHeight = 56;
 	const int kFriendListItemSelectedHeight = 56;
 #endif
+
 #ifdef VER_UPIM_NORMAL
 	const int kFriendListItemNormalHeight = 26;
 	const int kFriendListItemSelectedHeight = 44;
+#endif
+
+#ifdef VER_UPIM_RONGYUN
+	const int kFriendListItemNormalHeight = 100;
+	const int kFriendListItemSelectedHeight = 100;
 #endif
 
 	CFriendsUI::CFriendsUI(CPaintManagerUI& paint_manager)
@@ -230,7 +236,12 @@ namespace DuiLib
 		CListContainerElementUI* pListElement = NULL;
 		if( !m_dlgBuilder.GetMarkup()->IsValid() ) 
 		{
+#ifndef VER_UPIM_RONGYUN
 			pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list.xml"), (UINT)0, NULL, &paint_manager_));
+#else
+			pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list_new_im.xml"), (UINT)0, NULL, &paint_manager_));
+#endif
+			
 		}
 		else 
 		{
@@ -281,7 +292,12 @@ namespace DuiLib
 		CListContainerElementUI* pListElement = NULL;
 		if( !m_dlgBuilder.GetMarkup()->IsValid() ) 
 		{
+#ifndef VER_UPIM_RONGYUN
 			pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list.xml"), (UINT)0, NULL, &paint_manager_));
+#else
+			pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list_new_im.xml"), (UINT)0, NULL, &paint_manager_));
+#endif
+
 		}
 		else 
 		{
@@ -479,7 +495,12 @@ namespace DuiLib
 		CListContainerElementUI* pListElement = NULL;
 		if( !m_dlgBuilder.GetMarkup()->IsValid() ) 
 		{
+#ifndef VER_UPIM_RONGYUN
 			pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list.xml"), (UINT)0, NULL, &paint_manager_));
+#else
+			pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list_new_im.xml"), (UINT)0, NULL, &paint_manager_));
+#endif
+
 		}
 		else 
 		{
@@ -553,8 +574,8 @@ namespace DuiLib
 					lastword_container->SetVisible(false);
 
 				CContainerUI* logo_img_container = static_cast<CContainerUI*>(paint_manager_.FindSubControlByName(pListElement, "logo_img"));
-				if (logo_img_container != NULL)
-					logo_img_container->SetAttribute("height", "30");
+				//if (logo_img_container != NULL)
+					//logo_img_container->SetAttribute("height", "30");					
 			}
 			log_button->SetTag((UINT_PTR)pListElement);
 
@@ -1055,7 +1076,12 @@ namespace DuiLib
 				CListContainerElementUI *pListElement = NULL ; 
 				if( !m_dlgBuilder.GetMarkup()->IsValid() ) 
 				{
+#ifndef VER_UPIM_RONGYUN
 					pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list.xml"), (UINT)0, NULL, &paint_manager_));
+#else
+					pListElement = static_cast<CListContainerElementUI*>(m_dlgBuilder.Create(_T("item_friend_list_new_im.xml"), (UINT)0, NULL, &paint_manager_));
+#endif
+
 				}
 				else 
 				{

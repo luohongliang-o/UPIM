@@ -1,0 +1,27 @@
+2016-07-01 16:43:42,559 [1] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728
+2016-07-01 16:43:44,083 [1] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728
+2016-07-01 16:44:24,631 [7] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.GetMessage(JObject jobj, Boolean isSystemMsg) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 83
+2016-07-01 16:54:03,882 [9] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728
+2016-07-01 16:54:03,896 [9] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728
+2016-07-01 16:57:38,809 [14] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.GetMessage(JObject jobj, Boolean isSystemMsg) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 83
+2016-07-01 16:59:57,811 [8] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728
+2016-07-01 16:59:57,838 [8] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728
+2016-07-01 16:59:57,850 [8] ERROR errLoger - System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 IMCRM.ClientDemo.Helpers.ImgHelper.Base64StringToImg(String imgStr) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\Helpers\ImgHelper.cs:行号 57
+   在 IMCRM.ClientDemo.FrmChat.get_paged_messagex_call_back(String json_str) 位置 E:\Work\IMCRM\IMCRM.ClientDemo\FrmChat.cs:行号 728

@@ -1,0 +1,33 @@
+  public string encyptData(string ciphertext, string accessKey)
+        {
+            SymmetricAlgorithm des = new DESCryptoServiceProvider();
+
+            Encoding utf = new UTF8Encoding();
+            byte[] key = utf.GetBytes(accessKey);
+            byte[] iv = { 0x75, 0x70, 0x63, 0x68, 0x69, 0x6e, 0x61, 0x31 };
+            ICryptoTransform encryptor = des.CreateEncryptor(key, iv);
+            byte[] data = utf.GetBytes(ciphertext);
+            byte[] encData = encryptor.TransformFinalBlock(data, 0, data.Length);
+            return Convert.ToBase64String(encData);
+        }
+
+        public string decyptData(string cryptograph, string accessKey)
+        {
+            SymmetricAlgorithm des = new DESCryptoServiceProvider();
+
+            Encoding utf = new UTF8Encoding();
+            byte[] key = utf.GetBytes(accessKey);
+            byte[] iv = { 0x75, 0x70, 0x63, 0x68, 0x69, 0x6e, 0x61, 0x31 };
+            ICryptoTransform decryptor = des.CreateDecryptor(key, iv);
+            byte[] encData = Convert.FromBase64String(cryptograph);
+            byte[] data = decryptor.TransformFinalBlock(encData, 0, encData.Length);
+            return utf.GetString(data);
+        }
+
+        public string signData(string ciphertext, string accessKey)
+        {
+            Encoding utf = new UTF8Encoding();
+            HMACMD5 hmac = new HMACMD5(utf.GetBytes(accessKey));
+            byte[] hashValue = hmac.ComputeHash(utf.GetBytes(ciphertext));
+            return Convert.ToBase64String(hashValue);
+        }

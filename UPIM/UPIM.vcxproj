@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
     <UseOfAtl>false</UseOfAtl>
   </PropertyGroup>
@@ -46,13 +46,13 @@
     <EmbedManifest>false</EmbedManifest>
     <GenerateManifest>false</GenerateManifest>
     <IntDir>..\Bin\$(ProjectName)\obj\$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_fxs</TargetName>
+    <TargetName>$(ProjectName)_kf</TargetName>
     <OutDir>..\Bin\UPIM\Debug</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>$(ProjectName)_kh</TargetName>
-    <OutDir>..\Bin\UPIM\Release\kh\</OutDir>
+    <TargetName>$(ProjectName)_kf</TargetName>
+    <OutDir>..\Bin\UPIM\Release\</OutDir>
     <IntDir>..\Bin\$(ProjectName)\obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -166,6 +166,7 @@
     <ClInclude Include="CalendarDlg.h" />
     <ClInclude Include="CBase64Coding.h" />
     <ClInclude Include="CBytsDialog.h" />
+    <ClInclude Include="char2wchar.h" />
     <ClInclude Include="CreateGroupParam.h" />
     <ClInclude Include="Func.h" />
     <ClInclude Include="GenericHTTPClient.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="PackageManage.h" />
     <ClInclude Include="PackageRecvManage.h" />
     <ClInclude Include="ProcessAns.h" />
+    <ClInclude Include="rcsdk.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="sqlite\DbSqlite.h" />
     <ClInclude Include="sqlite\SqliteOp.h" />
@@ -190,6 +192,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TinyXML\tinystr.h" />
     <ClInclude Include="TinyXML\tinyxml.h" />
+    <ClInclude Include="txtutil.h" />
     <ClInclude Include="UI\AddMember.h" />
     <ClInclude Include="UI\ButtonExUI.h" />
     <ClInclude Include="UI\ChatDialog.h" />
@@ -223,6 +226,8 @@
     <ClInclude Include="UI\UserOpenRights.h" />
     <ClInclude Include="UI\Utils.h" />
     <ClInclude Include="UPIM.h" />
+    <ClInclude Include="utf8.h" />
+    <ClInclude Include="write_log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Common\json\json_reader.cpp" />
@@ -238,6 +243,7 @@
     <ClCompile Include="CalendarDlg.cpp" />
     <ClCompile Include="CBase64Coding.cpp" />
     <ClCompile Include="CBytsDialog.cpp" />
+    <ClCompile Include="char2wchar.cpp" />
     <ClCompile Include="CreateGroupParam.cpp" />
     <ClCompile Include="Func.cpp" />
     <ClCompile Include="GenericHTTPClient.cpp" />
@@ -264,6 +270,7 @@
     <ClCompile Include="TinyXML\tinyxml.cpp" />
     <ClCompile Include="TinyXML\tinyxmlerror.cpp" />
     <ClCompile Include="TinyXML\tinyxmlparser.cpp" />
+    <ClCompile Include="txtutil.cpp" />
     <ClCompile Include="UI\AddMember.cpp" />
     <ClCompile Include="UI\ButtonExUI.cpp" />
     <ClCompile Include="UI\ChatDialog.cpp" />
