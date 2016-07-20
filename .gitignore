@@ -10,6 +10,7 @@
 *.pdb
 *.ilk
 *.idb
+*.sdf
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -30,6 +31,7 @@
 *.app
 .svn/
 *.log
+*.tlog
 *.dmp
 *.opensdf
 *.bak

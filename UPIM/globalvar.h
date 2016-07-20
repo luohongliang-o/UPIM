@@ -52,6 +52,7 @@ typedef vector<STATE_INFO>::iterator StateInfo_ITER;
 // flashnode
 extern std::vector<Node*>	m_vtFlashNodeInfo;
 extern std::vector<Node*>	m_vtFlashNodeInfo2;
+extern std::vector<Node*>	m_vtFlashNodeInfo3;
 typedef vector<Node*>::iterator FlashNode_ITER;
 // department
 extern std::vector<USER_GROUP_INFO>	m_vtDeptInfo;

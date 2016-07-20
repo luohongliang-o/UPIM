@@ -3423,7 +3423,7 @@ void ChatDialog::SendMsg_More()
 		}
 		else{
 			jobj["content"] = strText.c_str();
-			jobj["extra"] = extrastr.GetBuffer(extrastr.GetLength());
+			jobj["extra"] = "";
 			numid = m_PublicSveID;
 		}
 		string strjson = writer.write(jobj);

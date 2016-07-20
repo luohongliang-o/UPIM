@@ -535,6 +535,17 @@ void MainFrame::FlashAllItem()
 		}
 		m_csNodeFlash2.Unlock();
 	}
+	if (m_vtFlashNodeInfo3.size() > 0)
+	{
+		m_csNodeFlash3.Lock();
+		for (FlashNode_ITER citer = m_vtFlashNodeInfo3.begin(); citer != m_vtFlashNodeInfo3.end(); citer++)
+		{
+			Node* FlashNode = *citer;
+			m_pRecentLinkList->SetNodeFlash(FlashNode, true, nDeirction);
+		}
+		m_csNodeFlash3.Unlock();
+	}
+
 	return;
 }
 
@@ -591,6 +602,31 @@ void MainFrame::InsertIntoFlashVt(CDuiString strID, EPANELTYPE e_pType)
 			m_csNodeFlash2.Unlock();
 		}
 	}
+	else if (e_pType == ePanel_Recent)
+	{
+		Node* m_nodeuser = m_pRecentLinkList->SelectNodeByID(strID.GetData());
+		if (m_nodeuser)
+		{
+			BOOL bIsInVt = FALSE;
+			m_csNodeFlash3.Lock();
+			if (m_vtFlashNodeInfo3.size() > 0)
+			{
+				for (FlashNode_ITER citer = m_vtFlashNodeInfo3.begin(); citer != m_vtFlashNodeInfo3.end(); citer++)
+				{
+					Node *FlashNode = *citer;
+					if (m_nodeuser == FlashNode)
+					{
+						// 已经添加了闪烁图标 不用再次添加
+						bIsInVt = TRUE;
+						break;
+					}
+				}
+			}
+			if (!bIsInVt)
+				m_vtFlashNodeInfo3.push_back(m_nodeuser);
+			m_csNodeFlash3.Unlock();
+		}
+	}
 	return;
 }
 
@@ -637,6 +673,28 @@ void MainFrame::StopFlashItem(CDuiString strID, EPANELTYPE e_pType)
 					}
 				}
 				m_csNodeFlash2.Unlock();
+			}
+		}
+	}
+	else if (e_pType == ePanel_Recent)
+	{
+		if (m_vtFlashNodeInfo3.size() > 0)
+		{
+			Node* m_nodeuser = m_pRecentLinkList->SelectNodeByID(strID.GetData());
+			if (m_nodeuser)
+			{
+				m_csNodeFlash3.Lock();
+				for (FlashNode_ITER citer = m_vtFlashNodeInfo3.begin(); citer != m_vtFlashNodeInfo3.end(); citer++)
+				{
+					Node *FlashNode = *citer;
+					if (m_nodeuser == FlashNode)
+					{
+						m_vtFlashNodeInfo3.erase(citer);
+						m_pRecentLinkList->SetNodeFlash(FlashNode, false);
+						break;
+					}
+				}
+				m_csNodeFlash3.Unlock();
 			}
 		}
 	}
@@ -2118,7 +2176,9 @@ void MainFrame::CreateRecentNode(CDuiString m_strUserID, CDuiString m_strUserNam
 			item.lastwordtime = n_Lastwordtime;
 			item.Lastword = m_LastWord;
 
-			m_pRecentLinkList->AddNode(item, NULL);
+			m_nodeuser = m_pRecentLinkList->AddNode(item, NULL);
+			if (m_nodeuser)
+				Recentfriends_.push_back(item);
 		}
 	}
 	return;
@@ -4354,7 +4414,7 @@ BOOL MainFrame::ProcessRecvMsg(LPNEWRECVMSGPUBLIC lpRecvMsg)
 				if (txtmsg.format != eMsgFormat_Shake)
 				{
 					// 若未打开，图标闪烁/托盘图标闪烁
-					InsertIntoFlashVt((CDuiString)strKFID, ePanel_Single);
+					InsertIntoFlashVt((CDuiString)strKFID, ePanel_Recent);
 					g_pFrame->SetNotifyiconFlash();
 					// 收到了好友发送来的消息 
 					m_bRecvFriendsMsg = TRUE ; 

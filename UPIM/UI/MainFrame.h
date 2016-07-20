@@ -267,6 +267,7 @@ private:
 	SELECTNODE							m_MainSelectNode;
 	CCriticalSection					m_csNodeFlash;
 	CCriticalSection					m_csNodeFlash2;
+	CCriticalSection					m_csNodeFlash3;
 	CCriticalSection					m_csStateInfo;
 private:
 	CButtonUI * m_pMinSysBtn, * m_pMaxSysBtn, * m_pRestoreSysBtn, * m_pCloseSysBtn ,*m_pSearchBtn ,*m_pSearchCloseBtn;

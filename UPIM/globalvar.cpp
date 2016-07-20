@@ -41,6 +41,7 @@ std::vector<STATE_INFO>	m_vtStateInfo;
 // flashnode
 std::vector<Node*>	m_vtFlashNodeInfo;
 std::vector<Node*>	m_vtFlashNodeInfo2;
+std::vector<Node*>	m_vtFlashNodeInfo3;
 // department
 std::vector<USER_GROUP_INFO>	m_vtDeptInfo;
 int		m_nDeptIdx = 0;		
